@@ -1,11 +1,13 @@
 export type ChoiceOption = {
   key: string;
   text: string;
+  textZh?: string;
 };
 
 export type Blank = {
   id: string;
   label?: string;
+  labelZh?: string;
   answer: string;
   accepted?: string[];
 };
@@ -15,6 +17,7 @@ export type Question = {
   no: string;
   type: "choice" | "fill" | "work";
   stem: string;
+  stemZh?: string;
   marks: number;
   skill: string;
   options?: ChoiceOption[];

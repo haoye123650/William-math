@@ -1,6 +1,7 @@
 "use client";
 
-import { Check, Minus, X } from "lucide-react";
+import { useState } from "react";
+import { Check, Languages, Minus, X } from "lucide-react";
 import { TriangleDiagram } from "@/components/diagrams";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -75,11 +76,13 @@ function QuestionBlock({
   value?: AnswersState;
   onChange?: (key: string, next: string) => void;
 }) {
+  const [zh, setZh] = useState(false);
   const showKey = mode === "answers";
   const answers = value ?? {};
   const result = reviewed ? gradeQuestion(question, answers) : null;
   const status = result?.status;
   const interactive = mode === "take" && !reviewed;
+  const stem = zh ? (question.stemZh ?? question.stem) : question.stem;
 
   return (
     <article
@@ -96,12 +99,28 @@ function QuestionBlock({
           {question.no}.
         </span>
         <div className="min-w-0 flex-1 space-y-3">
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <Stem html={question.stem} />
-            <div className="flex shrink-0 items-center gap-2">
+          <div className="flex items-start justify-between gap-2">
+            <div className="min-w-0 flex-1">
+              <Stem html={stem} />
+            </div>
+            <div className="flex shrink-0 flex-wrap items-center justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => setZh((v) => !v)}
+                className={cn(
+                  "print:hidden inline-flex items-center gap-1 rounded-full border px-2 py-1 text-xs font-medium transition",
+                  zh
+                    ? "border-foreground bg-foreground text-background"
+                    : "border-border bg-white hover:bg-accent"
+                )}
+                aria-pressed={zh}
+              >
+                <Languages className="size-3.5" />
+                {zh ? "EN" : "中文"}
+              </button>
               {reviewed && status ? <StatusBadge status={status} /> : null}
               <span className="text-sm text-muted-foreground">
-                ({question.marks} marks)
+                ({question.marks} {zh ? "分" : "marks"})
               </span>
             </div>
           </div>
@@ -138,7 +157,9 @@ function QuestionBlock({
                     <span className="font-medium">{option.key}.</span>
                     <span
                       className="stem flex-1"
-                      dangerouslySetInnerHTML={{ __html: option.text }}
+                      dangerouslySetInnerHTML={{
+                        __html: zh && option.textZh ? option.textZh : option.text,
+                      }}
                     />
                     {reviewed && selected && isAnswer ? (
                       <Check className="mt-0.5 size-4 shrink-0 text-emerald-700" />
@@ -162,7 +183,9 @@ function QuestionBlock({
                 return (
                   <label key={blank.id} className="flex min-w-[10rem] flex-wrap items-center gap-2">
                     {blank.label ? (
-                      <span className="text-sm text-muted-foreground">{blank.label}</span>
+                      <span className="text-sm text-muted-foreground">
+                        {zh && blank.labelZh ? blank.labelZh : blank.label}
+                      </span>
                     ) : null}
                     {mode === "take" ? (
                       <Input
@@ -203,11 +226,13 @@ function QuestionBlock({
                   readOnly={reviewed}
                   onChange={(event) => onChange?.(question.id, event.target.value)}
                   className="min-h-32 bg-white font-serif"
-                  placeholder="Write your working and answer here"
+                  placeholder={zh ? "在此写出步骤和答案" : "Write your working and answer here"}
                 />
                 {reviewed ? (
                   <p className="text-sm text-muted-foreground">
-                    This question is marked by the teacher.
+                    {zh
+                      ? "本题由老师批改。"
+                      : "This question is marked by the teacher."}
                   </p>
                 ) : null}
               </div>
