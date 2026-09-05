@@ -23,15 +23,15 @@ export default function HomePage() {
       <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-8 px-5 py-10 sm:py-14">
         <header className="space-y-3">
           <p className="text-sm tracking-[0.28em] text-muted-foreground">
-            2026–2027 学年 · 教师自编
+            七年级 · 2026–2027 学年
           </p>
           <h1 className="font-serif text-4xl leading-tight font-semibold">
-            培侨七年级
+            尹健熙
             <br />
-            数学摸底卷
+            培侨数学课程
           </h1>
           <p className="max-w-xl text-base leading-7 text-muted-foreground">
-            给你新接的学生用。按小学毕业该会的，加上七年级上学期开学内容来出。全卷 {mathPaper.totalMarks} 分，{mathPaper.durationMin} 分钟。学生可以在电脑上做，也可以打印。答案在单独一页。
+            第一份是摸底卷，按小学毕业该会的，加上七年级上学期开学内容来出。全卷 {mathPaper.totalMarks} 分，{mathPaper.durationMin} 分钟。学生可以在电脑上做，也可以打印。答案在单独一页。
           </p>
         </header>
 

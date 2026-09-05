@@ -204,7 +204,7 @@ export function ExamHeader({
   return (
     <header className="border-b-2 border-foreground pb-5">
       <p className="text-center text-sm tracking-[0.35em] text-muted-foreground">
-        教师自编摸底卷 · 2026 年 9 月
+        七年级摸底 · 2026 年 9 月
       </p>
       <h1 className="mt-2 text-center font-serif text-3xl font-semibold tracking-wide">
         {mathPaper.title}

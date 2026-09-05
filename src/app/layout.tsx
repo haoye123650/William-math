@@ -16,8 +16,8 @@ const serif = Noto_Serif_SC({
 });
 
 export const metadata: Metadata = {
-  title: "培侨七年级数学摸底卷",
-  description: "给培侨七年级学生用的数学摸底卷，含作答、打印和教师答案。",
+  title: "尹健熙 培侨数学课程",
+  description: "尹健熙培侨数学课程：七年级摸底卷，含作答、打印和教师答案。",
 };
 
 export default function RootLayout({

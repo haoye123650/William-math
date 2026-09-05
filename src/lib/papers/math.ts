@@ -2,7 +2,7 @@ import { frac, type Paper } from "./types";
 
 export const mathPaper: Paper = {
   id: "math",
-  title: "培侨七年级数学摸底卷",
+  title: "尹健熙 培侨数学课程",
   durationMin: 70,
   totalMarks: 100,
   extraMarks: 10,
