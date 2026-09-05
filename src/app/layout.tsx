@@ -17,7 +17,8 @@ const serif = Noto_Serif_SC({
 
 export const metadata: Metadata = {
   title: "尹健熙 培侨数学课程",
-  description: "尹健熙培侨数学课程：七年级摸底卷，含作答、打印和教师答案。",
+  description:
+    "Yin Kin Hei Pui Kiu Mathematics: S.1 DSE diagnostic paper, with online sitting, print, and mark scheme.",
 };
 
 export default function RootLayout({
@@ -27,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="zh-CN"
+      lang="en"
       className={`${sans.variable} ${serif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">

@@ -4,7 +4,7 @@ export function TriangleDiagram() {
       viewBox="0 0 360 240"
       className="mx-auto h-auto w-full max-w-sm text-foreground"
       role="img"
-      aria-label="三角形 ABC，D 在 BC 上，AD 为角平分线"
+      aria-label="Triangle ABC with D on BC and AD the angle bisector"
     >
       <polygon
         points="180,28 40,210 320,210"

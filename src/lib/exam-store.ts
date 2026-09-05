@@ -1,6 +1,6 @@
 import type { AnswersState } from "@/lib/papers/types";
 
-const STORAGE_KEY = "pk-g7-math-v1";
+const STORAGE_KEY = "pk-s1-math-en-v1";
 const EVENT = "pk-exam-change";
 
 export type SavedExam = {

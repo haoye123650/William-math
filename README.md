@@ -1,36 +1,35 @@
 # 尹健熙 培侨数学课程
 
-给培侨七年级学生用的数学课资料。第一份是摸底卷，不是学校官方试卷。
+S.1 Mathematics materials for a Pui Kiu student. The first paper is a diagnostic test, not a school paper.
 
-- 满分 100 分，时间 70 分钟
-- 附加两道英文应用题，不计入学业总分（看能不能读培侨书院那种英语题干）
-- 学生可以在网页上作答，也可以打印空白卷
-- 教师答案、评分标准和分数段说明在单独页面
+- 100 marks, 70 minutes
+- Hong Kong DSE junior secondary (S.1) syllabus, in English
+- Section E is an extension and is not included in the 100 marks
+- Students can sit the paper in the browser or print a blank copy
+- Mark scheme, marking notes and score bands are on a separate page
 
-## 本地运行
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-浏览器打开 [http://127.0.0.1:43180](http://127.0.0.1:43180)。
+Open [http://127.0.0.1:43180](http://127.0.0.1:43180).
 
-- `/` 首页
-- `/paper` 在线作答（选择题、填空题交卷后会自动对）
-- `/print` 打印空白卷
-- `/answers` 教师答案
+- `/` home
+- `/paper` sit the paper (Sections A and B are auto-marked on submit)
+- `/print` blank paper
+- `/answers` mark scheme
 
-打印可用浏览器的「打印 / 另存为 PDF」。
+Use the browser Print dialog to save a PDF.
 
-## 卷面
+## Paper outline
 
-| 部分 | 分值 | 内容 |
+| Section | Marks | Content |
 | --- | --- | --- |
-| 选择题 | 20 | 有理数、方程、勾股、科学记数法、概率 |
-| 填空题 | 20 | 绝对值、百分数、单项式、象限、统计 |
-| 计算题 | 30 | 乘方顺序、分数四则、解方程、化简求值 |
-| 解答题 | 30 | 打折、相遇、三角形角平分线 |
-| 附加题 | 10（另计） | 英文折扣、连续奇数 |
-
-程度按小六出口加七年级上学期开学来。培侨中学、培侨书院、深圳培侨信义的七年级都可以拿来摸底。书院方向多看附加题和计算正确率。
+| A Multiple choice | 20 | Directed numbers, equations, Pythagoras, significant figures, probability |
+| B Short questions | 20 | Absolute value, percentages, monomials, quadrants, statistics |
+| C Conventional | 30 | Order of operations, fractions, linear equations, simplification |
+| D Structured | 30 | Percentage change, meeting problem, angle bisector |
+| E Extension | 10 (extra) | Successive discount, consecutive odd numbers |

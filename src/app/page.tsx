@@ -10,11 +10,26 @@ import {
 import { mathPaper } from "@/lib/papers/math";
 
 const outline = [
-  { title: "选择题 10 题", detail: "有理数、方程、勾股、科学记数法、概率" },
-  { title: "填空题 10 题", detail: "绝对值、百分数、单项式、象限、统计量" },
-  { title: "计算题 5 题", detail: "乘方顺序、分数四则、解方程、化简求值" },
-  { title: "解答题 3 题", detail: "打折、相遇、三角形角平分线" },
-  { title: "附加题 2 题", detail: "英文折扣与连续奇数，不计入学业分" },
+  {
+    title: "Section A · 10 questions",
+    detail: "Directed numbers, equations, Pythagoras, significant figures, probability",
+  },
+  {
+    title: "Section B · 10 questions",
+    detail: "Absolute value, percentages, monomials, quadrants, averages",
+  },
+  {
+    title: "Section C · 5 questions",
+    detail: "Order of operations, fractions, linear equations, simplification",
+  },
+  {
+    title: "Section D · 3 questions",
+    detail: "Successive percentage change, meeting problem, angle bisector",
+  },
+  {
+    title: "Section E · 2 questions",
+    detail: "Extension word problems, not included in the 100 marks",
+  },
 ];
 
 export default function HomePage() {
@@ -23,7 +38,7 @@ export default function HomePage() {
       <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-8 px-5 py-10 sm:py-14">
         <header className="space-y-3">
           <p className="text-sm tracking-[0.28em] text-muted-foreground">
-            七年级 · 2026–2027 学年
+            DSE Mathematics · 2026–2027
           </p>
           <h1 className="font-serif text-4xl leading-tight font-semibold">
             尹健熙
@@ -31,7 +46,10 @@ export default function HomePage() {
             培侨数学课程
           </h1>
           <p className="max-w-xl text-base leading-7 text-muted-foreground">
-            第一份是摸底卷，按小学毕业该会的，加上七年级上学期开学内容来出。全卷 {mathPaper.totalMarks} 分，{mathPaper.durationMin} 分钟。学生可以在电脑上做，也可以打印。答案在单独一页。
+            First paper: an S.1 diagnostic aligned with the Hong Kong DSE junior
+            secondary mathematics syllabus. {mathPaper.totalMarks} marks,{" "}
+            {mathPaper.durationMin} minutes. Students can sit it on screen or on
+            paper. The mark scheme is on a separate page.
           </p>
         </header>
 
@@ -42,7 +60,7 @@ export default function HomePage() {
             nativeButton={false}
             render={<Link href="/paper" />}
           >
-            学生在线作答
+            Sit the paper
           </Button>
           <Button
             size="lg"
@@ -51,7 +69,7 @@ export default function HomePage() {
             nativeButton={false}
             render={<Link href="/print" />}
           >
-            打印空白卷
+            Print blank paper
           </Button>
           <Button
             size="lg"
@@ -60,14 +78,16 @@ export default function HomePage() {
             nativeButton={false}
             render={<Link href="/answers" />}
           >
-            教师答案
+            Mark scheme
           </Button>
         </div>
 
         <Card>
           <CardHeader>
-            <CardTitle className="font-serif">卷面结构</CardTitle>
-            <CardDescription>不可用计算器。解答题要写步骤。</CardDescription>
+            <CardTitle className="font-serif">Paper outline</CardTitle>
+            <CardDescription>
+              Calculators are not allowed. Show working in Sections C and D.
+            </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-3 sm:grid-cols-2">
             {outline.map((item) => (
@@ -81,7 +101,7 @@ export default function HomePage() {
 
         <Card>
           <CardHeader>
-            <CardTitle className="font-serif">分数怎么看</CardTitle>
+            <CardTitle className="font-serif">How to read the score</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm leading-relaxed">
             {mathPaper.scoreBands.map((band) => (

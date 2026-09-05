@@ -52,7 +52,7 @@ function QuestionBlock({
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <Stem html={question.stem} />
             <span className="shrink-0 text-sm text-muted-foreground">
-              （{question.marks} 分）
+              ({question.marks} marks)
             </span>
           </div>
 
@@ -121,7 +121,7 @@ function QuestionBlock({
                 value={value?.[question.id] ?? ""}
                 onChange={(event) => onChange?.(question.id, event.target.value)}
                 className="min-h-32 bg-white font-serif"
-                placeholder="在此写出步骤和答案"
+                placeholder="Write your working and answer here"
               />
             ) : (
               <Lines count={question.lines ?? 6} />
@@ -131,16 +131,16 @@ function QuestionBlock({
           {showKey ? (
             <div className="rounded-md border border-emerald-200 bg-emerald-50/80 px-3 py-2 text-sm leading-relaxed text-emerald-950">
               <p>
-                <span className="font-medium">答案：</span>
+                <span className="font-medium">Answer: </span>
                 <span dangerouslySetInnerHTML={{ __html: question.answer }} />
               </p>
               <p className="mt-1">
-                <span className="font-medium">说明：</span>
+                <span className="font-medium">Notes: </span>
                 <span dangerouslySetInnerHTML={{ __html: question.explanation }} />
               </p>
               {question.marking ? (
                 <p className="mt-1">
-                  <span className="font-medium">评分：</span>
+                  <span className="font-medium">Marking: </span>
                   {question.marking}
                 </p>
               ) : null}
@@ -170,11 +170,11 @@ function SectionBlock({
           {section.title}
           {section.extra ? (
             <Badge variant="secondary" className="ml-2 align-middle">
-              不计入学业分
+              Not in the 100 marks
             </Badge>
           ) : null}
         </h2>
-        <p className="text-sm text-muted-foreground">{section.marks} 分</p>
+        <p className="text-sm text-muted-foreground">{section.marks} marks</p>
       </div>
       <p className="mt-2 text-sm text-muted-foreground">{section.instruction}</p>
       <div className="divide-y divide-border/70">
@@ -204,17 +204,17 @@ export function ExamHeader({
   return (
     <header className="border-b-2 border-foreground pb-5">
       <p className="text-center text-sm tracking-[0.35em] text-muted-foreground">
-        七年级摸底 · 2026 年 9 月
+        Pui Kiu Mathematics · September 2026
       </p>
       <h1 className="mt-2 text-center font-serif text-3xl font-semibold tracking-wide">
         {mathPaper.title}
       </h1>
       <p className="mt-2 text-center text-sm text-muted-foreground">
-        满分 {mathPaper.totalMarks} 分 · 时间 {mathPaper.durationMin} 分钟 · 附加题 {mathPaper.extraMarks} 分另计
+        {mathPaper.totalMarks} marks · {mathPaper.durationMin} minutes · Section E {mathPaper.extraMarks} marks extra
       </p>
       <div className="mt-5 grid gap-3 text-sm sm:grid-cols-3">
         <label className="flex items-center gap-2">
-          <span className="shrink-0">姓名</span>
+          <span className="shrink-0">Name</span>
           {mode === "take" ? (
             <Input
               value={name ?? ""}
@@ -226,15 +226,15 @@ export function ExamHeader({
           )}
         </label>
         <div className="flex items-center gap-2">
-          <span className="shrink-0">学校</span>
+          <span className="shrink-0">School</span>
           <span className="flex-1 border-b border-foreground/40 text-muted-foreground">
-            培侨
+            Pui Kiu
           </span>
         </div>
         <label className="flex items-center gap-2">
-          <span className="shrink-0">得分</span>
+          <span className="shrink-0">Score</span>
           <span className="flex-1 border-b border-foreground/40">
-            {mode === "answers" ? "见各题" : ""}
+            {mode === "answers" ? "See each question" : ""}
           </span>
         </label>
       </div>
@@ -243,11 +243,12 @@ export function ExamHeader({
           {mathPaper.notes.map((note) => (
             <li key={note}>{note}</li>
           ))}
-          <li>需用：{mathPaper.materials}</li>
+          <li>Materials: {mathPaper.materials}</li>
         </ul>
       ) : (
         <p className="mt-4 text-sm text-muted-foreground">
-          教师用卷。选择题、填空可对照直接给分；计算和解答按步骤给分。
+          Teacher copy. Mark Sections A and B against the key. Award method marks in
+          Sections C and D.
         </p>
       )}
     </header>
@@ -281,16 +282,16 @@ export function ExamPaper({
       ))}
       {mode === "answers" ? (
         <section className="mt-10 break-inside-avoid border-t border-foreground/20 pt-6">
-          <h2 className="font-serif text-xl font-semibold">分数段怎么看</h2>
+          <h2 className="font-serif text-xl font-semibold">How to read the score</h2>
           <ul className="mt-3 space-y-2 text-sm leading-relaxed">
             {mathPaper.scoreBands.map((band) => (
               <li key={band.range}>
-                <span className="font-medium">{band.range}：</span>
+                <span className="font-medium">{band.range}: </span>
                 {band.note}
               </li>
             ))}
           </ul>
-          <h2 className="mt-6 font-serif text-xl font-semibold">批改时盯这些</h2>
+          <h2 className="mt-6 font-serif text-xl font-semibold">When marking, watch</h2>
           <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed">
             {mathPaper.tutorTips.map((tip) => (
               <li key={tip}>{tip}</li>
@@ -299,7 +300,7 @@ export function ExamPaper({
         </section>
       ) : null}
       <p className="mt-10 text-center text-xs text-muted-foreground">
-        —— 全卷完 ——
+        — End of paper —
       </p>
     </div>
   );

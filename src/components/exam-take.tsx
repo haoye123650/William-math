@@ -98,7 +98,7 @@ export function ExamTake() {
   if (!ready) {
     return (
       <div className="flex flex-1 items-center justify-center text-muted-foreground">
-        正在打开试卷…
+        Opening the paper…
       </div>
     );
   }
@@ -108,20 +108,20 @@ export function ExamTake() {
       <div className="print:hidden sticky top-0 z-20 border-b border-border bg-[#fbf7ef]/95 backdrop-blur">
         <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-4 py-2">
           <Button variant="ghost" nativeButton={false} render={<Link href="/" />}>
-            返回
+            Back
           </Button>
           <p
             className={`font-mono text-lg tabular-nums ${overtime && !saved.submitted ? "text-destructive" : ""}`}
           >
-            {saved.submitted ? "已交卷" : overtime ? "时间到" : formatTime(elapsed)}
+            {saved.submitted ? "Submitted" : overtime ? "Time up" : formatTime(elapsed)}
           </p>
           <div className="flex gap-2">
             <Button variant="outline" onClick={() => window.print()}>
-              打印
+              Print
             </Button>
             {saved.submitted ? (
               <Button variant="outline" onClick={() => resetExam(saved.name)}>
-                再做一次
+                Sit again
               </Button>
             ) : (
               <Button
@@ -130,7 +130,7 @@ export function ExamTake() {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
               >
-                交卷
+                Submit
               </Button>
             )}
           </div>
@@ -141,16 +141,16 @@ export function ExamTake() {
         <div className="print:hidden mx-auto max-w-3xl px-4 py-4">
           <Card>
             <CardHeader>
-              <CardTitle className="font-serif text-xl">客观题已对完</CardTitle>
+              <CardTitle className="font-serif text-xl">Objective items marked</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-sm leading-relaxed">
               <p>
-                选择题 + 填空题：
+                Sections A and B:
                 <span className="mx-1 font-serif text-2xl font-semibold">
                   {result.got}
                 </span>
                 / {result.total}
-                。计算题、解答题、附加题共 70 分请你改。
+                . Sections C, D and E (70 marks) need to be marked by you.
               </p>
               <div className="flex flex-wrap gap-2">
                 {Object.entries(result.bySkill).map(([skill, score]) => (
@@ -160,20 +160,20 @@ export function ExamTake() {
                 ))}
               </div>
               <p className="text-muted-foreground">
-                客观题错号：
+                Missed objective items:
                 {result.rows.filter((row) => !row.ok).length === 0
-                  ? " 无"
+                  ? " none"
                   : result.rows
                       .filter((row) => !row.ok)
-                      .map((row) => `第 ${row.no} 题`)
-                      .join("、")}
+                      .map((row) => ` Q${row.no}`)
+                      .join(",")}
               </p>
               <Button
                 variant="outline"
                 nativeButton={false}
                 render={<Link href="/answers" />}
               >
-                打开教师答案
+                Open mark scheme
               </Button>
             </CardContent>
           </Card>
