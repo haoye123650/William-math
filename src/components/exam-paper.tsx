@@ -1,10 +1,12 @@
 "use client";
 
+import { Check, Minus, X } from "lucide-react";
 import { TriangleDiagram } from "@/components/diagrams";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { gradeQuestion, type QuestionStatus } from "@/lib/grade";
 import type { AnswersState, Question, Section } from "@/lib/papers/types";
 import { mathPaper } from "@/lib/papers/math";
 
@@ -29,21 +31,67 @@ function Lines({ count }: { count: number }) {
   );
 }
 
+function StatusBadge({ status }: { status: QuestionStatus }) {
+  if (status === "correct") {
+    return (
+      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-600 px-2 py-0.5 text-xs font-medium text-white">
+        <Check className="size-3.5" />
+        Correct
+      </span>
+    );
+  }
+  if (status === "partial") {
+    return (
+      <span className="inline-flex items-center gap-1 rounded-full bg-amber-500 px-2 py-0.5 text-xs font-medium text-white">
+        <Minus className="size-3.5" />
+        Partial
+      </span>
+    );
+  }
+  if (status === "incorrect") {
+    return (
+      <span className="inline-flex items-center gap-1 rounded-full bg-red-600 px-2 py-0.5 text-xs font-medium text-white">
+        <X className="size-3.5" />
+        Incorrect
+      </span>
+    );
+  }
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
+      To be marked
+    </span>
+  );
+}
+
 function QuestionBlock({
   question,
   mode,
+  reviewed,
   value,
   onChange,
 }: {
   question: Question;
   mode: ExamMode;
+  reviewed?: boolean;
   value?: AnswersState;
   onChange?: (key: string, next: string) => void;
 }) {
   const showKey = mode === "answers";
+  const answers = value ?? {};
+  const result = reviewed ? gradeQuestion(question, answers) : null;
+  const status = result?.status;
+  const interactive = mode === "take" && !reviewed;
 
   return (
-    <article className="break-inside-avoid space-y-3 py-4">
+    <article
+      className={cn(
+        "break-inside-avoid space-y-3 rounded-xl py-4 print:rounded-none",
+        reviewed && status === "correct" && "border border-emerald-300 bg-emerald-50/70 px-3 print:border print:bg-emerald-50",
+        reviewed && status === "incorrect" && "border border-red-300 bg-red-50/70 px-3 print:border print:bg-red-50",
+        reviewed && status === "partial" && "border border-amber-300 bg-amber-50/70 px-3 print:border print:bg-amber-50",
+        reviewed && status === "pending" && "px-0"
+      )}
+    >
       <div className="flex items-start gap-3">
         <span className="mt-0.5 w-8 shrink-0 font-serif text-lg font-semibold">
           {question.no}.
@@ -51,9 +99,12 @@ function QuestionBlock({
         <div className="min-w-0 flex-1 space-y-3">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <Stem html={question.stem} />
-            <span className="shrink-0 text-sm text-muted-foreground">
-              ({question.marks} marks)
-            </span>
+            <div className="flex shrink-0 items-center gap-2">
+              {reviewed && status ? <StatusBadge status={status} /> : null}
+              <span className="text-sm text-muted-foreground">
+                ({question.marks} marks)
+              </span>
+            </div>
           </div>
 
           {question.diagram === "triangle" ? (
@@ -65,27 +116,40 @@ function QuestionBlock({
           {question.type === "choice" && question.options ? (
             <div className="grid gap-2 sm:grid-cols-2">
               {question.options.map((option) => {
-                const selected = value?.[question.id] === option.key;
-                const isAnswer = showKey && option.key === question.answer;
+                const selected = answers[question.id] === option.key;
+                const isAnswer = option.key === question.answer;
+                const showAnswer = showKey || Boolean(reviewed);
                 return (
                   <button
                     key={option.key}
                     type="button"
-                    disabled={mode !== "take"}
+                    disabled={!interactive}
                     onClick={() => onChange?.(question.id, option.key)}
                     className={cn(
                       "flex items-start gap-2 rounded-lg border px-3 py-2 text-left text-sm transition",
-                      mode === "take" && "hover:border-foreground/40 hover:bg-accent",
-                      selected && "border-foreground bg-accent",
-                      isAnswer && "border-emerald-700 bg-emerald-50",
+                      interactive && "hover:border-foreground/40 hover:bg-accent",
+                      selected && !reviewed && "border-foreground bg-accent",
+                      reviewed && selected && isAnswer && "border-emerald-600 bg-emerald-100 text-emerald-950",
+                      reviewed && selected && !isAnswer && "border-red-500 bg-red-100 text-red-950",
+                      reviewed && !selected && isAnswer && "border-emerald-600 bg-emerald-50 text-emerald-950",
+                      showAnswer && isAnswer && !reviewed && "border-emerald-700 bg-emerald-50",
                       mode === "print" && "cursor-default border-dashed"
                     )}
                   >
                     <span className="font-medium">{option.key}.</span>
                     <span
-                      className="stem"
+                      className="stem flex-1"
                       dangerouslySetInnerHTML={{ __html: option.text }}
                     />
+                    {reviewed && selected && isAnswer ? (
+                      <Check className="mt-0.5 size-4 shrink-0 text-emerald-700" />
+                    ) : null}
+                    {reviewed && selected && !isAnswer ? (
+                      <X className="mt-0.5 size-4 shrink-0 text-red-600" />
+                    ) : null}
+                    {reviewed && !selected && isAnswer ? (
+                      <Check className="mt-0.5 size-4 shrink-0 text-emerald-700" />
+                    ) : null}
                   </button>
                 );
               })}
@@ -93,36 +157,61 @@ function QuestionBlock({
           ) : null}
 
           {question.type === "fill" && question.blanks ? (
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              {question.blanks.map((blank) => (
-                <label key={blank.id} className="flex min-w-[10rem] flex-1 items-center gap-2">
-                  {blank.label ? (
-                    <span className="text-sm text-muted-foreground">{blank.label}</span>
-                  ) : null}
-                  {mode === "take" ? (
-                    <Input
-                      value={value?.[blank.id] ?? ""}
-                      onChange={(event) => onChange?.(blank.id, event.target.value)}
-                      className="h-9 bg-white"
-                    />
-                  ) : (
-                    <span className="inline-flex min-h-9 min-w-28 flex-1 items-center border-b border-foreground/40 px-1">
-                      {showKey ? blank.answer : ""}
-                    </span>
-                  )}
-                </label>
-              ))}
+            <div className="flex flex-col gap-3">
+              {question.blanks.map((blank) => {
+                const blankOk = result?.blankResults[blank.id];
+                return (
+                  <label key={blank.id} className="flex min-w-[10rem] flex-wrap items-center gap-2">
+                    {blank.label ? (
+                      <span className="text-sm text-muted-foreground">{blank.label}</span>
+                    ) : null}
+                    {mode === "take" ? (
+                      <Input
+                        value={answers[blank.id] ?? ""}
+                        readOnly={reviewed}
+                        onChange={(event) => onChange?.(blank.id, event.target.value)}
+                        className={cn(
+                          "h-9 bg-white",
+                          reviewed && blankOk && "border-emerald-600 bg-emerald-50 text-emerald-950",
+                          reviewed && !blankOk && "border-red-500 bg-red-50 text-red-950"
+                        )}
+                      />
+                    ) : (
+                      <span className="inline-flex min-h-9 min-w-28 flex-1 items-center border-b border-foreground/40 px-1">
+                        {showKey ? blank.answer : ""}
+                      </span>
+                    )}
+                    {reviewed && blankOk ? (
+                      <Check className="size-4 text-emerald-700" />
+                    ) : null}
+                    {reviewed && !blankOk ? (
+                      <span className="text-sm text-red-700">
+                        <X className="mr-1 inline size-4 align-text-bottom" />
+                        Answer: {blank.answer}
+                      </span>
+                    ) : null}
+                  </label>
+                );
+              })}
             </div>
           ) : null}
 
           {question.type === "work" ? (
             mode === "take" ? (
-              <Textarea
-                value={value?.[question.id] ?? ""}
-                onChange={(event) => onChange?.(question.id, event.target.value)}
-                className="min-h-32 bg-white font-serif"
-                placeholder="Write your working and answer here"
-              />
+              <div className="space-y-2">
+                <Textarea
+                  value={answers[question.id] ?? ""}
+                  readOnly={reviewed}
+                  onChange={(event) => onChange?.(question.id, event.target.value)}
+                  className="min-h-32 bg-white font-serif"
+                  placeholder="Write your working and answer here"
+                />
+                {reviewed ? (
+                  <p className="text-sm text-muted-foreground">
+                    This question is marked by the teacher.
+                  </p>
+                ) : null}
+              </div>
             ) : (
               <Lines count={question.lines ?? 6} />
             )
@@ -155,11 +244,13 @@ function QuestionBlock({
 function SectionBlock({
   section,
   mode,
+  reviewed,
   value,
   onChange,
 }: {
   section: Section;
   mode: ExamMode;
+  reviewed?: boolean;
   value?: AnswersState;
   onChange?: (key: string, next: string) => void;
 }) {
@@ -183,6 +274,7 @@ function SectionBlock({
             key={question.id}
             question={question}
             mode={mode}
+            reviewed={reviewed}
             value={value}
             onChange={onChange}
           />
@@ -196,10 +288,12 @@ export function ExamHeader({
   mode,
   name,
   onName,
+  reviewed,
 }: {
   mode: ExamMode;
   name?: string;
   onName?: (value: string) => void;
+  reviewed?: boolean;
 }) {
   return (
     <header className="border-b-2 border-foreground pb-5">
@@ -218,6 +312,7 @@ export function ExamHeader({
           {mode === "take" ? (
             <Input
               value={name ?? ""}
+              readOnly={reviewed}
               onChange={(event) => onName?.(event.target.value)}
               className="h-8 bg-white"
             />
@@ -261,21 +356,24 @@ export function ExamPaper({
   onName,
   answers,
   onAnswer,
+  reviewed,
 }: {
   mode: ExamMode;
   name?: string;
   onName?: (value: string) => void;
   answers?: AnswersState;
   onAnswer?: (key: string, next: string) => void;
+  reviewed?: boolean;
 }) {
   return (
     <div className="exam-sheet mx-auto max-w-3xl bg-[#fbf7ef] px-5 py-8 text-foreground shadow-sm sm:px-10 print:max-w-none print:bg-white print:px-0 print:py-0 print:shadow-none">
-      <ExamHeader mode={mode} name={name} onName={onName} />
+      <ExamHeader mode={mode} name={name} onName={onName} reviewed={reviewed} />
       {mathPaper.sections.map((section) => (
         <SectionBlock
           key={section.id}
           section={section}
           mode={mode}
+          reviewed={reviewed}
           value={answers}
           onChange={onAnswer}
         />

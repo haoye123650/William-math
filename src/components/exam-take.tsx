@@ -149,8 +149,9 @@ export function ExamTake() {
                 <span className="mx-1 font-serif text-2xl font-semibold">
                   {result.got}
                 </span>
-                / {result.total}
-                . Sections C, D and E (70 marks) need to be marked by you.
+                / {result.total}. Green with a tick is correct; red is wrong.
+                Fill-in blanks are marked one by one. Sections C, D and E are
+                marked by the teacher.
               </p>
               <div className="flex flex-wrap gap-2">
                 {Object.entries(result.bySkill).map(([skill, score]) => (
@@ -183,6 +184,7 @@ export function ExamTake() {
       <div className="px-3 py-6 print:px-0 print:py-0">
         <ExamPaper
           mode="take"
+          reviewed={saved.submitted}
           name={saved.name}
           onName={(name) => patchExam({ name })}
           answers={saved.answers}
