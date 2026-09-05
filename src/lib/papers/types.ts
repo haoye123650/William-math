@@ -40,6 +40,9 @@ export type AnswersState = Record<string, string>;
 export type Paper = {
   id: string;
   title: string;
+  stars: 1 | 2 | 3;
+  level: string;
+  blurb: string;
   durationMin: number;
   totalMarks: number;
   extraMarks: number;

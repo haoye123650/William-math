@@ -1,36 +1,18 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { mathPaper } from "@/lib/papers/math";
+import { papers } from "@/lib/papers";
 
-const outline = [
-  {
-    title: "Section A · 10 questions",
-    detail: "Directed numbers, equations, Pythagoras, significant figures, probability",
-  },
-  {
-    title: "Section B · 10 questions",
-    detail: "Absolute value, percentages, monomials, quadrants, averages",
-  },
-  {
-    title: "Section C · 5 questions",
-    detail: "Order of operations, fractions, linear equations, simplification",
-  },
-  {
-    title: "Section D · 3 questions",
-    detail: "Successive percentage change, meeting problem, angle bisector",
-  },
-  {
-    title: "Section E · 2 questions",
-    detail: "Extension word problems, not included in the 100 marks",
-  },
-];
+function Stars({ count }: { count: 1 | 2 | 3 }) {
+  return (
+    <span
+      className="font-medium tracking-[0.2em] text-amber-500"
+      aria-label={`${count} out of 3 stars`}
+    >
+      {"★".repeat(count)}
+      <span className="text-amber-500/30">{"★".repeat(3 - count)}</span>
+    </span>
+  );
+}
 
 export default function HomePage() {
   return (
@@ -46,72 +28,56 @@ export default function HomePage() {
             培侨数学课程
           </h1>
           <p className="max-w-xl text-base leading-7 text-muted-foreground">
-            First paper: an S.1 diagnostic aligned with the Hong Kong DSE junior
-            secondary mathematics syllabus. {mathPaper.totalMarks} marks,{" "}
-            {mathPaper.durationMin} minutes. Students can sit it on screen or on
-            paper. The mark scheme is on a separate page.
+            Three papers, each 100 marks. Test 1 is the S.1 diagnostic. Test 2 is
+            the same syllabus, harder. Test 3 is S.2. Calculators are not
+            allowed. Mark schemes are on a separate page.
           </p>
         </header>
 
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <Button
-            size="lg"
-            className="sm:flex-1"
-            nativeButton={false}
-            render={<Link href="/paper" />}
-          >
-            Start the test
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="sm:flex-1"
-            nativeButton={false}
-            render={<Link href="/print" />}
-          >
-            Print blank paper
-          </Button>
-          <Button
-            size="lg"
-            variant="secondary"
-            className="sm:flex-1"
-            nativeButton={false}
-            render={<Link href="/answers" />}
-          >
-            Mark scheme
-          </Button>
-        </div>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="font-serif">Paper outline</CardTitle>
-            <CardDescription>
-              Calculators are not allowed. Show working in Sections C and D.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="grid gap-3 sm:grid-cols-2">
-            {outline.map((item) => (
-              <div key={item.title} className="rounded-lg border bg-card px-3 py-3">
-                <p className="font-medium">{item.title}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{item.detail}</p>
+        <div className="space-y-3">
+          {papers.map((paper) => (
+            <div
+              key={paper.id}
+              className="rounded-xl border bg-[#fbf7ef] px-4 py-4 shadow-sm"
+            >
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <p className="font-serif text-lg font-semibold">
+                      Start the Test {paper.id}
+                    </p>
+                    <Stars count={paper.stars} />
+                  </div>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {paper.level} · {paper.durationMin} min · {paper.blurb}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    nativeButton={false}
+                    render={<Link href={`/paper/${paper.id}`} />}
+                  >
+                    Start the Test {paper.id}
+                  </Button>
+                  <Button
+                    variant="outline"
+                    nativeButton={false}
+                    render={<Link href={`/print/${paper.id}`} />}
+                  >
+                    Print
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    nativeButton={false}
+                    render={<Link href={`/answers/${paper.id}`} />}
+                  >
+                    Mark scheme
+                  </Button>
+                </div>
               </div>
-            ))}
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="font-serif">How to read the score</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3 text-sm leading-relaxed">
-            {mathPaper.scoreBands.map((band) => (
-              <p key={band.range}>
-                <span className="font-medium">{band.range}　</span>
-                {band.note}
-              </p>
-            ))}
-          </CardContent>
-        </Card>
+            </div>
+          ))}
+        </div>
       </main>
     </div>
   );

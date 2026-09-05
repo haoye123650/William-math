@@ -1,5 +1,5 @@
-import { ExamTake } from "@/components/exam-take";
+import { redirect } from "next/navigation";
 
-export default function PaperPage() {
-  return <ExamTake />;
+export default function PaperIndexPage() {
+  redirect("/paper/1");
 }

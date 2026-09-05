@@ -1,8 +1,11 @@
 import { frac, type Paper } from "./types";
 
 export const mathPaper: Paper = {
-  id: "math",
-  title: "S.1 Mathematics Diagnostic Paper",
+  id: "1",
+  title: "Test 1 · S.1 Mathematics",
+  stars: 1,
+  level: "S.1",
+  blurb: "Diagnostic paper. Directed numbers, linear equations, percentages and basic geometry.",
   durationMin: 70,
   totalMarks: 100,
   extraMarks: 10,

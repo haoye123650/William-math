@@ -1,6 +1,5 @@
 import type { AnswersState } from "@/lib/papers/types";
 
-const STORAGE_KEY = "pk-s1-math-en-v1";
 const EVENT = "pk-exam-change";
 
 export type SavedExam = {
@@ -16,7 +15,11 @@ const emptyServer: SavedExam = {
   startedAt: 0,
 };
 
-let cache: SavedExam = emptyServer;
+const caches: Record<string, SavedExam> = {};
+
+function storageKey(paperId: string) {
+  return `pk-math-${paperId}-v1`;
+}
 
 function clone(data: SavedExam): SavedExam {
   return {
@@ -27,16 +30,16 @@ function clone(data: SavedExam): SavedExam {
   };
 }
 
-function readStorage(): SavedExam {
+function readStorage(paperId: string): SavedExam {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(storageKey(paperId));
     if (!raw) {
       const init: SavedExam = {
         name: "",
         answers: {},
         startedAt: Date.now(),
       };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(init));
+      localStorage.setItem(storageKey(paperId), JSON.stringify(init));
       return init;
     }
     const parsed = JSON.parse(raw) as SavedExam;
@@ -58,33 +61,34 @@ export function subscribeExam(onChange: () => void) {
   };
 }
 
-export function getExamSnapshot(): SavedExam {
-  const next = readStorage();
-  if (JSON.stringify(cache) === JSON.stringify(next)) {
-    return cache;
+export function getExamSnapshot(paperId: string): SavedExam {
+  const next = readStorage(paperId);
+  const prev = caches[paperId];
+  if (prev && JSON.stringify(prev) === JSON.stringify(next)) {
+    return prev;
   }
-  cache = next;
-  return cache;
+  caches[paperId] = next;
+  return caches[paperId];
 }
 
 export function getServerExamSnapshot(): SavedExam {
   return emptyServer;
 }
 
-export function patchExam(partial: Partial<SavedExam>) {
-  const current = readStorage();
+export function patchExam(paperId: string, partial: Partial<SavedExam>) {
+  const current = readStorage(paperId);
   const next: SavedExam = {
     ...current,
     ...partial,
     answers: partial.answers ?? current.answers,
   };
-  cache = clone(next);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(cache));
+  caches[paperId] = clone(next);
+  localStorage.setItem(storageKey(paperId), JSON.stringify(caches[paperId]));
   window.dispatchEvent(new Event(EVENT));
 }
 
-export function resetExam(name: string) {
-  patchExam({
+export function resetExam(paperId: string, name: string) {
+  patchExam(paperId, {
     name,
     answers: {},
     startedAt: Date.now(),

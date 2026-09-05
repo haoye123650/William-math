@@ -13,17 +13,16 @@ import {
   resetExam,
   subscribeExam,
 } from "@/lib/exam-store";
-import { mathPaper } from "@/lib/papers/math";
-import { allQuestions, type AnswersState } from "@/lib/papers/types";
+import { allQuestions, type AnswersState, type Paper } from "@/lib/papers/types";
 
-function formatTime(totalSec: number) {
-  const remain = Math.max(0, mathPaper.durationMin * 60 - totalSec);
+function formatTime(elapsed: number, durationMin: number) {
+  const remain = Math.max(0, durationMin * 60 - elapsed);
   const m = Math.floor(remain / 60);
   const s = remain % 60;
   return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
 }
 
-function gradeObjective(answers: AnswersState) {
+function gradeObjective(paper: Paper, answers: AnswersState) {
   const rows: {
     no: string;
     skill: string;
@@ -32,7 +31,7 @@ function gradeObjective(answers: AnswersState) {
     ok: boolean;
   }[] = [];
 
-  for (const question of allQuestions(mathPaper)) {
+  for (const question of allQuestions(paper)) {
     if (question.type === "work") continue;
     if (question.type === "choice") {
       const ok = answers[question.id] === question.answer;
@@ -73,10 +72,10 @@ function gradeObjective(answers: AnswersState) {
   return { rows, got, total, bySkill };
 }
 
-export function ExamTake() {
+export function ExamTake({ paper }: { paper: Paper }) {
   const saved = useSyncExternalStore(
     subscribeExam,
-    getExamSnapshot,
+    () => getExamSnapshot(paper.id),
     getServerExamSnapshot
   );
   const epochSec = useSyncExternalStore(
@@ -91,8 +90,11 @@ export function ExamTake() {
   const elapsed = saved.startedAt
     ? epochSec - Math.floor(saved.startedAt / 1000)
     : 0;
-  const overtime = elapsed >= mathPaper.durationMin * 60;
-  const result = useMemo(() => gradeObjective(saved.answers), [saved.answers]);
+  const overtime = elapsed >= paper.durationMin * 60;
+  const result = useMemo(
+    () => gradeObjective(paper, saved.answers),
+    [paper, saved.answers]
+  );
   const ready = saved.startedAt > 0;
 
   if (!ready) {
@@ -113,20 +115,27 @@ export function ExamTake() {
           <p
             className={`font-mono text-lg tabular-nums ${overtime && !saved.submitted ? "text-destructive" : ""}`}
           >
-            {saved.submitted ? "Submitted" : overtime ? "Time up" : formatTime(elapsed)}
+            {saved.submitted
+              ? "Submitted"
+              : overtime
+                ? "Time up"
+                : formatTime(elapsed, paper.durationMin)}
           </p>
           <div className="flex gap-2">
             <Button variant="outline" onClick={() => window.print()}>
               Print
             </Button>
             {saved.submitted ? (
-              <Button variant="outline" onClick={() => resetExam(saved.name)}>
+              <Button
+                variant="outline"
+                onClick={() => resetExam(paper.id, saved.name)}
+              >
                 Sit again
               </Button>
             ) : (
               <Button
                 onClick={() => {
-                  patchExam({ submitted: true });
+                  patchExam(paper.id, { submitted: true });
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
               >
@@ -172,7 +181,7 @@ export function ExamTake() {
               <Button
                 variant="outline"
                 nativeButton={false}
-                render={<Link href="/answers" />}
+                render={<Link href={`/answers/${paper.id}`} />}
               >
                 Open mark scheme
               </Button>
@@ -183,14 +192,15 @@ export function ExamTake() {
 
       <div className="px-3 py-6 print:px-0 print:py-0">
         <ExamPaper
+          paper={paper}
           mode="take"
           reviewed={saved.submitted}
           name={saved.name}
-          onName={(name) => patchExam({ name })}
+          onName={(name) => patchExam(paper.id, { name })}
           answers={saved.answers}
           onAnswer={(key, next) => {
             if (saved.submitted) return;
-            patchExam({ answers: { ...saved.answers, [key]: next } });
+            patchExam(paper.id, { answers: { ...saved.answers, [key]: next } });
           }}
         />
       </div>

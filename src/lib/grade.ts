@@ -4,6 +4,8 @@ export function normalizeAnswer(value: string) {
   return value
     .trim()
     .replace(/\s+/g, "")
+    .replace(/²/g, "^2")
+    .replace(/³/g, "^3")
     .replace(/[−–—﹣]/g, "-")
     .replace(/[／∕]/g, "/")
     .replace(/[×xX]/g, "*")

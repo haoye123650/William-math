@@ -7,8 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { gradeQuestion, type QuestionStatus } from "@/lib/grade";
-import type { AnswersState, Question, Section } from "@/lib/papers/types";
-import { mathPaper } from "@/lib/papers/math";
+import type { AnswersState, Paper, Question, Section } from "@/lib/papers/types";
 
 export type ExamMode = "take" | "print" | "answers";
 
@@ -285,11 +284,13 @@ function SectionBlock({
 }
 
 export function ExamHeader({
+  paper,
   mode,
   name,
   onName,
   reviewed,
 }: {
+  paper: Paper;
   mode: ExamMode;
   name?: string;
   onName?: (value: string) => void;
@@ -301,10 +302,10 @@ export function ExamHeader({
         Pui Kiu Mathematics · September 2026
       </p>
       <h1 className="mt-2 text-center font-serif text-3xl font-semibold tracking-wide">
-        {mathPaper.title}
+        {paper.title}
       </h1>
       <p className="mt-2 text-center text-sm text-muted-foreground">
-        {mathPaper.totalMarks} marks · {mathPaper.durationMin} minutes · Section E {mathPaper.extraMarks} marks extra
+        {paper.totalMarks} marks · {paper.durationMin} minutes · Section E {paper.extraMarks} marks extra
       </p>
       <div className="mt-5 grid gap-3 text-sm sm:grid-cols-3">
         <label className="flex items-center gap-2">
@@ -335,10 +336,10 @@ export function ExamHeader({
       </div>
       {mode !== "answers" ? (
         <ul className="mt-4 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
-          {mathPaper.notes.map((note) => (
+          {paper.notes.map((note) => (
             <li key={note}>{note}</li>
           ))}
-          <li>Materials: {mathPaper.materials}</li>
+          <li>Materials: {paper.materials}</li>
         </ul>
       ) : (
         <p className="mt-4 text-sm text-muted-foreground">
@@ -351,6 +352,7 @@ export function ExamHeader({
 }
 
 export function ExamPaper({
+  paper,
   mode,
   name,
   onName,
@@ -358,6 +360,7 @@ export function ExamPaper({
   onAnswer,
   reviewed,
 }: {
+  paper: Paper;
   mode: ExamMode;
   name?: string;
   onName?: (value: string) => void;
@@ -367,8 +370,8 @@ export function ExamPaper({
 }) {
   return (
     <div className="exam-sheet mx-auto max-w-3xl bg-[#fbf7ef] px-5 py-8 text-foreground shadow-sm sm:px-10 print:max-w-none print:bg-white print:px-0 print:py-0 print:shadow-none">
-      <ExamHeader mode={mode} name={name} onName={onName} reviewed={reviewed} />
-      {mathPaper.sections.map((section) => (
+      <ExamHeader paper={paper} mode={mode} name={name} onName={onName} reviewed={reviewed} />
+      {paper.sections.map((section) => (
         <SectionBlock
           key={section.id}
           section={section}
@@ -382,7 +385,7 @@ export function ExamPaper({
         <section className="mt-10 break-inside-avoid border-t border-foreground/20 pt-6">
           <h2 className="font-serif text-xl font-semibold">How to read the score</h2>
           <ul className="mt-3 space-y-2 text-sm leading-relaxed">
-            {mathPaper.scoreBands.map((band) => (
+            {paper.scoreBands.map((band) => (
               <li key={band.range}>
                 <span className="font-medium">{band.range}: </span>
                 {band.note}
@@ -391,7 +394,7 @@ export function ExamPaper({
           </ul>
           <h2 className="mt-6 font-serif text-xl font-semibold">When marking, watch</h2>
           <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed">
-            {mathPaper.tutorTips.map((tip) => (
+            {paper.tutorTips.map((tip) => (
               <li key={tip}>{tip}</li>
             ))}
           </ul>
