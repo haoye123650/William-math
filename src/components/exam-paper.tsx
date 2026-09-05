@@ -228,7 +228,7 @@ export function ExamHeader({
         <div className="flex items-center gap-2">
           <span className="shrink-0">School</span>
           <span className="flex-1 border-b border-foreground/40 text-muted-foreground">
-            Pui Kiu
+            Pui Kiu 培侨
           </span>
         </div>
         <label className="flex items-center gap-2">

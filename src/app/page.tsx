@@ -60,7 +60,7 @@ export default function HomePage() {
             nativeButton={false}
             render={<Link href="/paper" />}
           >
-            Sit the paper
+            Start the test
           </Button>
           <Button
             size="lg"
