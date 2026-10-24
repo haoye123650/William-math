@@ -107,10 +107,10 @@ export const paper3: Paper = {
           stem: "If −2x > 6, then",
           stemZh: "若 −2x > 6，则",
           options: [
-            { key: "A", text: "x > −3" },
-            { key: "B", text: "x < −3" },
-            { key: "C", text: "x > 3" },
-            { key: "D", text: "x < 3" },
+            { key: "A", text: "x &gt; −3" },
+            { key: "B", text: "x &lt; −3" },
+            { key: "C", text: "x &gt; 3" },
+            { key: "D", text: "x &lt; 3" },
           ],
           answer: "B",
           explanation: "Divide by −2 and reverse the inequality: x < −3.",
@@ -297,8 +297,8 @@ export const paper3: Paper = {
           type: "fill",
           marks: 2,
           skill: "Inequalities",
-          stem: "Solve 3x − 1 < 8. x ________",
-          stemZh: "解不等式 3x − 1 < 8。x ________",
+          stem: "Solve 3x − 1 &lt; 8. x ________",
+          stemZh: "解不等式 3x − 1 &lt; 8。x ________",
           blanks: [
             {
               id: "q15a",

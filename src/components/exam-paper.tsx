@@ -12,11 +12,15 @@ import type { AnswersState, Paper, Question, Section } from "@/lib/papers/types"
 
 export type ExamMode = "take" | "print" | "answers";
 
+function stemHtml(html: string) {
+  return html.replace(/<(?!\/?(?:sup|br|span)\b)/gi, "&lt;");
+}
+
 function Stem({ html }: { html: string }) {
   return (
     <div
       className="stem leading-[1.85]"
-      dangerouslySetInnerHTML={{ __html: html }}
+      dangerouslySetInnerHTML={{ __html: stemHtml(html) }}
     />
   );
 }
@@ -158,7 +162,9 @@ function QuestionBlock({
                     <span
                       className="stem flex-1"
                       dangerouslySetInnerHTML={{
-                        __html: zh && option.textZh ? option.textZh : option.text,
+                        __html: stemHtml(
+                          zh && option.textZh ? option.textZh : option.text
+                        ),
                       }}
                     />
                     {reviewed && selected && isAnswer ? (

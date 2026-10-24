@@ -90,20 +90,11 @@ export function ExamTake({ paper }: { paper: Paper }) {
   const elapsed = saved.startedAt
     ? epochSec - Math.floor(saved.startedAt / 1000)
     : 0;
-  const overtime = elapsed >= paper.durationMin * 60;
+  const overtime = saved.startedAt > 0 && elapsed >= paper.durationMin * 60;
   const result = useMemo(
     () => gradeObjective(paper, saved.answers),
     [paper, saved.answers]
   );
-  const ready = saved.startedAt > 0;
-
-  if (!ready) {
-    return (
-      <div className="flex flex-1 items-center justify-center text-muted-foreground">
-        Opening the paper…
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-full bg-[#e8e0d2]">
