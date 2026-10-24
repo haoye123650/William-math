@@ -17,7 +17,7 @@ npm install
 npm run dev
 ```
 
-Open [http://127.0.0.1:47319](http://127.0.0.1:47319).
+Open [http://127.0.0.1:45217](http://127.0.0.1:45217).
 
 - `/paper/1` `/paper/2` `/paper/3` sit a paper
 - `/print/1` blank paper
