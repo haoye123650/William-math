@@ -2,14 +2,14 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { papers } from "@/lib/papers";
 
-function Stars({ count }: { count: 1 | 2 | 3 }) {
+function Stars({ count }: { count: 1 | 2 | 3 | 4 | 5 }) {
   return (
     <span
       className="font-medium tracking-[0.2em] text-amber-500"
-      aria-label={`${count} out of 3 stars`}
+      aria-label={`${count} out of 5 stars`}
     >
       {"★".repeat(count)}
-      <span className="text-amber-500/30">{"★".repeat(3 - count)}</span>
+      <span className="text-amber-500/30">{"★".repeat(5 - count)}</span>
     </span>
   );
 }
@@ -28,9 +28,9 @@ export default function HomePage() {
             培侨数学课程
           </h1>
           <p className="max-w-xl text-base leading-7 text-muted-foreground">
-            Three papers, each 100 marks. Test 1 is the S.1 diagnostic. Test 2 is
-            the same syllabus, harder. Test 3 is S.2. Calculators are not
-            allowed. Mark schemes are on a separate page.
+            Six papers, each 100 marks. Tests 1–3 are junior secondary.
+            Tests 4–6 step up through S.3, S.4 and DSE Paper 1 style.
+            Calculators are not allowed. Mark schemes are on a separate page.
           </p>
         </header>
 
