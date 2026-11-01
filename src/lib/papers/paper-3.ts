@@ -54,7 +54,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Factorization",
           stem: "x<sup>2</sup> − 9 =",
-          stemZh: "x<sup>2</sup> − 9 =",
           options: [
             { key: "A", text: "(x − 3)(x + 3)" },
             { key: "B", text: "(x − 9)(x + 1)" },
@@ -71,7 +70,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Indices",
           stem: "8<sup>0</sup> × 2<sup>−3</sup> =",
-          stemZh: "8<sup>0</sup> × 2<sup>−3</sup> =",
           options: [
             { key: "A", text: "0" },
             { key: "B", text: frac("1", "8") },
@@ -88,7 +86,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Equations",
           stem: "If x + 2y = 7 and 2x − y = 4, then (x, y) =",
-          stemZh: "若 x + 2y = 7 且 2x − y = 4，则 (x, y) =",
           options: [
             { key: "A", text: "(3, 2)" },
             { key: "B", text: "(1, 3)" },
@@ -105,7 +102,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Inequalities",
           stem: "If −2x > 6, then",
-          stemZh: "若 −2x > 6，则",
           options: [
             { key: "A", text: "x &gt; −3" },
             { key: "B", text: "x &lt; −3" },
@@ -122,7 +118,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Geometry",
           stem: "A right-angled triangle has shorter sides 5 cm and 12 cm. The hypotenuse is",
-          stemZh: "直角三角形较短两边为 5 cm 和 12 cm，斜边长是",
           options: [
             { key: "A", text: "13 cm" },
             { key: "B", text: "17 cm" },
@@ -139,7 +134,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Geometry",
           stem: "The slope of the line through (1, 2) and (4, 8) is",
-          stemZh: "过 (1, 2) 和 (4, 8) 的直线斜率是",
           options: [
             { key: "A", text: "2" },
             { key: "B", text: "3" },
@@ -156,7 +150,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Algebra",
           stem: "(x + 3)(x − 3) =",
-          stemZh: "(x + 3)(x − 3) =",
           options: [
             { key: "A", text: "x<sup>2</sup> − 6x − 9" },
             { key: "B", text: "x<sup>2</sup> − 9" },
@@ -173,7 +166,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Indices",
           stem: "(2<sup>3</sup> × 2<sup>5</sup>) ÷ 2<sup>4</sup> =",
-          stemZh: "(2<sup>3</sup> × 2<sup>5</sup>) ÷ 2<sup>4</sup> =",
           options: [
             { key: "A", text: "2<sup>4</sup>" },
             { key: "B", text: "2<sup>8</sup>" },
@@ -190,7 +182,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Geometry",
           stem: "Each interior angle of a regular hexagon is",
-          stemZh: "正六边形的每个内角是",
           options: [
             { key: "A", text: "108°" },
             { key: "B", text: "120°" },
@@ -207,7 +198,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Geometry",
           stem: "Two similar triangles have corresponding sides in the ratio 1 : 2. The ratio of their areas is",
-          stemZh: "两个相似三角形对应边的比是 1 : 2，面积比是",
           options: [
             { key: "A", text: "1 : 2" },
             { key: "B", text: "1 : 4" },
@@ -232,7 +222,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Factorization",
           stem: "Factorize 6x<sup>2</sup> − 9x.",
-          stemZh: "因式分解 6x<sup>2</sup> − 9x。",
           blanks: [
             {
               id: "q11a",
@@ -250,7 +239,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Algebra",
           stem: `Simplify ${frac("x^{2} − 4", "x − 2")} (x ≠ 2).`,
-          stemZh: `化简 ${frac("x^{2} − 4", "x − 2")}（x ≠ 2）。`,
           blanks: [
             {
               id: "q12a",
@@ -268,7 +256,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Indices",
           stem: "3<sup>−2</sup> =",
-          stemZh: "3<sup>−2</sup> =",
           blanks: [{ id: "q13a", answer: "1/9", accepted: ["1/9", "0.111...", "0.1 repeating"] }],
           answer: "1/9",
           explanation: "1/3² = 1/9.",
@@ -280,7 +267,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Algebra",
           stem: "Make t the subject of v = u + at. t =",
-          stemZh: "由 v = u + at 把 t 写成主语。t =",
           blanks: [
             {
               id: "q14a",
@@ -298,7 +284,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Inequalities",
           stem: "Solve 3x − 1 &lt; 8. x ________",
-          stemZh: "解不等式 3x − 1 &lt; 8。x ________",
           blanks: [
             {
               id: "q15a",
@@ -316,7 +301,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Equations",
           stem: "x + y = 10 and x − y = 2. Then x = ________ , y = ________",
-          stemZh: "x + y = 10 且 x − y = 2。则 x = ________ ，y = ________",
           blanks: [
             { id: "q16a", label: "x", answer: "6", accepted: ["6"] },
             { id: "q16b", label: "y", answer: "4", accepted: ["4"] },
@@ -332,7 +316,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Geometry",
           stem: "The distance from (0, 0) to (3, 4) is",
-          stemZh: "(0, 0) 到 (3, 4) 的距离是",
           blanks: [{ id: "q17a", answer: "5", accepted: ["5"] }],
           answer: "5",
           explanation: "√(9 + 16) = 5.",
@@ -344,7 +327,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Geometry",
           stem: "The volume of a cube of side 5 cm is ________ cm<sup>3</sup>.",
-          stemZh: "棱长 5 cm 的立方体体积是 ________ cm<sup>3</sup>。",
           blanks: [{ id: "q18a", answer: "125", accepted: ["125"] }],
           answer: "125",
           explanation: "5³ = 125.",
@@ -356,7 +338,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Statistics",
           stem: "A fair die is thrown once. P(an even number) =",
-          stemZh: "抛一枚均匀骰子一次。P（偶数）=",
           blanks: [
             { id: "q19a", answer: "1/2", accepted: ["1/2", "0.5", "3/6"] },
           ],
@@ -370,7 +351,6 @@ export const paper3: Paper = {
           marks: 2,
           skill: "Algebra",
           stem: "Expand (2x − 1)(x + 4).",
-          stemZh: "展开 (2x − 1)(x + 4)。",
           blanks: [
             {
               id: "q20a",
@@ -397,7 +377,6 @@ export const paper3: Paper = {
           skill: "Factorization",
           lines: 6,
           stem: "Factorize x<sup>2</sup> + 5x + 6.",
-          stemZh: "因式分解 x<sup>2</sup> + 5x + 6。",
           answer: "(x + 2)(x + 3)",
           explanation: "Two numbers that multiply to 6 and add to 5: 2 and 3.",
           marking: "Correct pair 4 marks; written as a product 2 marks. Order of factors does not matter.",
@@ -410,7 +389,6 @@ export const paper3: Paper = {
           skill: "Indices",
           lines: 6,
           stem: "Simplify (2a<sup>2</sup>b)<sup>3</sup> ÷ (4ab<sup>2</sup>).",
-          stemZh: "化简 (2a<sup>2</sup>b)<sup>3</sup> ÷ (4ab<sup>2</sup>)。",
           answer: "2a<sup>5</sup>b",
           explanation: "(8a<sup>6</sup>b<sup>3</sup>) / (4ab<sup>2</sup>) = 2a<sup>5</sup>b.",
           marking: "Expand the cube 3 marks; divide 3 marks.",
@@ -423,7 +401,6 @@ export const paper3: Paper = {
           skill: "Equations",
           lines: 7,
           stem: "Solve the simultaneous equations<br/>2x + y = 7<br/>x − y = 2",
-          stemZh: "解联立方程<br/>2x + y = 7<br/>x − y = 2",
           answer: "x = 3, y = 1",
           explanation: "Add: 3x = 9, x = 3. Then 3 − y = 2, y = 1.",
           marking: "One unknown 3 marks; the other 3 marks.",
@@ -436,7 +413,6 @@ export const paper3: Paper = {
           skill: "Inequalities",
           lines: 6,
           stem: "Solve 5 − 2x ≥ 1.",
-          stemZh: "解不等式 5 − 2x ≥ 1。",
           answer: "x ≤ 2",
           explanation: "−2x ≥ −4. Divide by −2 and reverse: x ≤ 2.",
           marking: "Isolate the x term 3 marks; reverse the inequality correctly 3 marks.",
@@ -449,7 +425,6 @@ export const paper3: Paper = {
           skill: "Geometry",
           lines: 6,
           stem: "A ladder 13 m long leans against a vertical wall. The foot of the ladder is 5 m from the wall. How high up the wall does the ladder reach?",
-          stemZh: "一把长 13 m 的梯子靠在竖直墙上。梯脚离墙 5 m。梯子到达墙上多高处？",
           answer: "12 m",
           explanation: "h² + 5² = 13², h² = 169 − 25 = 144, h = 12.",
           marking: "Pythagoras set-up 3 marks; 12 m 3 marks.",
@@ -470,7 +445,6 @@ export const paper3: Paper = {
           skill: "Equations",
           lines: 8,
           stem: `2 pens and 1 pencil cost $8. 1 pen and 2 pencils cost $7.<br/>(a) Write two equations in a and b, where $a is the price of a pen and $b is the price of a pencil.<br/>(b) Find a and b.`,
-          stemZh: `2 支钢笔和 1 支铅笔共 $8。1 支钢笔和 2 支铅笔共 $7。<br/>（a）用 a、b 列出两个方程，其中 $a 是钢笔价钱，$b 是铅笔价钱。<br/>（b）求 a 和 b。`,
           answer: "(a) 2a + b = 8, a + 2b = 7; (b) a = 3, b = 2",
           explanation: "2(2a + b) = 16 → 4a + 2b = 16. Subtract a + 2b = 7: 3a = 9, a = 3, b = 2.",
           marking: "(a) 4 marks; (b) 6 marks.",
@@ -483,7 +457,6 @@ export const paper3: Paper = {
           skill: "Geometry",
           lines: 8,
           stem: `A right-angled triangle has shorter sides 5 cm and 12 cm.<br/>(a) Find the hypotenuse.<br/>(b) A square is drawn on the hypotenuse. Find the area of the square.`,
-          stemZh: `直角三角形较短两边为 5 cm 和 12 cm。<br/>（a）求斜边长。<br/>（b）以斜边为边作正方形，求正方形面积。`,
           answer: "(a) 13 cm; (b) 169 cm²",
           explanation: "(a) √(25+144)=13. (b) 13² = 169.",
           marking: "(a) 4 marks; (b) 6 marks.",
@@ -496,7 +469,6 @@ export const paper3: Paper = {
           skill: "Algebra",
           lines: 8,
           stem: `The formula v<sup>2</sup> = u<sup>2</sup> + 2as is given.<br/>(a) Make s the subject.<br/>(b) Find s when v = 10, u = 6 and a = 4.`,
-          stemZh: `已知公式 v<sup>2</sup> = u<sup>2</sup> + 2as。<br/>（a）把 s 写成主语。<br/>（b）当 v = 10、u = 6、a = 4 时，求 s。`,
           answer: "(a) s = (v² − u²)/(2a); (b) 8",
           explanation: "2as = v² − u², s = (v² − u²)/(2a). (100 − 36)/8 = 64/8 = 8.",
           marking: "(a) 6 marks; (b) 4 marks.",
@@ -518,7 +490,6 @@ export const paper3: Paper = {
           skill: "Factorization",
           lines: 6,
           stem: "Solve x<sup>2</sup> − x − 12 = 0 by factorization.",
-          stemZh: "用因式分解求解 x<sup>2</sup> − x − 12 = 0。",
           answer: "x = 4 or x = −3",
           explanation: "(x − 4)(x + 3) = 0.",
           marking: "Factorization 3 marks; both roots 2 marks.",
@@ -531,7 +502,6 @@ export const paper3: Paper = {
           skill: "Indices",
           lines: 6,
           stem: "Express 1/27 as a power of 3.",
-          stemZh: "把 1/27 写成 3 的幂。",
           answer: "3<sup>−3</sup>",
           explanation: "27 = 3³, so 1/27 = 3<sup>−3</sup>.",
           marking: "Full marks for 3^{−3}.",

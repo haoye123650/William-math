@@ -23,9 +23,9 @@ export default function HomePage() {
             DSE Mathematics · 2026–2027
           </p>
           <h1 className="font-serif text-4xl leading-tight font-semibold">
-            尹健熙
+            Yin Kin Hei
             <br />
-            培侨数学课程
+            Pui Kiu Mathematics
           </h1>
           <p className="max-w-xl text-base leading-7 text-muted-foreground">
             Six papers, each 100 marks. Tests 1–3 are junior secondary.

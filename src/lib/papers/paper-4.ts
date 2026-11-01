@@ -56,7 +56,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Algebra",
           stem: "(x − 2)<sup>2</sup> =",
-          stemZh: "(x − 2)<sup>2</sup> =",
           options: [
             { key: "A", text: "x<sup>2</sup> − 4" },
             { key: "B", text: "x<sup>2</sup> − 4x + 4" },
@@ -73,7 +72,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Trigonometry",
           stem: "sin 30° =",
-          stemZh: "sin 30° =",
           options: [
             { key: "A", text: frac("1", "2") },
             { key: "B", text: frac("√3", "2") },
@@ -90,7 +88,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Geometry",
           stem: "Two similar triangles have corresponding sides in the ratio 2 : 3. The ratio of their areas is",
-          stemZh: "两个相似三角形对应边的比是 2 : 3，面积比是",
           options: [
             { key: "A", text: "2 : 3" },
             { key: "B", text: "4 : 9" },
@@ -107,7 +104,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Quadratic equations",
           stem: "The roots of x<sup>2</sup> − 5x + 6 = 0 are",
-          stemZh: "x<sup>2</sup> − 5x + 6 = 0 的根是",
           options: [
             { key: "A", text: "1 and 6" },
             { key: "B", text: "2 and 3" },
@@ -124,7 +120,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Coordinate geometry",
           stem: "A line has slope 2. The slope of a line perpendicular to it is",
-          stemZh: "一条直线的斜率是 2，与它垂直的直线斜率是",
           options: [
             { key: "A", text: "2" },
             { key: "B", text: "−2" },
@@ -141,7 +136,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Mensuration",
           stem: "A sector of a circle of radius 6 cm has angle 60°. The arc length is",
-          stemZh: "半径 6 cm 的扇形，圆心角 60°，弧长是",
           options: [
             { key: "A", text: "π cm" },
             { key: "B", text: "2π cm" },
@@ -158,7 +152,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Probability",
           stem: "Two fair coins are tossed. P(two heads) =",
-          stemZh: "抛两枚均匀硬币。P（两个正面）=",
           options: [
             { key: "A", text: frac("1", "4") },
             { key: "B", text: frac("1", "2") },
@@ -175,7 +168,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Indices",
           stem: "If 3<sup>x</sup> = 81, then x =",
-          stemZh: "若 3<sup>x</sup> = 81，则 x =",
           options: [
             { key: "A", text: "3" },
             { key: "B", text: "4" },
@@ -192,7 +184,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Geometry",
           stem: "Each exterior angle of a regular pentagon is",
-          stemZh: "正五边形的每个外角是",
           options: [
             { key: "A", text: "36°" },
             { key: "B", text: "72°" },
@@ -209,7 +200,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Statistics",
           stem: "The mean of 2, 4, 6, 8 and 10 is",
-          stemZh: "2、4、6、8、10 的平均数是",
           options: [
             { key: "A", text: "5" },
             { key: "B", text: "6" },
@@ -234,7 +224,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Factorization",
           stem: "Factorize x<sup>2</sup> − 7x + 12.",
-          stemZh: "因式分解 x<sup>2</sup> − 7x + 12。",
           blanks: [
             {
               id: "q11a",
@@ -252,7 +241,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Trigonometry",
           stem: "tan 45° =",
-          stemZh: "tan 45° =",
           blanks: [{ id: "q12a", answer: "1", accepted: ["1"] }],
           answer: "1",
           explanation: "In an isosceles right triangle the opposite and adjacent sides are equal.",
@@ -264,7 +252,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Algebra",
           stem: "Make r the subject of A = πr<sup>2</sup> (r &gt; 0). r =",
-          stemZh: "由 A = πr<sup>2</sup> 把 r 写成主语（r &gt; 0）。r =",
           blanks: [
             {
               id: "q13a",
@@ -282,7 +269,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Inequalities",
           stem: "Solve 2x + 3 &gt; 11. x ________",
-          stemZh: "解不等式 2x + 3 &gt; 11。x ________",
           blanks: [
             {
               id: "q14a",
@@ -300,7 +286,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Coordinate geometry",
           stem: "The distance from (1, 2) to (4, 6) is",
-          stemZh: "(1, 2) 到 (4, 6) 的距离是",
           blanks: [{ id: "q15a", answer: "5", accepted: ["5"] }],
           answer: "5",
           explanation: "√(3² + 4²) = 5.",
@@ -312,7 +297,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Sequences",
           stem: "An arithmetic sequence has first term 3 and common difference 4. The 5th term is",
-          stemZh: "等差数列首项 3，公差 4。第 5 项是",
           blanks: [{ id: "q16a", answer: "19", accepted: ["19"] }],
           answer: "19",
           explanation: "T<sub>5</sub> = 3 + 4 × 4 = 19.",
@@ -324,7 +308,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Mensuration",
           stem: "A sector of radius 4 cm has angle 90°. Its area is ________ π cm<sup>2</sup>.",
-          stemZh: "半径 4 cm、圆心角 90° 的扇形面积是 ________ π cm<sup>2</sup>。",
           blanks: [{ id: "q17a", answer: "4", accepted: ["4"] }],
           answer: "4π cm²",
           explanation: "(90/360) × π × 4² = 4π.",
@@ -336,7 +319,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Indices",
           stem: "(3x<sup>2</sup>)<sup>0</sup> = (x ≠ 0)",
-          stemZh: "(3x<sup>2</sup>)<sup>0</sup> =（x ≠ 0）",
           blanks: [{ id: "q18a", answer: "1", accepted: ["1"] }],
           answer: "1",
           explanation: "Any non-zero number to the power 0 is 1.",
@@ -348,7 +330,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Statistics",
           stem: "The median of 3, 5, 5, 8, 9 is",
-          stemZh: "3、5、5、8、9 的中位数是",
           blanks: [{ id: "q19a", answer: "5", accepted: ["5"] }],
           answer: "5",
           explanation: "The middle value of the ordered list.",
@@ -360,7 +341,6 @@ export const paper4: Paper = {
           marks: 2,
           skill: "Algebra",
           stem: "Expand (x + 1)(x − 4).",
-          stemZh: "展开 (x + 1)(x − 4)。",
           blanks: [
             {
               id: "q20a",
@@ -387,7 +367,6 @@ export const paper4: Paper = {
           skill: "Factorization",
           lines: 6,
           stem: "Factorize 2x<sup>2</sup> + 5x − 3.",
-          stemZh: "因式分解 2x<sup>2</sup> + 5x − 3。",
           answer: "(2x − 1)(x + 3)",
           explanation: "2x × x = 2x², −1 × 3 = −3, middle term 6x − x = 5x.",
           marking: "Correct pair 4 marks; written as a product 2 marks.",
@@ -400,7 +379,6 @@ export const paper4: Paper = {
           skill: "Trigonometry",
           lines: 6,
           stem: "In a 30°–60°–90° triangle, the side opposite 30° is 5 cm. Find the hypotenuse.",
-          stemZh: "在 30°–60°–90° 三角形中，30° 的对边是 5 cm。求斜边。",
           answer: "10 cm",
           explanation: "The hypotenuse is twice the side opposite 30°.",
           marking: "Ratio stated 3 marks; 10 cm 3 marks.",
@@ -413,7 +391,6 @@ export const paper4: Paper = {
           skill: "Equations",
           lines: 7,
           stem: "Solve the simultaneous equations<br/>x + 2y = 8<br/>3x − y = 3",
-          stemZh: "解联立方程<br/>x + 2y = 8<br/>3x − y = 3",
           answer: "x = 2, y = 3",
           explanation: "y = 3x − 3. Then x + 2(3x − 3) = 8 → 7x = 14 → x = 2, y = 3.",
           marking: "One unknown 3 marks; the other 3 marks.",
@@ -426,7 +403,6 @@ export const paper4: Paper = {
           skill: "Quadratic equations",
           lines: 6,
           stem: "Solve x<sup>2</sup> − 4x − 5 = 0 by factorization.",
-          stemZh: "用因式分解求解 x<sup>2</sup> − 4x − 5 = 0。",
           answer: "x = 5 or x = −1",
           explanation: "(x − 5)(x + 1) = 0.",
           marking: "Factors 3 marks; both roots 3 marks.",
@@ -439,7 +415,6 @@ export const paper4: Paper = {
           skill: "Geometry",
           lines: 6,
           stem: "Two similar triangles have corresponding sides 6 cm and 9 cm. The smaller has area 20 cm<sup>2</sup>. Find the area of the larger triangle.",
-          stemZh: "两个相似三角形对应边为 6 cm 和 9 cm。较小的面积是 20 cm<sup>2</sup>。求较大三角形的面积。",
           answer: "45 cm²",
           explanation: "Length ratio 2 : 3, area ratio 4 : 9. Larger = 20 × 9/4 = 45.",
           marking: "Area ratio 3 marks; 45 cm² 3 marks.",
@@ -460,7 +435,6 @@ export const paper4: Paper = {
           skill: "Percentages",
           lines: 8,
           stem: `A jacket is priced at $400. It is first sold at 20% off, then a further 10% off the discounted price.<br/>(a) Find the final selling price.<br/>(b) Find the overall percentage discount on the original price.`,
-          stemZh: `一件外套原价 $400。先打八折，再按折后价减 10%。<br/>（a）最终售价是多少？<br/>（b）相对原价的总折扣率是多少？`,
           answer: "(a) $288; (b) 28%",
           explanation: "400 × 0.8 × 0.9 = 288. Discount = (400 − 288)/400 = 28%.",
           marking: "(a) 6 marks; (b) 4 marks.",
@@ -473,7 +447,6 @@ export const paper4: Paper = {
           skill: "Mensuration",
           lines: 8,
           stem: `A sector of a circle of radius 7 cm has angle 90°.<br/>(a) Find the arc length in terms of π.<br/>(b) Find the area of the sector in terms of π.`,
-          stemZh: `半径 7 cm、圆心角 90° 的扇形。<br/>（a）用 π 表示弧长。<br/>（b）用 π 表示扇形面积。`,
           answer: "(a) 3.5π cm; (b) 12.25π cm²",
           explanation:
             "Arc = (90/360)×2π×7 = 7π/2. Area = (90/360)π×49 = 49π/4.",
@@ -487,7 +460,6 @@ export const paper4: Paper = {
           skill: "Coordinate geometry",
           lines: 8,
           stem: `A(0, 0), B(6, 0) and C(6, 8) are the vertices of a triangle.<br/>(a) Find AC.<br/>(b) Explain why ∠ABC = 90°.<br/>(c) Find the area of △ABC.`,
-          stemZh: `A(0, 0)、B(6, 0)、C(6, 8) 是三角形的顶点。<br/>（a）求 AC。<br/>（b）说明为什么 ∠ABC = 90°。<br/>（c）求 △ABC 的面积。`,
           answer: "(a) 10; (b) AB is horizontal and BC is vertical; (c) 24",
           explanation: "AC = √(36 + 64) = 10. Area = (1/2)×6×8 = 24.",
           marking: "(a) 3 marks; (b) 3 marks; (c) 4 marks.",
@@ -509,7 +481,6 @@ export const paper4: Paper = {
           skill: "Quadratic equations",
           lines: 6,
           stem: "Solve x<sup>2</sup> = 2x + 15 by factorization.",
-          stemZh: "用因式分解求解 x<sup>2</sup> = 2x + 15。",
           answer: "x = 5 or x = −3",
           explanation: "x² − 2x − 15 = 0, (x − 5)(x + 3) = 0.",
           marking: "Rearrange 2 marks; both roots 3 marks.",
@@ -522,7 +493,6 @@ export const paper4: Paper = {
           skill: "Trigonometry",
           lines: 6,
           stem: "Find the value of sin<sup>2</sup> 30° + cos<sup>2</sup> 30°.",
-          stemZh: "求 sin<sup>2</sup> 30° + cos<sup>2</sup> 30° 的值。",
           answer: "1",
           explanation: "sin² θ + cos² θ = 1 for any θ. Directly: (1/2)² + (√3/2)² = 1.",
           marking: "Full marks for 1, with identity or substitution.",

@@ -54,7 +54,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Directed numbers",
           stem: "Find the value of (−3)<sup>2</sup> − 3<sup>2</sup>.",
-          stemZh: "求 (−3)<sup>2</sup> − 3<sup>2</sup> 的值。",
           options: [
             { key: "A", text: "0" },
             { key: "B", text: "18" },
@@ -72,7 +71,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Directed numbers",
           stem: `Find the value of ${frac("1", "2")} − ${frac("1", "3")} × ${frac("3", "4")}.`,
-          stemZh: `求 ${frac("1", "2")} − ${frac("1", "3")} × ${frac("3", "4")} 的值。`,
           options: [
             { key: "A", text: frac("1", "4") },
             { key: "B", text: frac("1", "8") },
@@ -89,7 +87,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Equations",
           stem: "If 3(x − 2) = 2x + 1, then x =",
-          stemZh: "若 3(x − 2) = 2x + 1，则 x =",
           options: [
             { key: "A", text: "3" },
             { key: "B", text: "5" },
@@ -106,7 +103,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Directed numbers",
           stem: "Which of the following is correct?",
-          stemZh: "下列哪一项是正确的？",
           options: [
             { key: "A", text: "|−5| − |3| = −8" },
             { key: "B", text: "(−2) × (−3) × (−1) = −6" },
@@ -124,7 +120,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Geometry",
           stem: "The difference between the supplement and the complement of a 40° angle is",
-          stemZh: "一个 40° 的角，它的补角与余角的差是",
           options: [
             { key: "A", text: "40°" },
             { key: "B", text: "50°" },
@@ -142,7 +137,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Geometry",
           stem: "The two shorter sides of a right-angled triangle are 6 cm and 8 cm. The hypotenuse is",
-          stemZh: "直角三角形的两条较短边为 6 cm 和 8 cm，斜边长是",
           options: [
             { key: "A", text: "7 cm" },
             { key: "B", text: "10 cm" },
@@ -159,7 +153,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Geometry",
           stem: "A rectangle measures 12 cm by 5 cm. The length of a diagonal is",
-          stemZh: "长方形长 12 cm、宽 5 cm，对角线长是",
           options: [
             { key: "A", text: "7 cm" },
             { key: "B", text: "13 cm" },
@@ -176,7 +169,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Directed numbers",
           stem: "Which of the following numbers is the smallest?",
-          stemZh: "下列各数中最小的是",
           options: [
             { key: "A", text: "−0.5" },
             { key: "B", text: "−2" },
@@ -193,7 +185,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Approximation",
           stem: "3.14159 correct to 3 significant figures is",
-          stemZh: "把 3.14159 准确到 3 个有效数字，结果是",
           options: [
             { key: "A", text: "3.14" },
             { key: "B", text: "3.141" },
@@ -211,7 +202,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Statistics",
           stem: "A fair coin is tossed twice. The probability of getting two heads is",
-          stemZh: "抛一枚均匀硬币两次，两次都正面朝上的概率是",
           options: [
             { key: "A", text: frac("1", "2") },
             { key: "B", text: frac("1", "3") },
@@ -236,7 +226,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Directed numbers",
           stem: "|−12| + |5 − 17| =",
-          stemZh: "|−12| + |5 − 17| =",
           blanks: [{ id: "q11a", answer: "24", accepted: ["24"] }],
           answer: "24",
           explanation: "12 + 12 = 24. Do not drop the absolute value on 5 − 17 = −12.",
@@ -248,10 +237,9 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Percentages",
           stem: "0.125 = ________ % = ________ (in simplest form)",
-          stemZh: "0.125 = ________ % = ________（最简分数）",
           blanks: [
-            { id: "q12a", label: "percentage", labelZh: "百分数", answer: "12.5", accepted: ["12.5", "12.50"] },
-            { id: "q12b", label: "fraction", labelZh: "最简分数", answer: "1/8", accepted: ["1/8", "⅛"] },
+            { id: "q12a", label: "percentage", answer: "12.5", accepted: ["12.5", "12.50"] },
+            { id: "q12b", label: "fraction", answer: "1/8", accepted: ["1/8", "⅛"] },
           ],
           answer: "12.5%; 1/8",
           explanation: "0.125 × 100 = 12.5; 0.125 = 1/8. 1 mark per blank.",
@@ -264,7 +252,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Percentages",
           stem: "Two numbers are in the ratio 2 : 5. Their sum is 49. The larger number is",
-          stemZh: "两数的比是 2 : 5，它们的和是 49，较大的那个数是",
           blanks: [{ id: "q13a", answer: "35", accepted: ["35"] }],
           answer: "35",
           explanation: "2 + 5 = 7 parts. Each part is 7. The larger share is 5 × 7 = 35.",
@@ -276,10 +263,9 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Algebra",
           stem: "For the monomial −3x<sup>2</sup>y, the coefficient is ________ and the degree is ________.",
-          stemZh: "单项式 −3x<sup>2</sup>y 的系数是 ________，次数是 ________。",
           blanks: [
-            { id: "q14a", label: "coefficient", labelZh: "系数", answer: "−3", accepted: ["-3", "−3"] },
-            { id: "q14b", label: "degree", labelZh: "次数", answer: "3", accepted: ["3"] },
+            { id: "q14a", label: "coefficient", answer: "−3", accepted: ["-3", "−3"] },
+            { id: "q14b", label: "degree", answer: "3", accepted: ["3"] },
           ],
           answer: "coefficient −3; degree 3",
           explanation: "Keep the sign in the coefficient. Degree = 2 + 1 = 3, not the index 2 alone.",
@@ -292,7 +278,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Algebra",
           stem: "If a = −2 and b = 3, then 2a<sup>2</sup> − ab =",
-          stemZh: "若 a = −2，b = 3，则 2a<sup>2</sup> − ab =",
           blanks: [{ id: "q15a", answer: "14", accepted: ["14"] }],
           answer: "14",
           explanation: "2 × 4 − (−2)(3) = 8 + 6 = 14. a² is 4, not −4.",
@@ -304,7 +289,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Geometry",
           stem: "Two interior angles of a triangle are 50° and 70°. The third interior angle is ________ °.",
-          stemZh: "三角形两个内角分别是 50° 和 70°，第三个内角是 ________ °。",
           blanks: [{ id: "q16a", answer: "60", accepted: ["60", "60°"] }],
           answer: "60",
           explanation: "180 − 50 − 70 = 60.",
@@ -316,7 +300,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Approximation",
           stem: "Round 2.746 to 1 decimal place.",
-          stemZh: "把 2.746 精确到一位小数。",
           blanks: [{ id: "q17a", answer: "2.7", accepted: ["2.7", "2.70"] }],
           answer: "2.7",
           explanation: "The tenths digit is 7; the next digit is 4, so do not round up.",
@@ -328,10 +311,9 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Statistics",
           stem: "For the data 6, 8, 8, 10, 13, the mean is ________ and the mode is ________.",
-          stemZh: "一组数据 6、8、8、10、13 的平均数是 ________，众数是 ________。",
           blanks: [
-            { id: "q18a", label: "mean", labelZh: "平均数", answer: "9", accepted: ["9"] },
-            { id: "q18b", label: "mode", labelZh: "众数", answer: "8", accepted: ["8"] },
+            { id: "q18a", label: "mean", answer: "9", accepted: ["9"] },
+            { id: "q18b", label: "mode", answer: "8", accepted: ["8"] },
           ],
           answer: "mean 9; mode 8",
           explanation: "Sum = 45, mean = 9. 8 appears twice, so it is the mode.",
@@ -344,7 +326,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Geometry",
           stem: "In the rectangular coordinate plane, the point (3, −2) lies in quadrant ________.",
-          stemZh: "在平面直角坐标系中，点 (3, −2) 在第 ________ 象限。",
           blanks: [
             {
               id: "q19a",
@@ -362,7 +343,6 @@ export const mathPaper: Paper = {
           marks: 2,
           skill: "Geometry",
           stem: "The radius of a circle is 7 cm. Its circumference is ________ cm. (Leave the answer in terms of π.)",
-          stemZh: "圆的半径是 7 cm，周长是 ________ cm。（用 π 表示）",
           blanks: [
             {
               id: "q20a",
@@ -389,7 +369,6 @@ export const mathPaper: Paper = {
           skill: "Directed numbers",
           lines: 6,
           stem: "Find the value of (−2)<sup>3</sup> − (−2)<sup>2</sup> × 3.",
-          stemZh: "求 (−2)<sup>3</sup> − (−2)<sup>2</sup> × 3 的值。",
           answer: "−20",
           explanation:
             "(−2)³ = −8, (−2)² = 4.<br/>Expression = −8 − 4 × 3 = −8 − 12 = −20.<br/>Common errors: subtracting first to get −36, or taking (−2)³ as 8.",
@@ -404,7 +383,6 @@ export const mathPaper: Paper = {
           skill: "Directed numbers",
           lines: 6,
           stem: `Find the value of (${frac("2", "3")} − ${frac("1", "2")}) ÷ ${frac("1", "6")} + 0.25.`,
-          stemZh: `求 (${frac("2", "3")} − ${frac("1", "2")}) ÷ ${frac("1", "6")} + 0.25 的值。`,
           answer: "5/4 or 1.25",
           explanation: `${frac("2", "3")} − ${frac("1", "2")} = ${frac("1", "6")}<br/>(${frac("1", "6")}) ÷ (${frac("1", "6")}) = 1<br/>1 + 0.25 = 1.25 = ${frac("5", "4")}`,
           marking: "Subtraction in brackets 2 marks; division 2 marks; final value 2 marks. 1.25 and 5/4 both accepted.",
@@ -417,7 +395,6 @@ export const mathPaper: Paper = {
           skill: "Equations",
           lines: 7,
           stem: `Solve ${frac("x − 3", "2")} − ${frac("x + 1", "3")} = 1.`,
-          stemZh: `解方程：${frac("x − 3", "2")} − ${frac("x + 1", "3")} = 1。`,
           answer: "x = 17",
           explanation: `Multiply both sides by 6: 3(x − 3) − 2(x + 1) = 6<br/>3x − 9 − 2x − 2 = 6<br/>x − 11 = 6<br/>x = 17`,
           marking: "Clearing denominators 2 marks; expanding 2 marks; x = 17 a further 2 marks. Sign error when transposing: −2.",
@@ -430,7 +407,6 @@ export const mathPaper: Paper = {
           skill: "Equations",
           lines: 6,
           stem: "Solve 2(3x − 1) = 5x + 8.",
-          stemZh: "解方程：2(3x − 1) = 5x + 8。",
           answer: "x = 10",
           explanation: "6x − 2 = 5x + 8<br/>6x − 5x = 8 + 2<br/>x = 10",
           marking: "Expand 2 marks; collect terms 2 marks; x = 10 a further 2 marks.",
@@ -443,7 +419,6 @@ export const mathPaper: Paper = {
           skill: "Algebra",
           lines: 6,
           stem: "Simplify 3a − 2(a − b) + 4b, then find its value when a = −1 and b = 2.",
-          stemZh: "先化简 3a − 2(a − b) + 4b，再求 a = −1、b = 2 时的值。",
           answer: "11",
           explanation: "3a − 2a + 2b + 4b = a + 6b<br/>Substitute: −1 + 12 = 11",
           marking:
@@ -465,7 +440,6 @@ export const mathPaper: Paper = {
           skill: "Percentages",
           lines: 8,
           stem: `A school bag is priced at $200. It is first sold at 20% off, then a further $20 is taken off.<br/>(a) Find the selling price.<br/>(b) The selling price is what percentage of the original price?`,
-          stemZh: `一个书包原价 $200。先打八折，再减 $20。<br/>（a）现价是多少？<br/>（b）现价相当于原价的百分之几？`,
           answer: "(a) $140; (b) 70%",
           explanation: `(a) 200 × 0.8 = 160, 160 − 20 = 140.<br/>(b) 140 ÷ 200 = 0.7 = 70%.<br/>Common error: 200 × 0.8 × 0.2, or subtracting $20 before the 20% off.`,
           marking: "(a) 20% off 3 marks, then subtract 20 a further 3 marks; (b) 4 marks. ‘70% of the original’ or ‘30% off overall’ both accepted.",
@@ -478,7 +452,6 @@ export const mathPaper: Paper = {
           skill: "Equations",
           lines: 8,
           stem: `Towns A and B are 240 km apart. Car A travels at 60 km/h and car B at 40 km/h. They set off at the same time towards each other.<br/>(a) How long does it take them to meet?<br/>(b) How far has car A travelled when they meet?`,
-          stemZh: `甲、乙两地相距 240 km。甲车时速 60 km/h，乙车时速 40 km/h，同时相向开出。<br/>（a）几小时后相遇？<br/>（b）相遇时甲车行驶了多少 km？`,
           answer: "(a) 2.4 h (2 h 24 min); (b) 144 km",
           explanation: `(a) 240 ÷ (60 + 40) = 2.4 h = 2 hours 24 minutes.<br/>(b) 60 × 2.4 = 144 km.`,
           marking:
@@ -493,7 +466,6 @@ export const mathPaper: Paper = {
           lines: 8,
           diagram: "triangle",
           stem: `In the figure, D lies on BC and AD bisects ∠BAC. ∠ABC = 50° and ∠ACB = 70°.<br/>(a) Find ∠BAC.<br/>(b) Find ∠BAD.<br/>(c) Find ∠ADB.`,
-          stemZh: `如图，D 在 BC 上，AD 平分 ∠BAC。∠ABC = 50°，∠ACB = 70°。<br/>（a）求 ∠BAC。<br/>（b）求 ∠BAD。<br/>（c）求 ∠ADB。`,
           answer: "(a) 60°; (b) 30°; (c) 100°",
           explanation: `(a) ∠BAC = 180° − 50° − 70° = 60°.<br/>(b) AD bisects ∠BAC, so ∠BAD = 30°.<br/>(c) In △ABD, ∠ADB = 180° − 50° − 30° = 100°.<br/>Alternatively, ∠ADC = 80°, then adjacent angles on a straight line give 100°.`,
           marking: "3 marks for each part, plus 1 mark for clear working. Part (c) tests whether the student can split the figure.",
@@ -515,7 +487,6 @@ export const mathPaper: Paper = {
           skill: "Percentages",
           lines: 6,
           stem: "A jacket is priced at $480. During a sale it is 25% off. A further 10% discount is given if the customer pays in cash. How much does a customer pay in cash?",
-          stemZh: "一件外套原价 $480。减价期间先打七五折，现金付款再打九折。用现金买要付多少？",
           answer: "$324",
           explanation:
             "480 × 0.75 = 360; 360 × 0.9 = 324. The second 10% is taken from $360, not from $480.",
@@ -530,7 +501,6 @@ export const mathPaper: Paper = {
           skill: "Equations",
           lines: 6,
           stem: "The sum of two consecutive odd numbers is 96. Find the two numbers. Set up an equation.",
-          stemZh: "两个连续奇数的和是 96。求这两个数，并列方程。",
           answer: "47 and 49",
           explanation: "Let the smaller be n. Then n + (n + 2) = 96, 2n = 94, n = 47. The numbers are 47 and 49.",
           marking: "Equation 2 marks; both numbers 3 marks. 47 and 48 misses ‘consecutive odd’.",

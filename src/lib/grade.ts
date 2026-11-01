@@ -10,8 +10,8 @@ export function normalizeAnswer(value: string) {
     .replace(/[／∕]/g, "/")
     .replace(/[×xX]/g, "*")
     .replace(/°/g, "")
-    .replace(/厘米|cm/gi, "")
-    .replace(/元|\$/g, "")
+    .replace(/cm/gi, "")
+    .replace(/\$/g, "")
     .toLowerCase();
 }
 

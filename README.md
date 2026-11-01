@@ -1,4 +1,4 @@
-# 尹健熙 培侨数学课程
+# Yin Kin Hei · Pui Kiu Mathematics
 
 DSE-style mathematics papers for a Pui Kiu student. Tests 1–3 are junior secondary. Tests 4–6 step up through S.3, S.4 and Paper 1 style. Questions are original, written to the HKEAA syllabus — they are not copies of any year’s paper.
 

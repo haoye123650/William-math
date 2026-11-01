@@ -56,7 +56,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Quadratic equations",
           stem: "The discriminant of x<sup>2</sup> − 6x + 9 = 0 is",
-          stemZh: "x<sup>2</sup> − 6x + 9 = 0 的判别式是",
           options: [
             { key: "A", text: "0" },
             { key: "B", text: "9" },
@@ -73,7 +72,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Logarithms",
           stem: "log<sub>10</sub> 1000 =",
-          stemZh: "log<sub>10</sub> 1000 =",
           options: [
             { key: "A", text: "2" },
             { key: "B", text: "3" },
@@ -90,7 +88,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Polynomials",
           stem: "The remainder when x<sup>3</sup> − 2x + 1 is divided by x − 1 is",
-          stemZh: "x<sup>3</sup> − 2x + 1 除以 x − 1 的余数是",
           options: [
             { key: "A", text: "0" },
             { key: "B", text: "1" },
@@ -107,7 +104,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Coordinate geometry",
           stem: "The slope of the line 2x + 3y − 6 = 0 is",
-          stemZh: "直线 2x + 3y − 6 = 0 的斜率是",
           options: [
             { key: "A", text: frac("2", "3") },
             { key: "B", text: frac("−2", "3") },
@@ -124,7 +120,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Sequences",
           stem: "The common ratio of the geometric sequence 2, 6, 18, … is",
-          stemZh: "等比数列 2、6、18、… 的公比是",
           options: [
             { key: "A", text: "2" },
             { key: "B", text: "3" },
@@ -141,7 +136,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Trigonometry",
           stem: "sin 60° =",
-          stemZh: "sin 60° =",
           options: [
             { key: "A", text: frac("1", "2") },
             { key: "B", text: frac("√2", "2") },
@@ -158,7 +152,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Functions",
           stem: "By completing the square, the minimum value of x<sup>2</sup> + 6x + 5 is",
-          stemZh: "配方后，x<sup>2</sup> + 6x + 5 的最小值是",
           options: [
             { key: "A", text: "−9" },
             { key: "B", text: "−4" },
@@ -175,7 +168,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Quadratic equations",
           stem: "If α and β are the roots of x<sup>2</sup> − 5x + 6 = 0, then α + β =",
-          stemZh: "若 α、β 是 x<sup>2</sup> − 5x + 6 = 0 的根，则 α + β =",
           options: [
             { key: "A", text: "5" },
             { key: "B", text: "6" },
@@ -192,7 +184,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Coordinate geometry",
           stem: "The distance from (0, 0) to the line 3x − 4y + 5 = 0 is",
-          stemZh: "点 (0, 0) 到直线 3x − 4y + 5 = 0 的距离是",
           options: [
             { key: "A", text: "1" },
             { key: "B", text: "5" },
@@ -209,7 +200,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Probability",
           stem: "P(A) = 0.3, P(B) = 0.4 and A, B are independent. P(A and B) =",
-          stemZh: "P(A) = 0.3，P(B) = 0.4，且 A、B 独立。P(A 且 B) =",
           options: [
             { key: "A", text: "0.12" },
             { key: "B", text: "0.7" },
@@ -234,7 +224,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Quadratic equations",
           stem: "Solve x<sup>2</sup> + x − 6 = 0.",
-          stemZh: "求解 x<sup>2</sup> + x − 6 = 0。",
           blanks: [
             {
               id: "q11a",
@@ -261,7 +250,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Polynomials",
           stem: "The remainder when x<sup>3</sup> − 8 is divided by x − 2 is",
-          stemZh: "x<sup>3</sup> − 8 除以 x − 2 的余数是",
           blanks: [{ id: "q12a", answer: "0", accepted: ["0"] }],
           answer: "0",
           explanation: "f(2) = 8 − 8 = 0. So x − 2 is a factor.",
@@ -273,7 +261,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Indices",
           stem: "If 2<sup>x</sup> = 16, then x =",
-          stemZh: "若 2<sup>x</sup> = 16，则 x =",
           blanks: [{ id: "q13a", answer: "4", accepted: ["4"] }],
           answer: "4",
           explanation: "16 = 2<sup>4</sup>.",
@@ -285,7 +272,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Sequences",
           stem: "The sum of the first 10 terms of 5, 8, 11, … is",
-          stemZh: "等差数列 5、8、11、… 的前 10 项和是",
           blanks: [{ id: "q14a", answer: "185", accepted: ["185"] }],
           answer: "185",
           explanation: "S<sub>10</sub> = 10/2 × [2×5 + 9×3] = 5 × 37 = 185.",
@@ -297,7 +283,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Coordinate geometry",
           stem: "The midpoint of (2, 3) and (8, 7) is",
-          stemZh: "(2, 3) 与 (8, 7) 的中点是",
           blanks: [
             {
               id: "q15a",
@@ -315,7 +300,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Logarithms",
           stem: "log<sub>2</sub> 32 =",
-          stemZh: "log<sub>2</sub> 32 =",
           blanks: [{ id: "q16a", answer: "5", accepted: ["5"] }],
           answer: "5",
           explanation: "2<sup>5</sup> = 32.",
@@ -327,7 +311,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Coordinate geometry",
           stem: "The equation of the line through (0, 2) with slope 3 is y =",
-          stemZh: "过 (0, 2)、斜率 3 的直线方程是 y =",
           blanks: [
             {
               id: "q17a",
@@ -345,7 +328,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Statistics",
           stem: "The range of 3, 7, 7, 10, 13 is",
-          stemZh: "3、7、7、10、13 的极差是",
           blanks: [{ id: "q18a", answer: "10", accepted: ["10"] }],
           answer: "10",
           explanation: "13 − 3 = 10.",
@@ -357,7 +339,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Trigonometry",
           stem: "cos 60° =",
-          stemZh: "cos 60° =",
           blanks: [
             { id: "q19a", answer: "1/2", accepted: ["1/2", "0.5"] },
           ],
@@ -371,7 +352,6 @@ export const paper5: Paper = {
           marks: 2,
           skill: "Functions",
           stem: "The inverse of y = 2x − 1 is y =",
-          stemZh: "y = 2x − 1 的反函数是 y =",
           blanks: [
             {
               id: "q20a",
@@ -398,7 +378,6 @@ export const paper5: Paper = {
           skill: "Quadratic equations",
           lines: 7,
           stem: "Solve x<sup>2</sup> − 3x − 10 = 0 by the quadratic formula.",
-          stemZh: "用求根公式求解 x<sup>2</sup> − 3x − 10 = 0。",
           answer: "x = 5 or x = −2",
           explanation: "Δ = 9 + 40 = 49. x = (3 ± 7)/2 = 5 or −2.",
           marking: "Discriminant 2 marks; both roots 4 marks.",
@@ -411,7 +390,6 @@ export const paper5: Paper = {
           skill: "Polynomials",
           lines: 6,
           stem: "Find the remainder when 2x<sup>3</sup> − 3x + 5 is divided by x + 1.",
-          stemZh: "求 2x<sup>3</sup> − 3x + 5 除以 x + 1 的余数。",
           answer: "6",
           explanation: "f(−1) = −2 + 3 + 5 = 6.",
           marking: "Substitute x = −1, 3 marks; value 3 marks.",
@@ -424,7 +402,6 @@ export const paper5: Paper = {
           skill: "Coordinate geometry",
           lines: 7,
           stem: "Find the equation of the straight line through A(1, 2) and B(5, 8).",
-          stemZh: "求过 A(1, 2) 和 B(5, 8) 的直线方程。",
           answer: "y − 2 = (3/2)(x − 1)  or  3x − 2y + 1 = 0",
           explanation: "Slope = 6/4 = 3/2. y − 2 = (3/2)(x − 1).",
           marking: "Slope 3 marks; equation 3 marks.",
@@ -437,7 +414,6 @@ export const paper5: Paper = {
           skill: "Trigonometry",
           lines: 6,
           stem: "In △ABC, ∠C = 90° and ∠A = 30°. AB = 10 cm. Find BC.",
-          stemZh: "在 △ABC 中，∠C = 90°，∠A = 30°。AB = 10 cm。求 BC。",
           answer: "5 cm",
           explanation: "AB is the hypotenuse. BC is opposite 30°, so BC = 5.",
           marking: "Identify hypotenuse 2 marks; 5 cm 4 marks.",
@@ -450,7 +426,6 @@ export const paper5: Paper = {
           skill: "Sequences",
           lines: 6,
           stem: "A geometric sequence has first term 3 and common ratio 2. Find S<sub>6</sub>.",
-          stemZh: "等比数列首项 3，公比 2。求 S<sub>6</sub>。",
           answer: "189",
           explanation: "S<sub>6</sub> = 3(2<sup>6</sup> − 1)/(2 − 1) = 3 × 63 = 189.",
           marking: "Formula 3 marks; 189 3 marks.",
@@ -471,7 +446,6 @@ export const paper5: Paper = {
           skill: "Quadratic equations",
           lines: 8,
           stem: `The length of a rectangle is 3 cm more than its width. The area is 40 cm<sup>2</sup>.<br/>(a) Let the width be w cm. Write an equation in w.<br/>(b) Find the width and the length.`,
-          stemZh: `长方形的长比宽多 3 cm，面积 40 cm<sup>2</sup>。<br/>（a）设宽为 w cm，列出关于 w 的方程。<br/>（b）求宽和长。`,
           answer: "(a) w(w + 3) = 40; (b) width 5 cm, length 8 cm",
           explanation: "w² + 3w − 40 = 0, (w + 8)(w − 5) = 0, w = 5 (positive).",
           marking: "(a) 4 marks; (b) 6 marks.",
@@ -484,7 +458,6 @@ export const paper5: Paper = {
           skill: "Coordinate geometry",
           lines: 8,
           stem: `A circle has centre (2, −1) and radius 5.<br/>(a) Write the equation of the circle.<br/>(b) Show that the point (5, 3) lies on the circle.`,
-          stemZh: `圆的圆心是 (2, −1)，半径 5。<br/>（a）写出圆的方程。<br/>（b）证明点 (5, 3) 在圆上。`,
           answer: "(a) (x − 2)² + (y + 1)² = 25; (b) 3² + 4² = 25",
           explanation: "(5 − 2)² + (3 + 1)² = 9 + 16 = 25.",
           marking: "(a) 5 marks; (b) 5 marks.",
@@ -497,7 +470,6 @@ export const paper5: Paper = {
           skill: "Trigonometry",
           lines: 8,
           stem: `The sides of a triangle are 5 cm, 5√3 cm and 10 cm.<br/>(a) Show that the triangle is right-angled.<br/>(b) Find the area of the triangle.`,
-          stemZh: `三角形三边为 5 cm、5√3 cm 和 10 cm。<br/>（a）证明这是直角三角形。<br/>（b）求面积。`,
           answer: "(a) 5² + (5√3)² = 100 = 10²; (b) 12.5√3 cm²",
           explanation: "30-60-90. Area = (1/2)×5×5√3 = 25√3/2.",
           marking: "(a) 5 marks; (b) 5 marks.",
@@ -519,7 +491,6 @@ export const paper5: Paper = {
           skill: "Logarithms",
           lines: 6,
           stem: "Solve log<sub>2</sub> x + log<sub>2</sub> (x − 2) = 3, where x &gt; 2.",
-          stemZh: "解 log<sub>2</sub> x + log<sub>2</sub> (x − 2) = 3，其中 x &gt; 2。",
           answer: "x = 4",
           explanation: "log<sub>2</sub>[x(x − 2)] = 3, x(x − 2) = 8, x² − 2x − 8 = 0, (x − 4)(x + 2) = 0. x = 4.",
           marking: "Combine logs 2 marks; quadratic 2 marks; reject x = −2, 1 mark.",
@@ -532,7 +503,6 @@ export const paper5: Paper = {
           skill: "Inequalities",
           lines: 6,
           stem: "Solve x<sup>2</sup> − 5x + 6 &lt; 0.",
-          stemZh: "解不等式 x<sup>2</sup> − 5x + 6 &lt; 0。",
           answer: "2 &lt; x &lt; 3",
           explanation: "(x − 2)(x − 3) &lt; 0, so 2 &lt; x &lt; 3.",
           marking: "Factors 2 marks; interval 3 marks.",
