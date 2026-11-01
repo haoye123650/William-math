@@ -23,7 +23,7 @@ export default function HomePage() {
             DSE Mathematics · 2026–2027
           </p>
           <h1 className="font-serif text-4xl leading-tight font-semibold">
-            Yin Kin Hei
+            尹健熙
             <br />
             Pui Kiu Mathematics
           </h1>

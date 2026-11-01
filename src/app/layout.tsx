@@ -16,9 +16,9 @@ const serif = Noto_Serif_SC({
 });
 
 export const metadata: Metadata = {
-  title: "Yin Kin Hei · Pui Kiu Mathematics",
+  title: "尹健熙 · Pui Kiu Mathematics",
   description:
-    "Yin Kin Hei Pui Kiu Mathematics: S.1 DSE diagnostic paper, with online sitting, print, and mark scheme.",
+    "尹健熙 Pui Kiu Mathematics: S.1 DSE diagnostic paper, with online sitting, print, and mark scheme.",
 };
 
 export default function RootLayout({
