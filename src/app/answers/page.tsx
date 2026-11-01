@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { RedirectTo } from "@/components/redirect-to";
 
 export default function AnswersIndexPage() {
-  redirect("/answers/1");
+  return <RedirectTo href="/answers/1" />;
 }

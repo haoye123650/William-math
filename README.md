@@ -2,6 +2,8 @@
 
 DSE-style mathematics papers for a Pui Kiu student. Tests 1–3 are junior secondary. Tests 4–6 step up through S.3, S.4 and Paper 1 style. Questions are original, written to the HKEAA syllabus — they are not copies of any year’s paper.
 
+Public site: [https://haoye123650.github.io/William-math/](https://haoye123650.github.io/William-math/)
+
 | Paper | Level | Difficulty | Time |
 | --- | --- | --- | --- |
 | Test 1 | S.1 diagnostic | ★☆☆☆☆ | 70 min |
@@ -25,3 +27,21 @@ Open [http://127.0.0.1:45217](http://127.0.0.1:45217).
 - `/paper/1` … `/paper/6` sit a paper
 - `/print/1` blank paper
 - `/answers/1` mark scheme
+
+## GitHub Pages
+
+The site is a static export. `docs/` is the folder GitHub Pages serves.
+
+1. Push `main` to GitHub.
+2. In the repository: **Settings → Pages**.
+3. Source: **Deploy from a branch**.
+4. Branch: `main`, folder: `/docs`.
+5. Save, then open `https://haoye123650.github.io/William-math/`.
+
+After changing questions, rebuild the Pages folder:
+
+```bash
+npm run build:pages
+```
+
+Then commit `docs/` and push.

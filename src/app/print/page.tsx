@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { RedirectTo } from "@/components/redirect-to";
 
 export default function PrintIndexPage() {
-  redirect("/print/1");
+  return <RedirectTo href="/print/1" />;
 }

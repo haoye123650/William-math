@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { ExamTake } from "@/components/exam-take";
 import { getPaper, paperIds } from "@/lib/papers";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return paperIds().map((id) => ({ id }));
 }

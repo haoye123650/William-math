@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { RedirectTo } from "@/components/redirect-to";
 
 export default function PaperIndexPage() {
-  redirect("/paper/1");
+  return <RedirectTo href="/paper/1" />;
 }
