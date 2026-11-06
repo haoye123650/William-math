@@ -30,7 +30,7 @@ export default function HomePage() {
           <p className="max-w-xl text-base leading-7 text-muted-foreground">
             Six papers, each 100 marks. Tests 1–3 are junior secondary.
             Tests 4–6 step up through S.3, S.4 and DSE Paper 1 style.
-            Calculators are not allowed. Mark schemes are on a separate page.
+            Calculators are not allowed. The mark scheme opens after you submit.
           </p>
         </header>
 
@@ -43,9 +43,7 @@ export default function HomePage() {
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                    <p className="font-serif text-lg font-semibold">
-                      Start the Test {paper.id}
-                    </p>
+                    <p className="font-serif text-lg font-semibold">{paper.title}</p>
                     <Stars count={paper.stars} />
                   </div>
                   <p className="mt-1 text-sm text-muted-foreground">
@@ -57,7 +55,7 @@ export default function HomePage() {
                     nativeButton={false}
                     render={<Link href={`/paper/${paper.id}`} />}
                   >
-                    Start the Test {paper.id}
+                    Start
                   </Button>
                   <Button
                     variant="outline"
@@ -65,13 +63,6 @@ export default function HomePage() {
                     render={<Link href={`/print/${paper.id}`} />}
                   >
                     Print
-                  </Button>
-                  <Button
-                    variant="secondary"
-                    nativeButton={false}
-                    render={<Link href={`/answers/${paper.id}`} />}
-                  >
-                    Mark scheme
                   </Button>
                 </div>
               </div>

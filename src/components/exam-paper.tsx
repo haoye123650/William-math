@@ -2,12 +2,20 @@
 
 import { Check, Minus, X } from "lucide-react";
 import { TriangleDiagram } from "@/components/diagrams";
+import { figureStatus } from "@/lib/figures";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { gradeQuestion, type QuestionStatus } from "@/lib/grade";
-import type { AnswersState, Paper, Question, Section } from "@/lib/papers/types";
+import {
+  curriculumTag,
+  type AnswersState,
+  type CurriculumTag,
+  type Paper,
+  type Question,
+  type Section,
+} from "@/lib/papers/types";
 
 export type ExamMode = "take" | "print" | "answers";
 
@@ -66,29 +74,57 @@ function StatusBadge({ status }: { status: QuestionStatus }) {
   );
 }
 
+function QuestionFigure({ question }: { question: Question }) {
+  const status = figureStatus(question);
+  if (status === "none") return null;
+  if (status === "triangle") {
+    return (
+      <div className="rounded-lg border border-border bg-white/60 p-3">
+        <TriangleDiagram />
+      </div>
+    );
+  }
+  return (
+    <div
+      role="alert"
+      className="rounded-lg border border-red-500 bg-red-50 px-3 py-3 text-sm font-medium text-red-900"
+    >
+      Missing figure{question.diagram ? ` (${question.diagram})` : ""}. This question
+      cannot be answered until its diagram is on the page.
+    </div>
+  );
+}
+
 function QuestionBlock({
   question,
   mode,
   reviewed,
   value,
   onChange,
+  levelTag,
+  lockedKeys,
 }: {
   question: Question;
   mode: ExamMode;
   reviewed?: boolean;
   value?: AnswersState;
   onChange?: (key: string, next: string) => void;
+  levelTag?: CurriculumTag | null;
+  lockedKeys?: string[];
 }) {
   const showKey = mode === "answers";
   const answers = value ?? {};
   const result = reviewed ? gradeQuestion(question, answers) : null;
   const status = result?.status;
+  const locked = new Set(lockedKeys ?? []);
+  const choiceLocked = locked.has(question.id);
   const interactive = mode === "take" && !reviewed;
 
   return (
     <article
+      id={`q-${question.id}`}
       className={cn(
-        "break-inside-avoid space-y-3 rounded-xl py-4 print:rounded-none",
+        "scroll-mt-28 break-inside-avoid space-y-3 rounded-xl py-4 print:rounded-none",
         reviewed && status === "correct" && "border border-emerald-300 bg-emerald-50/70 px-3 print:border print:bg-emerald-50",
         reviewed && status === "incorrect" && "border border-red-300 bg-red-50/70 px-3 print:border print:bg-red-50",
         reviewed && status === "partial" && "border border-amber-300 bg-amber-50/70 px-3 print:border print:bg-amber-50",
@@ -105,6 +141,15 @@ function QuestionBlock({
               <Stem html={question.stem} />
             </div>
             <div className="flex shrink-0 flex-wrap items-center justify-end gap-2">
+              {levelTag ? <Badge variant="secondary">{levelTag}</Badge> : null}
+              {reviewed && (status === "incorrect" || status === "partial") ? (
+                <a
+                  href="#review"
+                  className="print:hidden text-xs font-medium underline underline-offset-2"
+                >
+                  Back to review
+                </a>
+              ) : null}
               {reviewed && status ? <StatusBadge status={status} /> : null}
               <span className="text-sm text-muted-foreground">
                 ({question.marks} marks)
@@ -112,11 +157,7 @@ function QuestionBlock({
             </div>
           </div>
 
-          {question.diagram === "triangle" ? (
-            <div className="rounded-lg border border-border bg-white/60 p-3">
-              <TriangleDiagram />
-            </div>
-          ) : null}
+          <QuestionFigure question={question} />
 
           {question.type === "choice" && question.options ? (
             <div className="grid gap-2 sm:grid-cols-2">
@@ -128,8 +169,11 @@ function QuestionBlock({
                   <button
                     key={option.key}
                     type="button"
-                    disabled={!interactive}
-                    onClick={() => onChange?.(question.id, option.key)}
+                    disabled={!interactive || choiceLocked}
+                    onClick={() => {
+                      if (!interactive || choiceLocked) return;
+                      onChange?.(question.id, option.key);
+                    }}
                     className={cn(
                       "flex items-start gap-2 rounded-lg border px-3 py-2 text-left text-sm transition",
                       interactive && "hover:border-foreground/40 hover:bg-accent",
@@ -157,6 +201,9 @@ function QuestionBlock({
                     {reviewed && !selected && isAnswer ? (
                       <Check className="mt-0.5 size-4 shrink-0 text-emerald-700" />
                     ) : null}
+                    {choiceLocked && selected && !reviewed ? (
+                      <span className="text-xs font-medium text-muted-foreground">Kept</span>
+                    ) : null}
                   </button>
                 );
               })}
@@ -167,8 +214,13 @@ function QuestionBlock({
             <div className="flex flex-col gap-3">
               {question.blanks.map((blank) => {
                 const blankOk = result?.blankResults[blank.id];
+                const blankLocked = locked.has(blank.id);
                 return (
-                  <label key={blank.id} className="flex min-w-[10rem] flex-wrap items-center gap-2">
+                  <label
+                    key={blank.id}
+                    id={`blank-${blank.id}`}
+                    className="scroll-mt-28 flex min-w-[10rem] flex-wrap items-center gap-2"
+                  >
                     {blank.label ? (
                       <span className="text-sm text-muted-foreground">
                         {blank.label}
@@ -177,8 +229,11 @@ function QuestionBlock({
                     {mode === "take" ? (
                       <Input
                         value={answers[blank.id] ?? ""}
-                        readOnly={reviewed}
-                        onChange={(event) => onChange?.(blank.id, event.target.value)}
+                        readOnly={reviewed || blankLocked}
+                        onChange={(event) => {
+                          if (blankLocked) return;
+                          onChange?.(blank.id, event.target.value);
+                        }}
                         className={cn(
                           "h-9 bg-white",
                           reviewed && blankOk && "border-emerald-600 bg-emerald-50 text-emerald-950",
@@ -199,6 +254,9 @@ function QuestionBlock({
                         Answer: {blank.answer}
                       </span>
                     ) : null}
+                    {blankLocked && !reviewed ? (
+                      <span className="text-xs font-medium text-muted-foreground">Kept</span>
+                    ) : null}
                   </label>
                 );
               })}
@@ -210,11 +268,17 @@ function QuestionBlock({
               <div className="space-y-2">
                 <Textarea
                   value={answers[question.id] ?? ""}
-                  readOnly={reviewed}
-                  onChange={(event) => onChange?.(question.id, event.target.value)}
+                  readOnly={reviewed || locked.has(question.id)}
+                  onChange={(event) => {
+                    if (locked.has(question.id)) return;
+                    onChange?.(question.id, event.target.value);
+                  }}
                   className="min-h-32 bg-white font-serif"
                   placeholder="Write your working and answer here"
                 />
+                {locked.has(question.id) && !reviewed ? (
+                  <p className="text-xs font-medium text-muted-foreground">Kept</p>
+                ) : null}
                 {reviewed ? (
                   <p className="text-sm text-muted-foreground">
                     This question is marked by the teacher.
@@ -224,6 +288,15 @@ function QuestionBlock({
             ) : (
               <Lines count={question.lines ?? 6} />
             )
+          ) : null}
+
+          {reviewed && !showKey ? (
+            <div className="rounded-md border border-border bg-white/80 px-3 py-2 text-sm leading-relaxed">
+              <p>
+                <span className="font-medium">Notes: </span>
+                <span dangerouslySetInnerHTML={{ __html: question.explanation }} />
+              </p>
+            </div>
           ) : null}
 
           {showKey ? (
@@ -256,12 +329,16 @@ function SectionBlock({
   reviewed,
   value,
   onChange,
+  levelTag,
+  lockedKeys,
 }: {
   section: Section;
   mode: ExamMode;
   reviewed?: boolean;
   value?: AnswersState;
   onChange?: (key: string, next: string) => void;
+  levelTag?: CurriculumTag | null;
+  lockedKeys?: string[];
 }) {
   return (
     <section className="mt-8">
@@ -286,6 +363,8 @@ function SectionBlock({
             reviewed={reviewed}
             value={value}
             onChange={onChange}
+            levelTag={levelTag}
+            lockedKeys={lockedKeys}
           />
         ))}
       </div>
@@ -369,6 +448,7 @@ export function ExamPaper({
   answers,
   onAnswer,
   reviewed,
+  lockedKeys,
 }: {
   paper: Paper;
   mode: ExamMode;
@@ -377,7 +457,9 @@ export function ExamPaper({
   answers?: AnswersState;
   onAnswer?: (key: string, next: string) => void;
   reviewed?: boolean;
+  lockedKeys?: string[];
 }) {
+  const levelTag = curriculumTag(paper.level);
   return (
     <div className="exam-sheet mx-auto max-w-3xl bg-[#fbf7ef] px-5 py-8 text-foreground shadow-sm sm:px-10 print:max-w-none print:bg-white print:px-0 print:py-0 print:shadow-none">
       <ExamHeader paper={paper} mode={mode} name={name} onName={onName} reviewed={reviewed} />
@@ -389,6 +471,8 @@ export function ExamPaper({
           reviewed={reviewed}
           value={answers}
           onChange={onAnswer}
+          levelTag={levelTag}
+          lockedKeys={lockedKeys}
         />
       ))}
       {mode === "answers" ? (
