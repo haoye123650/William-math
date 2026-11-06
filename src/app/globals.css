@@ -151,6 +151,47 @@
   }
 }
 
+.theme-english {
+  --background: oklch(0.965 0.012 255);
+  --foreground: oklch(0.24 0.04 262);
+  --card: oklch(0.995 0.004 250);
+  --card-foreground: oklch(0.24 0.04 262);
+  --primary: oklch(0.32 0.09 262);
+  --primary-foreground: oklch(0.98 0.008 250);
+  --secondary: oklch(0.93 0.02 255);
+  --secondary-foreground: oklch(0.28 0.04 262);
+  --muted: oklch(0.94 0.012 255);
+  --muted-foreground: oklch(0.42 0.03 262);
+  --accent: oklch(0.94 0.03 40);
+  --accent-foreground: oklch(0.28 0.04 262);
+  --border: oklch(0.86 0.02 255);
+  --input: oklch(0.78 0.02 255);
+  --ring: oklch(0.45 0.08 262);
+  --desk: oklch(0.94 0.015 255);
+  --sheet: oklch(0.995 0.004 250);
+  --board: oklch(0.22 0.055 262);
+  --board-foreground: oklch(0.97 0.01 250);
+  --mark: oklch(0.64 0.16 38);
+}
+
+.passage-html strong {
+  color: var(--primary);
+  font-weight: 650;
+}
+
+.jump-flash {
+  animation: jump-flash 1.5s ease;
+}
+
+@keyframes jump-flash {
+  0% {
+    background: oklch(0.92 0.06 70);
+  }
+  100% {
+    background: var(--card);
+  }
+}
+
 ::selection {
   background: oklch(0.88 0.04 175);
 }

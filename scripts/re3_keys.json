@@ -1,0 +1,46 @@
+{
+  "1-a": {
+    "before-a1": "T",
+    "before-a2": "F",
+    "before-a3": "T",
+    "before-a4": "T",
+    "comp-a1": "b",
+    "comp-a2": "c",
+    "comp-a3": "b",
+    "comp-a4": "a",
+    "comp-a5": "d",
+    "comp-b": [
+      "e",
+      "b",
+      "a",
+      "c"
+    ],
+    "skill-a": [
+      "a",
+      "b"
+    ],
+    "skill-b": [
+      "d",
+      "e",
+      "b",
+      "c",
+      "a"
+    ],
+    "skill-c1": "F",
+    "vocab-a": [
+      "established",
+      "victory",
+      "defeated",
+      "competitors",
+      "responsible"
+    ],
+    "vocab-b1": "a",
+    "vocab-b2": "b",
+    "vocab-b3": "b",
+    "vocab-b4": "a",
+    "vocab-c1": "uniform",
+    "vocab-c2": "unite",
+    "vocab-c3": "unique",
+    "vocab-c4": "universal"
+  }
+}
