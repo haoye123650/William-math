@@ -75,6 +75,22 @@ export function getServerExamSnapshot(): SavedExam {
   return emptyServer;
 }
 
+export type ExamStatus = "not-started" | "in-progress" | "submitted";
+
+/** Read progress for the course index. Does not create or start a sitting. */
+export function peekExamStatus(paperId: string): ExamStatus {
+  if (typeof window === "undefined") return "not-started";
+  try {
+    const raw = localStorage.getItem(storageKey(paperId));
+    if (!raw) return "not-started";
+    const parsed = JSON.parse(raw) as Partial<SavedExam>;
+    if (parsed.submitted) return "submitted";
+    return "in-progress";
+  } catch {
+    return "not-started";
+  }
+}
+
 export function patchExam(paperId: string, partial: Partial<SavedExam>) {
   const current = readStorage(paperId);
   const next: SavedExam = {

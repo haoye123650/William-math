@@ -4,6 +4,7 @@ import { useMemo, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ExamBar } from "@/components/exam-bar";
 import { ExamPaper } from "@/components/exam-paper";
 import { matchesAnswer } from "@/lib/grade";
 import {
@@ -20,6 +21,23 @@ function formatTime(elapsed: number, durationMin: number) {
   const m = Math.floor(remain / 60);
   const s = remain % 60;
   return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+}
+
+function countParts(paper: Paper, answers: AnswersState) {
+  let total = 0;
+  let done = 0;
+  for (const question of allQuestions(paper)) {
+    if (question.type === "fill" && question.blanks) {
+      for (const blank of question.blanks) {
+        total += 1;
+        if ((answers[blank.id] ?? "").trim()) done += 1;
+      }
+    } else {
+      total += 1;
+      if ((answers[question.id] ?? "").trim()) done += 1;
+    }
+  }
+  return { done, total };
 }
 
 function gradeObjective(paper: Paper, answers: AnswersState) {
@@ -72,12 +90,15 @@ function gradeObjective(paper: Paper, answers: AnswersState) {
   return { rows, got, total, bySkill };
 }
 
-export function ExamTake({ paper }: { paper: Paper }) {
-  const saved = useSyncExternalStore(
-    subscribeExam,
-    () => getExamSnapshot(paper.id),
-    getServerExamSnapshot
-  );
+function ExamClock({
+  startedAt,
+  durationMin,
+  submitted,
+}: {
+  startedAt: number;
+  durationMin: number;
+  submitted?: boolean;
+}) {
   const epochSec = useSyncExternalStore(
     (onStoreChange) => {
       const id = window.setInterval(onStoreChange, 1000);
@@ -86,39 +107,73 @@ export function ExamTake({ paper }: { paper: Paper }) {
     () => Math.floor(Date.now() / 1000),
     () => 0
   );
+  const elapsed = startedAt ? epochSec - Math.floor(startedAt / 1000) : 0;
+  const overtime = startedAt > 0 && elapsed >= durationMin * 60;
+  const label = submitted ? "Submitted" : overtime ? "Time up" : formatTime(elapsed, durationMin);
 
-  const elapsed = saved.startedAt
-    ? epochSec - Math.floor(saved.startedAt / 1000)
-    : 0;
-  const overtime = saved.startedAt > 0 && elapsed >= paper.durationMin * 60;
+  return (
+    <p
+      role="timer"
+      className={`font-mono text-lg tabular-nums max-sm:mr-auto ${overtime && !submitted ? "text-destructive" : ""}`}
+    >
+      {label}
+    </p>
+  );
+}
+
+function AnswerProgress({ done, total }: { done: number; total: number }) {
+  const pct = total === 0 ? 0 : Math.round((done / total) * 100);
+  return (
+    <div>
+      <div className="h-1.5 overflow-hidden rounded-full bg-muted" aria-hidden="true">
+        <div className="h-full rounded-full bg-primary" style={{ width: `${pct}%` }} />
+      </div>
+      <p className="mt-1 text-xs text-muted-foreground">
+        {done} of {total} parts answered
+      </p>
+    </div>
+  );
+}
+
+export function ExamTake({ paper }: { paper: Paper }) {
+  const saved = useSyncExternalStore(
+    subscribeExam,
+    () => getExamSnapshot(paper.id),
+    getServerExamSnapshot
+  );
   const result = useMemo(
     () => gradeObjective(paper, saved.answers),
     [paper, saved.answers]
   );
+  const progress = useMemo(
+    () => countParts(paper, saved.answers),
+    [paper, saved.answers]
+  );
+  const sections = paper.sections.map((section) => ({
+    id: section.id,
+    title: section.title,
+  }));
 
   return (
-    <div className="min-h-full bg-[#e8e0d2]">
-      <div className="print:hidden sticky top-0 z-20 border-b border-border bg-[#fbf7ef]/95 backdrop-blur">
-        <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-4 py-2">
-          <Button variant="ghost" nativeButton={false} render={<Link href="/" />}>
-            Back
-          </Button>
-          <p
-            className={`font-mono text-lg tabular-nums ${overtime && !saved.submitted ? "text-destructive" : ""}`}
-          >
-            {saved.submitted
-              ? "Submitted"
-              : overtime
-                ? "Time up"
-                : formatTime(elapsed, paper.durationMin)}
-          </p>
-          <div className="flex gap-2">
-            <Button variant="outline" onClick={() => window.print()}>
+    <div className="screen-desk flex min-h-full flex-1 flex-col bg-desk">
+      <ExamBar
+        title={paper.title}
+        subtitle={saved.submitted ? "Submitted · review your script" : "Sitting"}
+        sections={sections}
+        actions={
+          <>
+            <ExamClock
+              startedAt={saved.startedAt}
+              durationMin={paper.durationMin}
+              submitted={saved.submitted}
+            />
+            <Button variant="outline" className="bg-sheet" onClick={() => window.print()}>
               Print
             </Button>
             {saved.submitted ? (
               <Button
                 variant="outline"
+                className="bg-sheet"
                 onClick={() => resetExam(paper.id, saved.name)}
               >
                 Sit again
@@ -127,39 +182,63 @@ export function ExamTake({ paper }: { paper: Paper }) {
               <Button
                 onClick={() => {
                   patchExam(paper.id, { submitted: true });
-                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                  window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
                 }}
               >
                 Submit
               </Button>
             )}
-          </div>
-        </div>
-      </div>
+          </>
+        }
+        footer={
+          saved.submitted ? (
+            <p className="text-xs text-muted-foreground">
+              Objective score{" "}
+              <span className="font-semibold text-foreground tabular-nums">
+                {result.got}/{result.total}
+              </span>
+            </p>
+          ) : (
+            <AnswerProgress done={progress.done} total={progress.total} />
+          )
+        }
+      />
 
       {saved.submitted ? (
-        <div className="print:hidden mx-auto max-w-3xl px-4 py-4">
+        <div className="print:hidden mx-auto w-full max-w-3xl px-3 py-4 sm:px-4">
           <Card>
             <CardHeader>
               <CardTitle className="font-serif text-xl">Objective items marked</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-3 text-sm leading-relaxed">
+            <CardContent className="space-y-4 text-sm leading-relaxed">
               <p>
                 Sections A and B:
-                <span className="mx-1 font-serif text-2xl font-semibold">
+                <span className="mx-1 font-serif text-2xl font-semibold tabular-nums">
                   {result.got}
                 </span>
                 / {result.total}. Green with a tick is correct; red is wrong.
                 Fill-in blanks are marked one by one. Sections C, D and E are
                 marked by the teacher.
               </p>
-              <div className="flex flex-wrap gap-2">
-                {Object.entries(result.bySkill).map(([skill, score]) => (
-                  <span key={skill} className="rounded-full bg-muted px-2.5 py-1">
-                    {skill} {score.got}/{score.total}
-                  </span>
-                ))}
-              </div>
+              <ul className="space-y-2.5">
+                {Object.entries(result.bySkill).map(([skill, score]) => {
+                  const pct = score.total === 0 ? 0 : Math.round((score.got / score.total) * 100);
+                  return (
+                    <li key={skill}>
+                      <div className="flex items-baseline justify-between gap-3">
+                        <span>{skill}</span>
+                        <span className="tabular-nums text-muted-foreground">
+                          {score.got}/{score.total}
+                        </span>
+                      </div>
+                      <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-muted" aria-hidden="true">
+                        <div className="h-full rounded-full bg-primary" style={{ width: `${pct}%` }} />
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
               <p className="text-muted-foreground">
                 Missed objective items:
                 {result.rows.filter((row) => !row.ok).length === 0
@@ -193,6 +272,9 @@ export function ExamTake({ paper }: { paper: Paper }) {
             if (saved.submitted) return;
             patchExam(paper.id, { answers: { ...saved.answers, [key]: next } });
           }}
+          scoreLabel={
+            saved.submitted ? `${result.got} / ${result.total} objective` : undefined
+          }
         />
       </div>
     </div>
