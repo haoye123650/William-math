@@ -18,7 +18,7 @@ function stemHtml(html: string) {
 function Stem({ html }: { html: string }) {
   return (
     <div
-      className="stem leading-[1.85]"
+      className="stem"
       dangerouslySetInnerHTML={{ __html: stemHtml(html) }}
     />
   );
@@ -26,9 +26,9 @@ function Stem({ html }: { html: string }) {
 
 function Lines({ count }: { count: number }) {
   return (
-    <div className="mt-3 space-y-4 print:space-y-5">
+    <div className="mt-4 space-y-6 print:space-y-7" aria-hidden="true">
       {Array.from({ length: count }).map((_, index) => (
-        <div key={index} className="h-0 border-b border-dashed border-foreground/25" />
+        <div key={index} className="h-0 border-b border-dashed border-foreground/35" />
       ))}
     </div>
   );
@@ -37,7 +37,7 @@ function Lines({ count }: { count: number }) {
 function StatusBadge({ status }: { status: QuestionStatus }) {
   if (status === "correct") {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-600 px-2 py-0.5 text-xs font-medium text-white">
+      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-800 px-2 py-0.5 text-xs font-medium text-white">
         <Check className="size-3.5" />
         Correct
       </span>
@@ -45,7 +45,7 @@ function StatusBadge({ status }: { status: QuestionStatus }) {
   }
   if (status === "partial") {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-amber-500 px-2 py-0.5 text-xs font-medium text-white">
+      <span className="inline-flex items-center gap-1 rounded-full bg-amber-800 px-2 py-0.5 text-xs font-medium text-white">
         <Minus className="size-3.5" />
         Partial
       </span>
@@ -53,7 +53,7 @@ function StatusBadge({ status }: { status: QuestionStatus }) {
   }
   if (status === "incorrect") {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-red-600 px-2 py-0.5 text-xs font-medium text-white">
+      <span className="inline-flex items-center gap-1 rounded-full bg-red-800 px-2 py-0.5 text-xs font-medium text-white">
         <X className="size-3.5" />
         Incorrect
       </span>
@@ -88,38 +88,37 @@ function QuestionBlock({
   return (
     <article
       className={cn(
-        "break-inside-avoid space-y-3 rounded-xl py-4 print:rounded-none",
-        reviewed && status === "correct" && "border border-emerald-300 bg-emerald-50/70 px-3 print:border print:bg-emerald-50",
-        reviewed && status === "incorrect" && "border border-red-300 bg-red-50/70 px-3 print:border print:bg-red-50",
-        reviewed && status === "partial" && "border border-amber-300 bg-amber-50/70 px-3 print:border print:bg-amber-50",
-        reviewed && status === "pending" && "px-0"
+        "break-inside-avoid border-b border-border py-5 last:border-b-0 print:rounded-none",
+        reviewed && status === "correct" && "border-l-[3px] border-l-emerald-800 bg-emerald-50/80 pr-3 pl-3 print:bg-emerald-50",
+        reviewed && status === "incorrect" && "border-l-[3px] border-l-red-800 bg-red-50/80 pr-3 pl-3 print:bg-red-50",
+        reviewed && status === "partial" && "border-l-[3px] border-l-amber-800 bg-amber-50/80 pr-3 pl-3 print:bg-amber-50"
       )}
     >
       <div className="flex items-start gap-3">
-        <span className="mt-0.5 w-8 shrink-0 font-serif text-lg font-semibold">
+        <span className="w-8 shrink-0 pt-0.5 text-right font-serif text-lg font-semibold tabular-nums">
           {question.no}.
         </span>
-        <div className="min-w-0 flex-1 space-y-3">
-          <div className="flex items-start justify-between gap-2">
+        <div className="min-w-0 flex-1 space-y-4">
+          <div className="flex items-start justify-between gap-3">
             <div className="min-w-0 flex-1">
               <Stem html={question.stem} />
             </div>
-            <div className="flex shrink-0 flex-wrap items-center justify-end gap-2">
+            <div className="flex shrink-0 flex-col items-end gap-1.5">
               {reviewed && status ? <StatusBadge status={status} /> : null}
-              <span className="text-sm text-muted-foreground">
+              <span className="text-sm text-muted-foreground tabular-nums">
                 ({question.marks} marks)
               </span>
             </div>
           </div>
 
           {question.diagram === "triangle" ? (
-            <div className="rounded-lg border border-border bg-white/60 p-3">
+            <div className="rounded-lg border border-border bg-white/70 p-3">
               <TriangleDiagram />
             </div>
           ) : null}
 
           {question.type === "choice" && question.options ? (
-            <div className="grid gap-2 sm:grid-cols-2">
+            <div className="grid gap-2 sm:grid-cols-2" role={interactive ? "group" : undefined} aria-label={interactive ? `Question ${question.no} choices` : undefined}>
               {question.options.map((option) => {
                 const selected = answers[question.id] === option.key;
                 const isAnswer = option.key === question.answer;
@@ -129,19 +128,23 @@ function QuestionBlock({
                     key={option.key}
                     type="button"
                     disabled={!interactive}
+                    aria-pressed={interactive ? selected : undefined}
                     onClick={() => onChange?.(question.id, option.key)}
                     className={cn(
-                      "flex items-start gap-2 rounded-lg border px-3 py-2 text-left text-sm transition",
-                      interactive && "hover:border-foreground/40 hover:bg-accent",
-                      selected && !reviewed && "border-foreground bg-accent",
-                      reviewed && selected && isAnswer && "border-emerald-600 bg-emerald-100 text-emerald-950",
-                      reviewed && selected && !isAnswer && "border-red-500 bg-red-100 text-red-950",
-                      reviewed && !selected && isAnswer && "border-emerald-600 bg-emerald-50 text-emerald-950",
-                      showAnswer && isAnswer && !reviewed && "border-emerald-700 bg-emerald-50",
-                      mode === "print" && "cursor-default border-dashed"
+                      "flex items-start gap-2 rounded-lg px-3 py-2.5 text-left text-sm transition disabled:opacity-100",
+                      "focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none",
+                      mode === "print"
+                        ? "cursor-default border border-transparent px-1 py-1.5"
+                        : "border border-border bg-white/80",
+                      interactive && "min-h-11 hover:border-primary/50 hover:bg-accent",
+                      selected && !reviewed && mode !== "print" && "border-primary bg-primary/10",
+                      reviewed && selected && isAnswer && "border-emerald-800 bg-emerald-100 text-emerald-950",
+                      reviewed && selected && !isAnswer && "border-red-800 bg-red-100 text-red-950",
+                      reviewed && !selected && isAnswer && "border-emerald-800 bg-emerald-50 text-emerald-950",
+                      showAnswer && isAnswer && !reviewed && "border-emerald-800 bg-emerald-50"
                     )}
                   >
-                    <span className="font-medium">{option.key}.</span>
+                    <span className="font-semibold">{option.key}.</span>
                     <span
                       className="stem flex-1"
                       dangerouslySetInnerHTML={{
@@ -149,13 +152,13 @@ function QuestionBlock({
                       }}
                     />
                     {reviewed && selected && isAnswer ? (
-                      <Check className="mt-0.5 size-4 shrink-0 text-emerald-700" />
+                      <Check className="mt-0.5 size-4 shrink-0 text-emerald-800" />
                     ) : null}
                     {reviewed && selected && !isAnswer ? (
-                      <X className="mt-0.5 size-4 shrink-0 text-red-600" />
+                      <X className="mt-0.5 size-4 shrink-0 text-red-800" />
                     ) : null}
                     {reviewed && !selected && isAnswer ? (
-                      <Check className="mt-0.5 size-4 shrink-0 text-emerald-700" />
+                      <Check className="mt-0.5 size-4 shrink-0 text-emerald-800" />
                     ) : null}
                   </button>
                 );
@@ -165,8 +168,13 @@ function QuestionBlock({
 
           {question.type === "fill" && question.blanks ? (
             <div className="flex flex-col gap-3">
-              {question.blanks.map((blank) => {
+              {question.blanks.map((blank, index) => {
                 const blankOk = result?.blankResults[blank.id];
+                const blankName = blank.label
+                  ? undefined
+                  : `Question ${question.no}${
+                      question.blanks && question.blanks.length > 1 ? `, blank ${index + 1}` : ""
+                    }`;
                 return (
                   <label key={blank.id} className="flex min-w-[10rem] flex-wrap items-center gap-2">
                     {blank.label ? (
@@ -179,22 +187,23 @@ function QuestionBlock({
                         value={answers[blank.id] ?? ""}
                         readOnly={reviewed}
                         onChange={(event) => onChange?.(blank.id, event.target.value)}
+                        aria-label={blankName}
                         className={cn(
-                          "h-9 bg-white",
-                          reviewed && blankOk && "border-emerald-600 bg-emerald-50 text-emerald-950",
-                          reviewed && !blankOk && "border-red-500 bg-red-50 text-red-950"
+                          "h-10 max-w-xs bg-white",
+                          reviewed && blankOk && "border-emerald-800 bg-emerald-50 text-emerald-950",
+                          reviewed && !blankOk && "border-red-800 bg-red-50 text-red-950"
                         )}
                       />
                     ) : (
-                      <span className="inline-flex min-h-9 min-w-28 flex-1 items-center border-b border-foreground/40 px-1">
+                      <span className="inline-flex min-h-9 min-w-28 flex-1 items-end border-b border-foreground/50 px-1 pb-0.5">
                         {showKey ? blank.answer : ""}
                       </span>
                     )}
                     {reviewed && blankOk ? (
-                      <Check className="size-4 text-emerald-700" />
+                      <Check className="size-4 text-emerald-800" />
                     ) : null}
                     {reviewed && !blankOk ? (
-                      <span className="text-sm text-red-700">
+                      <span className="text-sm text-red-800">
                         <X className="mr-1 inline size-4 align-text-bottom" />
                         Answer: {blank.answer}
                       </span>
@@ -212,8 +221,9 @@ function QuestionBlock({
                   value={answers[question.id] ?? ""}
                   readOnly={reviewed}
                   onChange={(event) => onChange?.(question.id, event.target.value)}
-                  className="min-h-32 bg-white font-serif"
+                  className="work-pad min-h-40 bg-white pt-0 font-serif"
                   placeholder="Write your working and answer here"
+                  aria-label={`Question ${question.no} working`}
                 />
                 {reviewed ? (
                   <p className="text-sm text-muted-foreground">
@@ -227,7 +237,7 @@ function QuestionBlock({
           ) : null}
 
           {showKey ? (
-            <div className="rounded-md border border-emerald-200 bg-emerald-50/80 px-3 py-2 text-sm leading-relaxed text-emerald-950">
+            <div className="mark-note rounded-r-md border border-emerald-200 border-l-[3px] border-l-emerald-800 bg-emerald-50/90 px-3 py-2.5 text-sm leading-relaxed text-emerald-950">
               <p>
                 <span className="font-medium">Answer: </span>
                 <span dangerouslySetInnerHTML={{ __html: question.answer }} />
@@ -264,20 +274,20 @@ function SectionBlock({
   onChange?: (key: string, next: string) => void;
 }) {
   return (
-    <section className="mt-8">
-      <div className="flex flex-wrap items-end justify-between gap-2 border-b border-foreground/20 pb-2">
-        <h2 className="font-serif text-xl font-semibold">
+    <section id={`section-${section.id}`} className="mt-10 scroll-mt-56">
+      <div className="section-bar flex flex-wrap items-end justify-between gap-x-4 gap-y-1 border-y-2 border-foreground px-0.5 py-2">
+        <h2 className="font-serif text-xl font-semibold tracking-tight">
           {section.title}
           {section.extra ? (
-            <Badge variant="secondary" className="ml-2 align-middle">
+            <Badge variant="outline" className="ml-2 align-middle">
               Not in the 100 marks
             </Badge>
           ) : null}
         </h2>
-        <p className="text-sm text-muted-foreground">{section.marks} marks</p>
+        <p className="text-sm font-medium tabular-nums">{section.marks} marks</p>
       </div>
-      <p className="mt-2 text-sm text-muted-foreground">{section.instruction}</p>
-      <div className="divide-y divide-border/70">
+      <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{section.instruction}</p>
+      <div>
         {section.questions.map((question) => (
           <QuestionBlock
             key={question.id}
@@ -299,60 +309,80 @@ export function ExamHeader({
   name,
   onName,
   reviewed,
+  scoreLabel,
 }: {
   paper: Paper;
   mode: ExamMode;
   name?: string;
   onName?: (value: string) => void;
   reviewed?: boolean;
+  scoreLabel?: string;
 }) {
   return (
-    <header className="border-b-2 border-foreground pb-5">
-      <p className="text-center text-sm tracking-[0.35em] text-muted-foreground">
-        Pui Kiu Mathematics · September 2026
-      </p>
-      <h1 className="mt-2 text-center font-serif text-3xl font-semibold tracking-wide">
+    <header className="border-b border-foreground/15 pb-6">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+        <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">
+          Pui Kiu Mathematics
+        </p>
+        <p className="text-xs text-muted-foreground">September 2026</p>
+      </div>
+      <h1 className="mt-3 text-center font-serif text-3xl leading-tight font-semibold tracking-tight sm:text-4xl">
         {paper.title}
       </h1>
-      <p className="mt-2 text-center text-sm text-muted-foreground">
-        {paper.totalMarks} marks · {paper.durationMin} minutes · Section E {paper.extraMarks} marks extra
-      </p>
-      <div className="mt-5 grid gap-3 text-sm sm:grid-cols-3">
+      <dl className="mx-auto mt-4 grid max-w-lg grid-cols-3 gap-2 text-center">
+        <div className="rounded-lg border border-border px-2 py-2">
+          <dt className="text-xs text-muted-foreground">Marks</dt>
+          <dd className="font-serif text-lg font-semibold tabular-nums">{paper.totalMarks}</dd>
+        </div>
+        <div className="rounded-lg border border-border px-2 py-2">
+          <dt className="text-xs text-muted-foreground">Minutes</dt>
+          <dd className="font-serif text-lg font-semibold tabular-nums">{paper.durationMin}</dd>
+        </div>
+        <div className="rounded-lg border border-border px-2 py-2">
+          <dt className="text-xs text-muted-foreground">Section E</dt>
+          <dd className="font-serif text-lg font-semibold tabular-nums">+{paper.extraMarks}</dd>
+        </div>
+      </dl>
+      <div className="mt-5 grid gap-4 border border-border px-3 py-3 text-sm sm:grid-cols-3">
         <label className="flex items-center gap-2">
-          <span className="shrink-0">Name</span>
+          <span className="shrink-0 font-medium">Name</span>
           {mode === "take" ? (
             <Input
               value={name ?? ""}
               readOnly={reviewed}
               onChange={(event) => onName?.(event.target.value)}
-              className="h-8 bg-white"
+              className="h-9 bg-white"
+              autoComplete="name"
             />
           ) : (
-            <span className="flex-1 border-b border-foreground/40">&nbsp;</span>
+            <span className="flex-1 border-b border-foreground/50">&nbsp;</span>
           )}
         </label>
         <div className="flex items-center gap-2">
-          <span className="shrink-0">School</span>
-          <span className="flex-1 border-b border-foreground/40 text-muted-foreground">
+          <span className="shrink-0 font-medium">School</span>
+          <span className="flex-1 border-b border-foreground/50 text-muted-foreground">
             Pui Kiu
           </span>
         </div>
-        <label className="flex items-center gap-2">
-          <span className="shrink-0">Score</span>
-          <span className="flex-1 border-b border-foreground/40">
-            {mode === "answers" ? "See each question" : ""}
+        <div className="flex items-center gap-2">
+          <span className="shrink-0 font-medium">Score</span>
+          <span className="flex-1 border-b border-foreground/50">
+            {scoreLabel ?? (mode === "answers" ? "See each question" : "")}
           </span>
-        </label>
+        </div>
       </div>
       {mode !== "answers" ? (
-        <ul className="mt-4 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
-          {paper.notes.map((note) => (
-            <li key={note}>{note}</li>
-          ))}
-          <li>Materials: {paper.materials}</li>
-        </ul>
+        <div className="instruction-box mt-4 rounded-lg border border-border bg-muted/50 px-4 py-3">
+          <p className="text-xs font-semibold tracking-[0.14em] uppercase">Instructions</p>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-relaxed text-muted-foreground">
+            {paper.notes.map((note) => (
+              <li key={note}>{note}</li>
+            ))}
+            <li>Materials: {paper.materials}</li>
+          </ul>
+        </div>
       ) : (
-        <p className="mt-4 text-sm text-muted-foreground">
+        <p className="instruction-box mt-4 rounded-lg border border-border bg-accent px-4 py-3 text-sm leading-relaxed text-accent-foreground">
           Teacher copy. Mark Sections A and B against the key. Award method marks in
           Sections C and D.
         </p>
@@ -369,6 +399,7 @@ export function ExamPaper({
   answers,
   onAnswer,
   reviewed,
+  scoreLabel,
 }: {
   paper: Paper;
   mode: ExamMode;
@@ -377,10 +408,18 @@ export function ExamPaper({
   answers?: AnswersState;
   onAnswer?: (key: string, next: string) => void;
   reviewed?: boolean;
+  scoreLabel?: string;
 }) {
   return (
-    <div className="exam-sheet mx-auto max-w-3xl bg-[#fbf7ef] px-5 py-8 text-foreground shadow-sm sm:px-10 print:max-w-none print:bg-white print:px-0 print:py-0 print:shadow-none">
-      <ExamHeader paper={paper} mode={mode} name={name} onName={onName} reviewed={reviewed} />
+    <div className="exam-sheet mx-auto max-w-3xl bg-sheet px-4 py-8 text-foreground sm:px-10 sm:py-10 print:max-w-none print:bg-white print:px-0 print:py-0 print:shadow-none">
+      <ExamHeader
+        paper={paper}
+        mode={mode}
+        name={name}
+        onName={onName}
+        reviewed={reviewed}
+        scoreLabel={scoreLabel}
+      />
       {paper.sections.map((section) => (
         <SectionBlock
           key={section.id}
@@ -394,23 +433,26 @@ export function ExamPaper({
       {mode === "answers" ? (
         <section className="mt-10 break-inside-avoid border-t border-foreground/20 pt-6">
           <h2 className="font-serif text-xl font-semibold">How to read the score</h2>
-          <ul className="mt-3 space-y-2 text-sm leading-relaxed">
+          <ul className="mt-3 divide-y divide-border border-y border-border">
             {paper.scoreBands.map((band) => (
-              <li key={band.range}>
-                <span className="font-medium">{band.range}: </span>
-                {band.note}
+              <li
+                key={band.range}
+                className="grid gap-1 py-2.5 text-sm leading-relaxed sm:grid-cols-[8.5rem_1fr] sm:gap-4"
+              >
+                <span className="font-serif font-semibold">{band.range}</span>
+                <span>{band.note}</span>
               </li>
             ))}
           </ul>
-          <h2 className="mt-6 font-serif text-xl font-semibold">When marking, watch</h2>
-          <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed">
+          <h2 className="mt-8 font-serif text-xl font-semibold">When marking, watch</h2>
+          <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed">
             {paper.tutorTips.map((tip) => (
               <li key={tip}>{tip}</li>
             ))}
           </ul>
         </section>
       ) : null}
-      <p className="mt-10 text-center text-xs text-muted-foreground">
+      <p className="mt-12 text-center text-xs tracking-wide text-muted-foreground">
         — End of paper —
       </p>
     </div>
