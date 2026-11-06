@@ -10,6 +10,14 @@ export type Blank = {
   accepted?: string[];
 };
 
+export type ImagePlacement = "above" | "beside";
+
+export type PaperAsset = {
+  id: string;
+  src: string;
+  alt: string;
+};
+
 export type Question = {
   id: string;
   no: string;
@@ -26,6 +34,10 @@ export type Question = {
   diagram?: "triangle" | "path";
   /** Visible level chip, such as S1. The stem should not repeat it. */
   levelTag?: string;
+  /** Ids into Paper.assets. Empty when this batch has no figure yet. */
+  assetIds?: string[];
+  /** Where a resolved figure sits. Null keeps the question as text only. */
+  imagePlacement?: ImagePlacement | null;
 };
 
 export type Section = {
@@ -63,7 +75,21 @@ export type Paper = {
   sections: Section[];
   scoreBands: { range: string; note: string }[];
   tutorTips: string[];
+  /** Figure catalog. Questions point at these with assetIds. */
+  assets?: PaperAsset[];
 };
+
+export function figuresFor(question: Question, catalog: PaperAsset[] | undefined) {
+  const placement = question.imagePlacement;
+  if (placement !== "above" && placement !== "beside") return [];
+  const ids = question.assetIds ?? [];
+  if (ids.length === 0 || !catalog?.length) return [];
+  const byId = new Map(catalog.map((asset) => [asset.id, asset]));
+  return ids.flatMap((id) => {
+    const asset = byId.get(id);
+    return asset?.src ? [asset] : [];
+  });
+}
 
 export function frac(n: string, d: string) {
   return `<span class="frac"><span>${n}</span><span>${d}</span></span>`;

@@ -9,8 +9,17 @@ type SourceItem = {
   prompt: string;
   choices?: { id: string; text: string }[];
   answer: string | boolean;
+  acceptedAnswers?: string[];
   topic: string;
   levelTag: string;
+  assetIds?: string[];
+  imagePlacement?: "above" | "beside" | null;
+};
+
+type SourceAsset = {
+  id: string;
+  src: string;
+  alt?: string;
 };
 
 type SourcePaper = {
@@ -22,6 +31,7 @@ type SourcePaper = {
     titleEn: string;
     items: SourceItem[];
   }[];
+  assets?: SourceAsset[];
 };
 
 const TOPICS: Record<string, string> = {
@@ -120,15 +130,10 @@ const SOLUTIONS: Record<string, Record<string, string>> = {
     B2: "3x² − 12x + 12 = 3(x² − 4x + 4) = 3(x − 2)². Write 3(x-2)^2.",
     B3: "Let the numbers be x and y with x > y. Then x + y = 20 and x − y = 6. Adding gives 2x = 26, so the larger number is 13.",
     B4: "If the side is a, then a√2 = 10√2, so a = 10 and the area is 100.",
-    B5: "5^(2 − 3 − (−1)) = 5^0. The value is also 1, and both forms are accepted.",
+    B5: "5^(2 − 3 − (−1)) = 5^0. That power equals 1. The keyed answer is 5^0.",
     B6: "2/3 = n/15, so 3n = 30 and n = 10.",
     B7: "[(n − 2) × 180] / n = 150 gives 30n = 360, so n = 12.",
   },
-};
-
-/** Extra accepted strings. Everything else is marked against the keyed answer only. */
-const EXTRA_ACCEPTED: Record<string, string[]> = {
-  "paper-03:B5": ["1", "5⁰", "5^0"],
 };
 
 const SHARED_NOTES = [
@@ -186,6 +191,10 @@ function toQuestion(sourceId: string, item: SourceItem): Question {
     throw new Error(`Unknown topic ${item.topic} on ${sourceId} ${item.id}`);
   }
   const stem = stemWithoutTag(item);
+  const figure = {
+    assetIds: item.assetIds ?? [],
+    imagePlacement: item.imagePlacement ?? null,
+  };
 
   if (item.interaction === "multiple-choice" || item.interaction === "true-false") {
     const options =
@@ -215,6 +224,7 @@ function toQuestion(sourceId: string, item: SourceItem): Question {
       options,
       answer,
       explanation,
+      ...figure,
     };
   }
 
@@ -223,7 +233,8 @@ function toQuestion(sourceId: string, item: SourceItem): Question {
   }
 
   const canonical = String(item.answer);
-  const accepted = [canonical, ...(EXTRA_ACCEPTED[`${sourceId}:${item.id}`] ?? [])];
+  const listed = (item.acceptedAnswers ?? []).map((value) => String(value)).filter(Boolean);
+  const accepted = [canonical, ...listed.filter((value) => value !== canonical)];
   return {
     id: item.id,
     no: item.id,
@@ -235,6 +246,7 @@ function toQuestion(sourceId: string, item: SourceItem): Question {
     blanks: [{ id: `${item.id}-a`, answer: canonical, accepted }],
     answer: canonical,
     explanation,
+    ...figure,
   };
 }
 
@@ -283,6 +295,11 @@ function hangQuiz(
     sections,
     scoreBands: bands(totalMarks),
     tutorTips: meta.tutorTips,
+    assets: (source.assets ?? []).map((asset) => ({
+      id: asset.id,
+      src: asset.src,
+      alt: asset.alt?.trim() || "Figure",
+    })),
   };
 }
 
@@ -324,7 +341,7 @@ export const juniorPaper03 = hangQuiz(paper03, {
     "A4: 5⁰ = 1, not 0.",
     "A9: write the expanded polynomial as x^2+2x-8.",
     "B2: factorise completely, including the common factor 3.",
-    "B5: 5^0 and 1 are both accepted. A different power is not.",
+    "B5: the question asks for a power of 5. The keyed answer is 5^0.",
     "B7: an interior angle of 150° gives n = 12.",
   ],
 });

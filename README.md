@@ -16,7 +16,7 @@ Public site: [https://haoye123650.github.io/William-math/](https://haoye123650.g
 | Junior Mixed Quiz Paper 02 | S.1–S.3 | ★★★☆☆ | 45 min |
 | Junior Mixed Quiz Paper 03 | S.1–S.3 | ★★★☆☆ | 50 min |
 
-Tests 1–6 are 100 marks each. Section E is extra. Each quiz question is 1 mark, and the question keeps its [S1], [S2] or [S3] level tag. Calculators are not allowed.
+Tests 1–6 are 100 marks each. Section E is extra. Each quiz question is 1 mark, and the question keeps its [S1], [S2] or [S3] level tag. A fill-in answer is marked by normalising it and matching the keyed answer. Forms listed in `acceptedAnswers` are accepted too. A question that mentions a figure still shows its text when no image is attached. Calculators are not allowed.
 
 ## Run locally
 
