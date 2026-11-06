@@ -30,18 +30,17 @@ Open [http://127.0.0.1:45217](http://127.0.0.1:45217).
 
 ## GitHub Pages
 
-The site is a static export. `docs/` is the folder GitHub Pages serves.
+GitHub Pages is the only host. The public site is [https://haoye123650.github.io/William-math/](https://haoye123650.github.io/William-math/). The app is a static export, and `docs/` is the folder Pages serves. `npm run build:pages` is the publish build: it writes `docs/`.
 
-1. Push `main` to GitHub.
-2. In the repository: **Settings → Pages**.
-3. Source: **Deploy from a branch**.
-4. Branch: `main`, folder: `/docs`.
-5. Save, then open `https://haoye123650.github.io/William-math/`.
+1. In the repository: **Settings → Pages**.
+2. Source: **Deploy from a branch**.
+3. Branch: `main`, folder: `/docs`.
+4. Save, then open `https://haoye123650.github.io/William-math/`.
 
-After changing questions, rebuild the Pages folder:
+After changing questions, rebuild and publish:
 
 ```bash
 npm run build:pages
 ```
 
-Then commit `docs/` and push.
+Then commit `docs/` and push `main`.
