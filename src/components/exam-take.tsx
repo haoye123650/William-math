@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ExamBar } from "@/components/exam-bar";
 import { ExamPaper } from "@/components/exam-paper";
-import { matchesAnswer } from "@/lib/grade";
+import { incorrectParts, matchesAnswer } from "@/lib/grade";
 import {
   getExamSnapshot,
   getServerExamSnapshot,
@@ -14,14 +14,7 @@ import {
   resetExam,
   subscribeExam,
 } from "@/lib/exam-store";
-import { allQuestions, type AnswersState, type Paper } from "@/lib/papers/types";
-
-function formatTime(elapsed: number, durationMin: number) {
-  const remain = Math.max(0, durationMin * 60 - elapsed);
-  const m = Math.floor(remain / 60);
-  const s = remain % 60;
-  return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
-}
+import { allQuestions, curriculumTag, type AnswersState, type Paper } from "@/lib/papers/types";
 
 function countParts(paper: Paper, answers: AnswersState) {
   let total = 0;
@@ -90,37 +83,6 @@ function gradeObjective(paper: Paper, answers: AnswersState) {
   return { rows, got, total, bySkill };
 }
 
-function ExamClock({
-  startedAt,
-  durationMin,
-  submitted,
-}: {
-  startedAt: number;
-  durationMin: number;
-  submitted?: boolean;
-}) {
-  const epochSec = useSyncExternalStore(
-    (onStoreChange) => {
-      const id = window.setInterval(onStoreChange, 1000);
-      return () => window.clearInterval(id);
-    },
-    () => Math.floor(Date.now() / 1000),
-    () => 0
-  );
-  const elapsed = startedAt ? epochSec - Math.floor(startedAt / 1000) : 0;
-  const overtime = startedAt > 0 && elapsed >= durationMin * 60;
-  const label = submitted ? "Submitted" : overtime ? "Time up" : formatTime(elapsed, durationMin);
-
-  return (
-    <p
-      role="timer"
-      className={`font-mono text-lg tabular-nums max-sm:mr-auto ${overtime && !submitted ? "text-destructive" : ""}`}
-    >
-      {label}
-    </p>
-  );
-}
-
 function AnswerProgress({ done, total }: { done: number; total: number }) {
   const pct = total === 0 ? 0 : Math.round((done / total) * 100);
   return (
@@ -141,8 +103,13 @@ export function ExamTake({ paper }: { paper: Paper }) {
     () => getExamSnapshot(paper.id),
     getServerExamSnapshot
   );
+  const levelTag = curriculumTag(paper.level);
   const result = useMemo(
     () => gradeObjective(paper, saved.answers),
+    [paper, saved.answers]
+  );
+  const misses = useMemo(
+    () => allQuestions(paper).flatMap((question) => incorrectParts(question, saved.answers)),
     [paper, saved.answers]
   );
   const progress = useMemo(
@@ -154,30 +121,65 @@ export function ExamTake({ paper }: { paper: Paper }) {
     title: section.title,
   }));
 
+  function retryMissed() {
+    const missedIds = new Set(misses.map((part) => part.key));
+    const nextAnswers = { ...saved.answers };
+    const lockedKeys: string[] = [];
+    for (const question of allQuestions(paper)) {
+      if (question.type === "work") {
+        lockedKeys.push(question.id);
+        continue;
+      }
+      const keys =
+        question.type === "choice"
+          ? [question.id]
+          : (question.blanks ?? []).map((blank) => blank.id);
+      for (const key of keys) {
+        if (missedIds.has(key)) delete nextAnswers[key];
+        else lockedKeys.push(key);
+      }
+    }
+    const anchor = misses[0]?.anchorId;
+    patchExam(paper.id, {
+      answers: nextAnswers,
+      submitted: false,
+      lockedKeys,
+    });
+    if (!anchor) return;
+    window.requestAnimationFrame(() => {
+      document.getElementById(anchor)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
   return (
     <div className="screen-desk flex min-h-full flex-1 flex-col bg-desk">
       <ExamBar
         title={paper.title}
-        subtitle={saved.submitted ? "Submitted · review your script" : "Sitting"}
+        subtitle={saved.submitted ? "Submitted" : "In progress"}
         sections={sections}
         actions={
           <>
-            <ExamClock
-              startedAt={saved.startedAt}
-              durationMin={paper.durationMin}
-              submitted={saved.submitted}
-            />
             <Button variant="outline" className="bg-sheet" onClick={() => window.print()}>
               Print
             </Button>
             {saved.submitted ? (
-              <Button
-                variant="outline"
-                className="bg-sheet"
-                onClick={() => resetExam(paper.id, saved.name)}
-              >
-                Sit again
-              </Button>
+              <>
+                <Button
+                  variant="outline"
+                  className="bg-sheet"
+                  nativeButton={false}
+                  render={<a href="#review" />}
+                >
+                  Wrong answers
+                </Button>
+                <Button
+                  variant="outline"
+                  className="bg-sheet"
+                  onClick={() => resetExam(paper.id, saved.name)}
+                >
+                  Start again
+                </Button>
+              </>
             ) : (
               <Button
                 onClick={() => {
@@ -206,7 +208,7 @@ export function ExamTake({ paper }: { paper: Paper }) {
       />
 
       {saved.submitted ? (
-        <div className="print:hidden mx-auto w-full max-w-3xl px-3 py-4 sm:px-4">
+        <div id="review" className="print:hidden scroll-mt-56 mx-auto w-full max-w-3xl px-3 py-4 sm:px-4">
           <Card>
             <CardHeader>
               <CardTitle className="font-serif text-xl">Objective items marked</CardTitle>
@@ -239,15 +241,46 @@ export function ExamTake({ paper }: { paper: Paper }) {
                   );
                 })}
               </ul>
-              <p className="text-muted-foreground">
-                Missed objective items:
-                {result.rows.filter((row) => !row.ok).length === 0
-                  ? " none"
-                  : result.rows
-                      .filter((row) => !row.ok)
-                      .map((row) => ` Q${row.no}`)
-                      .join(",")}
-              </p>
+              <div className="space-y-2">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <p className="font-medium">Review wrong answers</p>
+                  {misses.length > 0 ? (
+                    <Button onClick={retryMissed}>Retry missed</Button>
+                  ) : null}
+                </div>
+                {misses.length === 0 ? (
+                  <p className="text-muted-foreground">
+                    No incorrect parts in Sections A and B.
+                  </p>
+                ) : (
+                  <>
+                    <p className="text-muted-foreground">
+                      Open a row to jump to that question on the paper. Retry missed clears
+                      only the incorrect objective answers and keeps the ones that were right.
+                      Use Back to review on the question to return here.
+                    </p>
+                    <ul className="space-y-2">
+                      {misses.map((part) => (
+                        <li key={part.key}>
+                          <a
+                            href={`#${part.anchorId}`}
+                            className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg border border-red-300 bg-red-50 px-3 py-2 text-red-950 hover:bg-red-100"
+                          >
+                            <span className="font-medium">Q{part.no}</span>
+                            {levelTag ? <span>[{levelTag}]</span> : null}
+                            <span>{part.part}</span>
+                            <span>You wrote {part.yours}</span>
+                            <span>Answer {part.answer}</span>
+                            <span className="ml-auto text-xs font-semibold tracking-wide underline">
+                              Go to question
+                            </span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </div>
               <Button
                 variant="outline"
                 nativeButton={false}
@@ -268,9 +301,12 @@ export function ExamTake({ paper }: { paper: Paper }) {
           name={saved.name}
           onName={(name) => patchExam(paper.id, { name })}
           answers={saved.answers}
+          lockedKeys={saved.lockedKeys}
           onAnswer={(key, next) => {
-            if (saved.submitted) return;
-            patchExam(paper.id, { answers: { ...saved.answers, [key]: next } });
+            const current = getExamSnapshot(paper.id);
+            if (current.submitted) return;
+            if (current.lockedKeys?.includes(key)) return;
+            patchExam(paper.id, { answers: { ...current.answers, [key]: next } });
           }}
           scoreLabel={
             saved.submitted ? `${result.got} / ${result.total} objective` : undefined
