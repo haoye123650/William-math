@@ -183,6 +183,11 @@
   font-size: 0.72em;
 }
 
+.exam-sheet :target {
+  outline: 2px solid #dc2626;
+  outline-offset: 4px;
+}
+
 .exam-sheet {
   border-top: 8px solid var(--board);
   box-shadow:

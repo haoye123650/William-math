@@ -37,6 +37,16 @@ export type Section = {
 
 export type AnswersState = Record<string, string>;
 
+export type CurriculumTag = "S1" | "S2" | "S3";
+
+export function curriculumTag(level: string): CurriculumTag | null {
+  const match = /\bS\.?\s*([123])\b/i.exec(level);
+  if (!match) return null;
+  if (match[1] === "1") return "S1";
+  if (match[1] === "2") return "S2";
+  return "S3";
+}
+
 export type Paper = {
   id: string;
   title: string;

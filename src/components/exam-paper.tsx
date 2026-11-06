@@ -2,12 +2,20 @@
 
 import { Check, Minus, X } from "lucide-react";
 import { TriangleDiagram } from "@/components/diagrams";
+import { figureStatus } from "@/lib/figures";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { gradeQuestion, type QuestionStatus } from "@/lib/grade";
-import type { AnswersState, Paper, Question, Section } from "@/lib/papers/types";
+import {
+  curriculumTag,
+  type AnswersState,
+  type CurriculumTag,
+  type Paper,
+  type Question,
+  type Section,
+} from "@/lib/papers/types";
 
 export type ExamMode = "take" | "print" | "answers";
 
@@ -66,29 +74,57 @@ function StatusBadge({ status }: { status: QuestionStatus }) {
   );
 }
 
+function QuestionFigure({ question }: { question: Question }) {
+  const status = figureStatus(question);
+  if (status === "none") return null;
+  if (status === "triangle") {
+    return (
+      <div className="rounded-lg border border-border bg-white/60 p-3">
+        <TriangleDiagram />
+      </div>
+    );
+  }
+  return (
+    <div
+      role="alert"
+      className="rounded-lg border border-red-500 bg-red-50 px-3 py-3 text-sm font-medium text-red-900"
+    >
+      Missing figure{question.diagram ? ` (${question.diagram})` : ""}. This question
+      cannot be answered until its diagram is on the page.
+    </div>
+  );
+}
+
 function QuestionBlock({
   question,
   mode,
   reviewed,
   value,
   onChange,
+  levelTag,
+  lockedKeys,
 }: {
   question: Question;
   mode: ExamMode;
   reviewed?: boolean;
   value?: AnswersState;
   onChange?: (key: string, next: string) => void;
+  levelTag?: CurriculumTag | null;
+  lockedKeys?: string[];
 }) {
   const showKey = mode === "answers";
   const answers = value ?? {};
   const result = reviewed ? gradeQuestion(question, answers) : null;
   const status = result?.status;
+  const locked = new Set(lockedKeys ?? []);
+  const choiceLocked = locked.has(question.id);
   const interactive = mode === "take" && !reviewed;
 
   return (
     <article
+      id={`q-${question.id}`}
       className={cn(
-        "break-inside-avoid border-b border-border py-5 last:border-b-0 print:rounded-none",
+        "scroll-mt-56 break-inside-avoid border-b border-border py-5 last:border-b-0 print:rounded-none",
         reviewed && status === "correct" && "border-l-[3px] border-l-emerald-800 bg-emerald-50/80 pr-3 pl-3 print:bg-emerald-50",
         reviewed && status === "incorrect" && "border-l-[3px] border-l-red-800 bg-red-50/80 pr-3 pl-3 print:bg-red-50",
         reviewed && status === "partial" && "border-l-[3px] border-l-amber-800 bg-amber-50/80 pr-3 pl-3 print:bg-amber-50"
@@ -104,6 +140,15 @@ function QuestionBlock({
               <Stem html={question.stem} />
             </div>
             <div className="flex shrink-0 flex-col items-end gap-1.5">
+              {levelTag ? <Badge variant="secondary">[{levelTag}]</Badge> : null}
+              {reviewed && (status === "incorrect" || status === "partial") ? (
+                <a
+                  href="#review"
+                  className="print:hidden text-xs font-medium underline underline-offset-2"
+                >
+                  Back to review
+                </a>
+              ) : null}
               {reviewed && status ? <StatusBadge status={status} /> : null}
               <span className="text-sm text-muted-foreground tabular-nums">
                 ({question.marks} marks)
@@ -111,11 +156,7 @@ function QuestionBlock({
             </div>
           </div>
 
-          {question.diagram === "triangle" ? (
-            <div className="rounded-lg border border-border bg-white/70 p-3">
-              <TriangleDiagram />
-            </div>
-          ) : null}
+          <QuestionFigure question={question} />
 
           {question.type === "choice" && question.options ? (
             <div className="grid gap-2 sm:grid-cols-2" role={interactive ? "group" : undefined} aria-label={interactive ? `Question ${question.no} choices` : undefined}>
@@ -127,9 +168,12 @@ function QuestionBlock({
                   <button
                     key={option.key}
                     type="button"
-                    disabled={!interactive}
+                    disabled={!interactive || choiceLocked}
                     aria-pressed={interactive ? selected : undefined}
-                    onClick={() => onChange?.(question.id, option.key)}
+                    onClick={() => {
+                      if (!interactive || choiceLocked) return;
+                      onChange?.(question.id, option.key);
+                    }}
                     className={cn(
                       "flex items-start gap-2 rounded-lg px-3 py-2.5 text-left text-sm transition disabled:opacity-100",
                       "focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none",
@@ -160,6 +204,9 @@ function QuestionBlock({
                     {reviewed && !selected && isAnswer ? (
                       <Check className="mt-0.5 size-4 shrink-0 text-emerald-800" />
                     ) : null}
+                    {choiceLocked && selected && !reviewed ? (
+                      <span className="text-xs font-medium text-muted-foreground">Kept</span>
+                    ) : null}
                   </button>
                 );
               })}
@@ -170,13 +217,18 @@ function QuestionBlock({
             <div className="flex flex-col gap-3">
               {question.blanks.map((blank, index) => {
                 const blankOk = result?.blankResults[blank.id];
+                const blankLocked = locked.has(blank.id);
                 const blankName = blank.label
                   ? undefined
                   : `Question ${question.no}${
                       question.blanks && question.blanks.length > 1 ? `, blank ${index + 1}` : ""
                     }`;
                 return (
-                  <label key={blank.id} className="flex min-w-[10rem] flex-wrap items-center gap-2">
+                  <label
+                    key={blank.id}
+                    id={`blank-${blank.id}`}
+                    className="scroll-mt-28 flex min-w-[10rem] flex-wrap items-center gap-2"
+                  >
                     {blank.label ? (
                       <span className="text-sm text-muted-foreground">
                         {blank.label}
@@ -185,8 +237,11 @@ function QuestionBlock({
                     {mode === "take" ? (
                       <Input
                         value={answers[blank.id] ?? ""}
-                        readOnly={reviewed}
-                        onChange={(event) => onChange?.(blank.id, event.target.value)}
+                        readOnly={reviewed || blankLocked}
+                        onChange={(event) => {
+                          if (blankLocked) return;
+                          onChange?.(blank.id, event.target.value);
+                        }}
                         aria-label={blankName}
                         className={cn(
                           "h-10 max-w-xs bg-white",
@@ -208,6 +263,9 @@ function QuestionBlock({
                         Answer: {blank.answer}
                       </span>
                     ) : null}
+                    {blankLocked && !reviewed ? (
+                      <span className="text-xs font-medium text-muted-foreground">Kept</span>
+                    ) : null}
                   </label>
                 );
               })}
@@ -219,12 +277,18 @@ function QuestionBlock({
               <div className="space-y-2">
                 <Textarea
                   value={answers[question.id] ?? ""}
-                  readOnly={reviewed}
-                  onChange={(event) => onChange?.(question.id, event.target.value)}
+                  readOnly={reviewed || locked.has(question.id)}
+                  onChange={(event) => {
+                    if (locked.has(question.id)) return;
+                    onChange?.(question.id, event.target.value);
+                  }}
                   className="work-pad min-h-40 bg-white pt-0 font-serif"
                   placeholder="Write your working and answer here"
                   aria-label={`Question ${question.no} working`}
                 />
+                {locked.has(question.id) && !reviewed ? (
+                  <p className="text-xs font-medium text-muted-foreground">Kept</p>
+                ) : null}
                 {reviewed ? (
                   <p className="text-sm text-muted-foreground">
                     This question is marked by the teacher.
@@ -234,6 +298,15 @@ function QuestionBlock({
             ) : (
               <Lines count={question.lines ?? 6} />
             )
+          ) : null}
+
+          {reviewed && !showKey ? (
+            <div className="rounded-md border border-border bg-white/80 px-3 py-2 text-sm leading-relaxed">
+              <p>
+                <span className="font-medium">Notes: </span>
+                <span dangerouslySetInnerHTML={{ __html: question.explanation }} />
+              </p>
+            </div>
           ) : null}
 
           {showKey ? (
@@ -266,12 +339,16 @@ function SectionBlock({
   reviewed,
   value,
   onChange,
+  levelTag,
+  lockedKeys,
 }: {
   section: Section;
   mode: ExamMode;
   reviewed?: boolean;
   value?: AnswersState;
   onChange?: (key: string, next: string) => void;
+  levelTag?: CurriculumTag | null;
+  lockedKeys?: string[];
 }) {
   return (
     <section id={`section-${section.id}`} className="mt-10 scroll-mt-56">
@@ -296,6 +373,8 @@ function SectionBlock({
             reviewed={reviewed}
             value={value}
             onChange={onChange}
+            levelTag={levelTag}
+            lockedKeys={lockedKeys}
           />
         ))}
       </div>
@@ -399,6 +478,7 @@ export function ExamPaper({
   answers,
   onAnswer,
   reviewed,
+  lockedKeys,
   scoreLabel,
 }: {
   paper: Paper;
@@ -408,8 +488,10 @@ export function ExamPaper({
   answers?: AnswersState;
   onAnswer?: (key: string, next: string) => void;
   reviewed?: boolean;
+  lockedKeys?: string[];
   scoreLabel?: string;
 }) {
+  const levelTag = curriculumTag(paper.level);
   return (
     <div className="exam-sheet mx-auto max-w-3xl bg-sheet px-4 py-8 text-foreground sm:px-10 sm:py-10 print:max-w-none print:bg-white print:px-0 print:py-0 print:shadow-none">
       <ExamHeader
@@ -428,6 +510,8 @@ export function ExamPaper({
           reviewed={reviewed}
           value={answers}
           onChange={onAnswer}
+          levelTag={levelTag}
+          lockedKeys={lockedKeys}
         />
       ))}
       {mode === "answers" ? (

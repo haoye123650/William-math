@@ -7,7 +7,7 @@ import { papers, type Paper } from "@/lib/papers";
 const FACTS = [
   { term: "Marks", detail: "100 marks on each paper." },
   { term: "Materials", detail: "Calculators are not allowed." },
-  { term: "Afterward", detail: "Mark schemes are on a separate page." },
+  { term: "Afterward", detail: "The mark scheme opens after you submit." },
 ] as const;
 
 const GROUPS = [
@@ -92,7 +92,7 @@ function PaperCard({ paper }: { paper: Paper }) {
           nativeButton={false}
           render={<Link href={`/paper/${paper.id}`} />}
         >
-          Sit the paper
+          Start
         </Button>
         <Button
           variant="outline"
@@ -102,15 +102,6 @@ function PaperCard({ paper }: { paper: Paper }) {
           render={<Link href={`/print/${paper.id}`} />}
         >
           Print
-        </Button>
-        <Button
-          variant="secondary"
-          size="lg"
-          className="h-11 px-4 sm:w-auto"
-          nativeButton={false}
-          render={<Link href={`/answers/${paper.id}`} />}
-        >
-          Mark scheme
         </Button>
       </div>
     </article>
@@ -133,7 +124,8 @@ export default function HomePage() {
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7">
             Six papers, each 100 marks. Tests 1–3 are junior secondary. Tests 4–6
-            step up through S.3, S.4 and DSE Paper 1 style.
+            step up through S.3, S.4 and DSE Paper 1 style. The mark scheme opens
+            after you submit.
           </p>
         </div>
         <div className="h-1 bg-mark" aria-hidden="true" />

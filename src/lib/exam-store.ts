@@ -7,12 +7,14 @@ export type SavedExam = {
   answers: AnswersState;
   startedAt: number;
   submitted?: boolean;
+  lockedKeys?: string[];
 };
 
 const emptyServer: SavedExam = {
   name: "",
   answers: {},
   startedAt: 0,
+  lockedKeys: [],
 };
 
 const caches: Record<string, SavedExam> = {};
@@ -27,6 +29,7 @@ function clone(data: SavedExam): SavedExam {
     answers: { ...data.answers },
     startedAt: data.startedAt,
     submitted: data.submitted,
+    lockedKeys: [...(data.lockedKeys ?? [])],
   };
 }
 
@@ -38,6 +41,7 @@ function readStorage(paperId: string): SavedExam {
         name: "",
         answers: {},
         startedAt: Date.now(),
+        lockedKeys: [],
       };
       localStorage.setItem(storageKey(paperId), JSON.stringify(init));
       return init;
@@ -45,9 +49,10 @@ function readStorage(paperId: string): SavedExam {
     const parsed = JSON.parse(raw) as SavedExam;
     if (!parsed.startedAt) parsed.startedAt = Date.now();
     if (!parsed.answers) parsed.answers = {};
+    if (!Array.isArray(parsed.lockedKeys)) parsed.lockedKeys = [];
     return parsed;
   } catch {
-    return { name: "", answers: {}, startedAt: Date.now() };
+    return { name: "", answers: {}, startedAt: Date.now(), lockedKeys: [] };
   }
 }
 
@@ -109,5 +114,6 @@ export function resetExam(paperId: string, name: string) {
     answers: {},
     startedAt: Date.now(),
     submitted: false,
+    lockedKeys: [],
   });
 }

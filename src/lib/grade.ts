@@ -23,6 +23,59 @@ export function matchesAnswer(value: string, accepted: string[]) {
 
 export type QuestionStatus = "correct" | "incorrect" | "partial" | "pending";
 
+export type IncorrectPart = {
+  key: string;
+  questionId: string;
+  anchorId: string;
+  no: string;
+  skill: string;
+  part: string;
+  yours: string;
+  answer: string;
+};
+
+function shownAnswer(value: string) {
+  const trimmed = value.trim();
+  return trimmed.length > 0 ? trimmed : "No answer";
+}
+
+export function incorrectParts(question: Question, answers: AnswersState): IncorrectPart[] {
+  if (question.type === "work") return [];
+
+  if (question.type === "choice") {
+    if (answers[question.id] === question.answer) return [];
+    return [
+      {
+        key: question.id,
+        questionId: question.id,
+        anchorId: `q-${question.id}`,
+        no: question.no,
+        skill: question.skill,
+        part: "Choice",
+        yours: shownAnswer(answers[question.id] ?? ""),
+        answer: question.answer,
+      },
+    ];
+  }
+
+  const parts: IncorrectPart[] = [];
+  for (const blank of question.blanks ?? []) {
+    const yours = answers[blank.id] ?? "";
+    if (matchesAnswer(yours, blank.accepted ?? [blank.answer])) continue;
+    parts.push({
+      key: blank.id,
+      questionId: question.id,
+      anchorId: `blank-${blank.id}`,
+      no: question.no,
+      skill: question.skill,
+      part: blank.label ?? "Answer",
+      yours: shownAnswer(yours),
+      answer: blank.answer,
+    });
+  }
+  return parts;
+}
+
 export function gradeQuestion(question: Question, answers: AnswersState) {
   if (question.type === "work") {
     return { status: "pending" as const, blankResults: {} as Record<string, boolean> };
