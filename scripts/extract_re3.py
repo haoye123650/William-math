@@ -1201,7 +1201,7 @@ def build_lesson(unit: dict, lesson_id: str, doc: pymupdf.Document, keys: dict) 
     slug = f"unit-{unit_no:02d}"
     out_dir = PUBLIC_DIR / slug / lesson_id
     if out_dir.exists():
-        for old in out_dir.glob("*.jpg"):
+        for old in list(out_dir.glob("*.jpg")) + list(out_dir.glob("*.raw.png")):
             old.unlink()
     out_dir.mkdir(parents=True, exist_ok=True)
     public_prefix = f"/english/re3/{slug}/{lesson_id}"
