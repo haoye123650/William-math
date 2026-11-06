@@ -24,6 +24,8 @@ export type Question = {
   explanation: string;
   marking?: string;
   diagram?: "triangle" | "path";
+  /** Visible level chip, such as S1. The stem should not repeat it. */
+  levelTag?: string;
 };
 
 export type Section = {
@@ -69,4 +71,12 @@ export function frac(n: string, d: string) {
 
 export function allQuestions(paper: Paper): Question[] {
   return paper.sections.flatMap((section) => section.questions);
+}
+
+export function hasTeacherMarkedWork(paper: Paper) {
+  return paper.sections.some(
+    (section) =>
+      section.extra === true ||
+      section.questions.some((question) => question.type === "work")
+  );
 }

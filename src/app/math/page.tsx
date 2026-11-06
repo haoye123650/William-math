@@ -5,10 +5,16 @@ import { Button } from "@/components/ui/button";
 import { papers, type Paper } from "@/lib/papers";
 
 const FACTS = [
-  { term: "Marks", detail: "100 marks on each paper." },
+  { term: "Tests 1–6", detail: "100 marks on each full paper." },
   { term: "Materials", detail: "Calculators are not allowed." },
   { term: "Afterward", detail: "The mark scheme opens after you submit." },
 ] as const;
+
+function sheetNo(id: string) {
+  if (/^\d+$/.test(id)) return id.padStart(2, "0");
+  const tail = id.match(/(\d+)$/)?.[1];
+  return tail ? tail.padStart(2, "0") : id;
+}
 
 const GROUPS = [
   {
@@ -17,6 +23,13 @@ const GROUPS = [
     title: "Junior secondary",
     note: "Tests 1–3",
     papers: papers.filter((paper) => Number(paper.id) <= 3),
+  },
+  {
+    id: "junior-mixed",
+    kicker: "Quizzes",
+    title: "Junior mixed",
+    note: "Papers 01–03",
+    papers: papers.filter((paper) => paper.id.startsWith("junior-")),
   },
   {
     id: "part-2",
@@ -38,7 +51,7 @@ function PaperCard({ paper }: { paper: Paper }) {
           className="hidden w-12 shrink-0 pt-0.5 font-serif text-3xl leading-none font-semibold text-primary tabular-nums sm:block"
           aria-hidden="true"
         >
-          {paper.id.padStart(2, "0")}
+          {sheetNo(paper.id)}
         </p>
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
@@ -47,7 +60,7 @@ function PaperCard({ paper }: { paper: Paper }) {
               className="font-serif text-xl leading-snug font-semibold"
             >
               <span className="mr-2 font-semibold text-primary tabular-nums sm:hidden">
-                {paper.id.padStart(2, "0")}
+                {sheetNo(paper.id)}
               </span>
               {paper.title}
             </h3>
@@ -131,9 +144,10 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7">
-            Six papers, each 100 marks. Tests 1–3 are junior secondary. Tests 4–6
-            step up through S.3, S.4 and DSE Paper 1 style. The mark scheme opens
-            after you submit.
+            Six full papers, each 100 marks, and three junior mixed quizzes.
+            Tests 1–3 are junior secondary. Tests 4–6 step up through S.3, S.4
+            and DSE Paper 1 style. Each quiz question keeps its [S1], [S2] or
+            [S3] level tag. The mark scheme opens after you submit.
           </p>
         </div>
         <div className="h-1 bg-mark" aria-hidden="true" />

@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { gradeQuestion, type QuestionStatus } from "@/lib/grade";
 import {
   curriculumTag,
+  hasTeacherMarkedWork,
   type AnswersState,
   type CurriculumTag,
   type Paper,
@@ -131,7 +132,12 @@ function QuestionBlock({
       )}
     >
       <div className="flex items-start gap-3">
-        <span className="w-8 shrink-0 pt-0.5 text-right font-serif text-lg font-semibold tabular-nums">
+        <span
+          className={cn(
+            "shrink-0 pt-0.5 text-right font-serif text-lg font-semibold tabular-nums",
+            question.no.length > 2 ? "w-12" : "w-8"
+          )}
+        >
           {question.no}.
         </span>
         <div className="min-w-0 flex-1 space-y-4">
@@ -140,7 +146,9 @@ function QuestionBlock({
               <Stem html={question.stem} />
             </div>
             <div className="flex shrink-0 flex-col items-end gap-1.5">
-              {levelTag ? <Badge variant="secondary">[{levelTag}]</Badge> : null}
+              {question.levelTag ?? levelTag ? (
+                <Badge variant="secondary">[{question.levelTag ?? levelTag}]</Badge>
+              ) : null}
               {reviewed && (status === "incorrect" || status === "partial") ? (
                 <a
                   href="#review"
@@ -151,7 +159,7 @@ function QuestionBlock({
               ) : null}
               {reviewed && status ? <StatusBadge status={status} /> : null}
               <span className="text-sm text-muted-foreground tabular-nums">
-                ({question.marks} marks)
+                ({question.marks} {question.marks === 1 ? "mark" : "marks"})
               </span>
             </div>
           </div>
@@ -418,8 +426,12 @@ export function ExamHeader({
           <dd className="font-serif text-lg font-semibold tabular-nums">{paper.durationMin}</dd>
         </div>
         <div className="rounded-lg border border-border px-2 py-2">
-          <dt className="text-xs text-muted-foreground">Section E</dt>
-          <dd className="font-serif text-lg font-semibold tabular-nums">+{paper.extraMarks}</dd>
+          <dt className="text-xs text-muted-foreground">
+            {paper.extraMarks > 0 ? "Section E" : "Level"}
+          </dt>
+          <dd className="font-serif text-lg font-semibold tabular-nums">
+            {paper.extraMarks > 0 ? `+${paper.extraMarks}` : paper.level}
+          </dd>
         </div>
       </dl>
       <div className="mt-5 grid gap-4 border border-border px-3 py-3 text-sm sm:grid-cols-3">
@@ -462,8 +474,9 @@ export function ExamHeader({
         </div>
       ) : (
         <p className="instruction-box mt-4 rounded-lg border border-border bg-accent px-4 py-3 text-sm leading-relaxed text-accent-foreground">
-          Teacher copy. Mark Sections A and B against the key. Award method marks in
-          Sections C and D.
+          {hasTeacherMarkedWork(paper)
+            ? "Teacher copy. Mark Sections A and B against the key. Award method marks in Sections C and D."
+            : "Teacher copy. Mark every item against the key."}
         </p>
       )}
     </header>

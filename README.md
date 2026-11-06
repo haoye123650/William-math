@@ -1,6 +1,6 @@
 # 尹健熙 · Pui Kiu Mathematics
 
-DSE-style mathematics papers for a Pui Kiu student. Tests 1–3 are junior secondary. Tests 4–6 step up through S.3, S.4 and Paper 1 style. Questions are original, written to the HKEAA syllabus — they are not copies of any year’s paper.
+DSE-style mathematics papers for a Pui Kiu student. Tests 1–3 are junior secondary. Tests 4–6 step up through S.3, S.4 and Paper 1 style. Three junior mixed quizzes sit beside them. Questions are original, written to the HKEAA syllabus — they are not copies of any year’s paper.
 
 Public site: [https://haoye123650.github.io/William-math/](https://haoye123650.github.io/William-math/)
 
@@ -12,8 +12,11 @@ Public site: [https://haoye123650.github.io/William-math/](https://haoye123650.g
 | Test 4 | S.3 | ★★★★☆ | 85 min |
 | Test 5 | S.4 Compulsory Part | ★★★★★ | 90 min |
 | Test 6 | DSE Paper 1 style | ★★★★★ | 100 min |
+| Junior Mixed Quiz Paper 01 | S.1–S.3 | ★★★☆☆ | 45 min |
+| Junior Mixed Quiz Paper 02 | S.1–S.3 | ★★★☆☆ | 45 min |
+| Junior Mixed Quiz Paper 03 | S.1–S.3 | ★★★☆☆ | 50 min |
 
-Each paper is 100 marks. Section E is extra. Calculators are not allowed.
+Tests 1–6 are 100 marks each. Section E is extra. Each quiz question is 1 mark, and the question keeps its [S1], [S2] or [S3] level tag. Calculators are not allowed.
 
 ## Run locally
 
@@ -24,9 +27,10 @@ npm run dev
 
 Open [http://127.0.0.1:45217](http://127.0.0.1:45217).
 
-- `/paper/1` … `/paper/6` sit a paper
-- `/print/1` blank paper
-- `/answers/1` mark scheme
+- `/paper/1` … `/paper/6` sit a full paper
+- `/paper/junior-01` … `/paper/junior-03` sit a junior mixed quiz
+- `/print/1` blank paper (same pattern for `junior-01` … `junior-03`)
+- `/answers/1` mark scheme (same pattern for the quizzes)
 
 ## GitHub Pages
 

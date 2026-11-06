@@ -14,7 +14,13 @@ import {
   resetExam,
   subscribeExam,
 } from "@/lib/exam-store";
-import { allQuestions, curriculumTag, type AnswersState, type Paper } from "@/lib/papers/types";
+import {
+  allQuestions,
+  curriculumTag,
+  hasTeacherMarkedWork,
+  type AnswersState,
+  type Paper,
+} from "@/lib/papers/types";
 
 function countParts(paper: Paper, answers: AnswersState) {
   let total = 0;
@@ -220,8 +226,10 @@ export function ExamTake({ paper }: { paper: Paper }) {
                   {result.got}
                 </span>
                 / {result.total}. Green with a tick is correct; red is wrong.
-                Fill-in blanks are marked one by one. Sections C, D and E are
-                marked by the teacher.
+                Fill-in blanks are marked one by one.{" "}
+                {hasTeacherMarkedWork(paper)
+                  ? "Sections C, D and E are marked by the teacher."
+                  : "Every item on this paper is marked from the key."}
               </p>
               <ul className="space-y-2.5">
                 {Object.entries(result.bySkill).map(([skill, score]) => {
@@ -266,8 +274,15 @@ export function ExamTake({ paper }: { paper: Paper }) {
                             href={`#${part.anchorId}`}
                             className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg border border-red-300 bg-red-50 px-3 py-2 text-red-950 hover:bg-red-100"
                           >
-                            <span className="font-medium">Q{part.no}</span>
-                            {levelTag ? <span>[{levelTag}]</span> : null}
+                            <span className="font-medium">
+                              {/^\d/.test(part.no) ? `Q${part.no}` : part.no}
+                            </span>
+                            {(() => {
+                              const tag =
+                                allQuestions(paper).find((question) => question.id === part.questionId)
+                                  ?.levelTag ?? levelTag;
+                              return tag ? <span>[{tag}]</span> : null;
+                            })()}
                             <span>{part.part}</span>
                             <span>You wrote {part.yours}</span>
                             <span>Answer {part.answer}</span>

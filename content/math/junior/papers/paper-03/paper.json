@@ -1,0 +1,313 @@
+{
+  "courseId": "math-junior",
+  "kind": "paper",
+  "id": "paper-03",
+  "titleEn": "Junior Mixed Quiz Paper 03",
+  "titleZh": "培侨初中混合小测卷 03",
+  "levelMix": "约30%S1 + 40%S2 + 30%S3",
+  "timeSuggestedMin": 50,
+  "topicsCovered": [
+    "linear-equations",
+    "percentages",
+    "algebraic-expressions",
+    "indices",
+    "angles-polygons",
+    "statistics",
+    "rate-and-ratio",
+    "factorization",
+    "pythagoras",
+    "area-volume",
+    "simultaneous-equations"
+  ],
+  "sections": [
+    {
+      "id": "A",
+      "titleEn": "Section A",
+      "titleZh": "甲部（短答／选择／填空）",
+      "instructions": "答甲部各题。选择题选最合适的一项；填空写最终答案。",
+      "items": [
+        {
+          "id": "A1",
+          "interaction": "fill-blank",
+          "prompt": "[S1] Solve: 5x = 35. x = ____",
+          "answer": "7",
+          "solution": "x=35÷5=7。",
+          "topic": "linear-equations",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A2",
+          "interaction": "multiple-choice",
+          "prompt": "[S1] 40% of 50 is",
+          "choices": [
+            {
+              "id": "A",
+              "text": "10"
+            },
+            {
+              "id": "B",
+              "text": "20"
+            },
+            {
+              "id": "C",
+              "text": "25"
+            },
+            {
+              "id": "D",
+              "text": "40"
+            }
+          ],
+          "answer": "B",
+          "solution": "0.4×50=20。",
+          "topic": "percentages",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A3",
+          "interaction": "fill-blank",
+          "prompt": "[S1] Simplify: 7b − 2b + b = ____ (in terms of b)",
+          "answer": "6b",
+          "solution": "7−2+1=6，故 6b。",
+          "topic": "algebraic-expressions",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A4",
+          "interaction": "true-false",
+          "prompt": "[S1] True or False: 5⁰ = 0.",
+          "answer": false,
+          "solution": "任何非零数的 0 次幂为 1：5⁰=1。",
+          "topic": "indices",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A5",
+          "interaction": "fill-blank",
+          "prompt": "[S2] An equilateral triangle has each exterior angle equal to ____ degrees.",
+          "answer": "120",
+          "solution": "外角和 360°；正三角形每外角 360÷3=120°。",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A6",
+          "interaction": "fill-blank",
+          "prompt": "[S1] The mode of 2, 3, 3, 5, 7 is ____",
+          "answer": "3",
+          "solution": "出现次数最多的是 3。",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A7",
+          "interaction": "fill-blank",
+          "prompt": "[S2] A mixture is sand : cement = 3 : 2. If sand is 15 kg, cement is ____ kg.",
+          "answer": "10",
+          "solution": "水泥 = 15×(2/3)=10。",
+          "topic": "rate-and-ratio",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A8",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Factorize: x² + 5x + 6",
+          "answer": "(x+2)(x+3)",
+          "solution": "找两数和为 5、积为 6：2 与 3。",
+          "topic": "factorization",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A9",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Expand: (x + 4)(x − 2) = ____ (simplified)",
+          "answer": "x^2+2x-8",
+          "solution": "x²−2x+4x−8=x²+2x−8。",
+          "topic": "algebraic-expressions",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A10",
+          "interaction": "multiple-choice",
+          "prompt": "[S2] A right triangle has legs 6 and 8. Hypotenuse is",
+          "choices": [
+            {
+              "id": "A",
+              "text": "10"
+            },
+            {
+              "id": "B",
+              "text": "14"
+            },
+            {
+              "id": "C",
+              "text": "7"
+            },
+            {
+              "id": "D",
+              "text": "48"
+            }
+          ],
+          "answer": "A",
+          "solution": "6²+8²=36+64=100=10²。",
+          "topic": "pythagoras",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A11",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Simplify: a⁵ ÷ a² = ____ (as a power of a)",
+          "answer": "a^3",
+          "solution": "同底相除指数相减：a^(5−2)=a³。",
+          "topic": "indices",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A12",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Area of a triangle with base 12 cm and height 5 cm is ____ cm².",
+          "answer": "30",
+          "solution": "(1/2)×12×5=30。",
+          "topic": "area-volume",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A13",
+          "interaction": "fill-blank",
+          "prompt": "[S2] After a 15% increase, a price becomes $230. The original price was $____.",
+          "answer": "200",
+          "solution": "原价 ×1.15=230 ⇒ 原价=230/1.15=200。",
+          "topic": "percentages",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A14",
+          "interaction": "fill-blank",
+          "prompt": "[S3] Solve: 4x − 3 = 2x + 9. x = ____",
+          "answer": "6",
+          "solution": "4x−2x=9+3 ⇒ 2x=12 ⇒ x=6。",
+          "topic": "linear-equations",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "titleEn": "Section B",
+      "titleZh": "乙部（稍长应用）",
+      "instructions": "答乙部各题，写出关键步骤；最终答案填入空格或简答区。",
+      "items": [
+        {
+          "id": "B1",
+          "interaction": "short-text",
+          "prompt": "[S2] The range of the data 9, 4, 15, 7, 11 is ____",
+          "answer": "11",
+          "solution": "极差 = 最大−最小 = 15−4=11。",
+          "topic": "statistics",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B2",
+          "interaction": "short-text",
+          "prompt": "[S3] Factorize completely: 3x² − 12x + 12",
+          "answer": "3(x-2)^2",
+          "solution": "提 3：3(x²−4x+4)=3(x−2)²。",
+          "topic": "factorization",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B3",
+          "interaction": "short-text",
+          "prompt": "[S3] Two numbers sum to 20 and differ by 6. Find the larger number.",
+          "answer": "13",
+          "solution": "设 x>y：x+y=20，x−y=6；相加 2x=26 ⇒ x=13。",
+          "topic": "simultaneous-equations",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B4",
+          "interaction": "short-text",
+          "prompt": "[S3] A square has diagonal 10√2 cm. Find its area in cm².",
+          "answer": "100",
+          "solution": "边长 a：a√2=10√2 ⇒ a=10；面积=100。",
+          "topic": "area-volume",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B5",
+          "interaction": "short-text",
+          "prompt": "[S3] Simplify: (5² × 5⁻³) ÷ 5⁻¹. Write as a power of 5 (e.g. 5^0).",
+          "answer": "5^0",
+          "solution": "5^(2−3−(−1))=5^(−1+1)=5⁰（或写作 1）。",
+          "topic": "indices",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B6",
+          "interaction": "short-text",
+          "prompt": "[S1] If 2 : 3 = n : 15, then n = ____",
+          "answer": "10",
+          "solution": "2/3=n/15 ⇒ 3n=30 ⇒ n=10。",
+          "topic": "rate-and-ratio",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B7",
+          "interaction": "short-text",
+          "prompt": "[S3] Interior angle of a regular n-gon is 150°. Find n.",
+          "answer": "12",
+          "solution": "[(n−2)×180]/n=150 ⇒ (n−2)×180=150n ⇒ 180n−360=150n ⇒ 30n=360 ⇒ n=12。",
+          "topic": "angles-polygons",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        }
+      ]
+    }
+  ],
+  "mediaContract": {
+    "assetIds": "string[] — ids into paper.assets[]",
+    "imagePlacement": "null | \"above\" | \"beside\" — 看图题同屏",
+    "assets": "optional top-level list {id,src,alt}"
+  },
+  "assets": []
+}
