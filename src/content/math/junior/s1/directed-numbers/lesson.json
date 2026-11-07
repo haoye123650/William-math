@@ -1,0 +1,298 @@
+{
+  "courseId": "math-junior",
+  "level": "S1",
+  "slug": "directed-numbers",
+  "titleEn": "Directed Numbers",
+  "titleZh": "有向数",
+  "edbUnit": "有向数",
+  "difficulty": {
+    "core": "S1-S2",
+    "stretch": "S3",
+    "mixNote": "约30%S1 + 40%S2 + 30%S3"
+  },
+  "objectives": [
+    "理解正负数在数轴上的位置与大小关系（S1）",
+    "熟练进行有向数四则与混合运算（S1–S2）",
+    "用有向数建模温度、深度、盈亏等情境（S2）",
+    "处理绝对值方程、多层括号与综合应用（S2–S3）"
+  ],
+  "blocks": [
+    {
+      "id": "warmup",
+      "kind": "exercise",
+      "title": "Warm-up",
+      "items": [
+        {
+          "id": "w1",
+          "interaction": "multiple-choice",
+          "prompt": "[S1] On the number line, which number is farther from 0: −7 or 5?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "−7"
+            },
+            {
+              "id": "B",
+              "text": "5"
+            },
+            {
+              "id": "C",
+              "text": "They are equally far"
+            },
+            {
+              "id": "D",
+              "text": "Cannot tell"
+            }
+          ],
+          "answer": "A",
+          "solution": "距离看绝对值：|−7|=7，|5|=5，故 −7 离 0 更远。",
+          "level": "warmup"
+        },
+        {
+          "id": "w2",
+          "interaction": "true-false",
+          "prompt": "[S1] True or False: −3 > −8.",
+          "answer": true,
+          "solution": "在数轴上 −3 在 −8 右侧，所以 −3 更大。",
+          "level": "warmup"
+        },
+        {
+          "id": "w3",
+          "interaction": "fill-blank",
+          "prompt": "[S1] The opposite of −12 is ____.",
+          "answer": "12",
+          "solution": "相反数互为符号相反：−(−12)=12。",
+          "level": "warmup"
+        },
+        {
+          "id": "w4",
+          "interaction": "multiple-choice",
+          "prompt": "[S1] A thermometer reads −2°C in the morning and rises by 7°C. What is the new reading?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "−9°C"
+            },
+            {
+              "id": "B",
+              "text": "5°C"
+            },
+            {
+              "id": "C",
+              "text": "9°C"
+            },
+            {
+              "id": "D",
+              "text": "−5°C"
+            }
+          ],
+          "answer": "B",
+          "solution": "−2+7=5，故新读数为 5°C。",
+          "level": "warmup"
+        }
+      ]
+    },
+    {
+      "id": "notes",
+      "kind": "passage",
+      "title": "Key Ideas",
+      "paragraphs": [
+        {
+          "id": "p1",
+          "html": "<p><strong>有向数</strong>包括正数、负数和 0。在数轴上，右为正、左为负；越靠右越大。</p>"
+        },
+        {
+          "id": "p2",
+          "html": "<p><strong>绝对值</strong> |a| 表示 a 到 0 的距离，结果非负。例：|−4|=4，|0|=0。</p>"
+        },
+        {
+          "id": "p3",
+          "html": "<p><strong>加减</strong>：同号相加取同号；异号相加取绝对值较大者的符号，再减绝对值。减去一个数 = 加上它的相反数：a−b=a+(−b)。</p>"
+        },
+        {
+          "id": "p4",
+          "html": "<p><strong>乘除</strong>：同号得正，异号得负。例：(−3)×(−4)=12，(−18)÷6=−3。</p>"
+        },
+        {
+          "id": "p5",
+          "html": "<p><strong>运算顺序</strong>：先括号，再乘除，后加减；多层括号由内向外。</p>"
+        }
+      ]
+    },
+    {
+      "id": "practice-l1",
+      "kind": "exercise",
+      "title": "Level 1",
+      "items": [
+        {
+          "id": "l1-1",
+          "interaction": "fill-blank",
+          "prompt": "[S1] Evaluate: (−5) + (−9) = ____",
+          "answer": "-14",
+          "solution": "同号相加：−(5+9)=−14。",
+          "level": "L1"
+        },
+        {
+          "id": "l1-2",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Evaluate: 8 + (−3) = ____",
+          "answer": "5",
+          "solution": "异号：8−3=5。",
+          "level": "L1"
+        },
+        {
+          "id": "l1-3",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Evaluate: (−11) − (−4) = ____",
+          "answer": "-7",
+          "solution": "−11−(−4)=−11+4=−7。",
+          "level": "L1"
+        },
+        {
+          "id": "l1-4",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Evaluate: (−6) × 5 = ____",
+          "answer": "-30",
+          "solution": "异号乘积为负：−30。",
+          "level": "L1"
+        },
+        {
+          "id": "l1-5",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Evaluate: (−24) ÷ (−8) = ____",
+          "answer": "3",
+          "solution": "同号相除为正：3。",
+          "level": "L1"
+        },
+        {
+          "id": "l1-6",
+          "interaction": "multiple-choice",
+          "prompt": "[S1–S2] Which expression equals −15?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "(−3)×(−5)"
+            },
+            {
+              "id": "B",
+              "text": "5 × (−3)"
+            },
+            {
+              "id": "C",
+              "text": "(−45) ÷ (−3)"
+            },
+            {
+              "id": "D",
+              "text": "−10 + (−3)"
+            }
+          ],
+          "answer": "B",
+          "solution": "A=15，B=−15，C=15，D=−13。选 B。",
+          "level": "L1"
+        },
+        {
+          "id": "l1-7",
+          "interaction": "fill-blank",
+          "prompt": "[S1] A scuba diver is at −12 m. She descends another 9 m. Her new depth is ____ m. (Use a directed number.)",
+          "answer": "-21",
+          "solution": "−12+(−9)=−21。",
+          "level": "L1"
+        },
+        {
+          "id": "l1-8",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Evaluate: (−2)³ − (−8) = ____  (interpret (−2)³ as (−2)×(−2)×(−2))",
+          "answer": "0",
+          "solution": "(−2)³=−8；−8−(−8)=0。",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "id": "practice-l2",
+      "kind": "exercise",
+      "title": "Level 2",
+      "items": [
+        {
+          "id": "l2-1",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Evaluate: (−2) − 7 + (−5) = ____",
+          "answer": "-14",
+          "solution": "−2−7−5=−14。",
+          "level": "L2"
+        },
+        {
+          "id": "l2-2",
+          "interaction": "fill-blank",
+          "prompt": "[S3] Evaluate: (−3) × (−4) × (−2) = ____",
+          "answer": "-24",
+          "solution": "先 (−3)×(−4)=12，再 12×(−2)=−24。",
+          "level": "L2"
+        },
+        {
+          "id": "l2-3",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Evaluate: 18 ÷ (−3) − (−4) = ____",
+          "answer": "-2",
+          "solution": "18÷(−3)=−6；−6−(−4)=−6+4=−2。",
+          "level": "L2"
+        },
+        {
+          "id": "l2-4",
+          "interaction": "fill-blank",
+          "prompt": "[S3] Evaluate: |−8| − |−3 − 5| = ____",
+          "answer": "0",
+          "solution": "内层 −3−5=−8，|−8|=8；|−8|−8=8−8=0。",
+          "level": "L2"
+        },
+        {
+          "id": "l2-5",
+          "interaction": "short-text",
+          "prompt": "[S2] A shop’s daily profit/loss (in $1000) over 4 days: +3, −2, −5, +4. Find the overall result as a directed number (in $1000).",
+          "answer": "0",
+          "solution": "3+(−2)+(−5)+4=0，四天合计不赚不亏。",
+          "level": "L2"
+        },
+        {
+          "id": "l2-6",
+          "interaction": "fill-blank",
+          "prompt": "[S3] Evaluate: (−1)ⁿ when n is even gives 1; find (−1)²⁰²⁶ + (−1)²⁰²⁷ = ____",
+          "answer": "0",
+          "solution": "偶次为 1，奇次为 −1：1+(−1)=0。",
+          "level": "L2"
+        }
+      ]
+    },
+    {
+      "id": "challenge",
+      "kind": "exercise",
+      "title": "Challenge (up to S3)",
+      "items": [
+        {
+          "id": "c1",
+          "interaction": "fill-blank",
+          "prompt": "[S3] Evaluate: −[ (−6) − (−2) × 5 ] ÷ (−4) = ____",
+          "answer": "1",
+          "solution": "内：(-2)×5=−10；(−6)−(−10)=−6+10=4；−[4]÷(−4)=−4÷(−4)=1。",
+          "level": "challenge"
+        },
+        {
+          "id": "c2",
+          "interaction": "short-text",
+          "prompt": "[S3] The temperature at midnight is −8°C. It rises by 3°C each hour until 4 a.m., then falls by 2°C each hour until 7 a.m. What is the temperature at 7 a.m.?",
+          "answer": "-2",
+          "solution": "0–4 时升 4×3=12 → −8+12=4°C；4–7 时降 3×2=6 → 4−6=−2°C。",
+          "level": "challenge"
+        },
+        {
+          "id": "c3",
+          "interaction": "fill-blank",
+          "prompt": "[S3] If |x − 3| = 7 and x is a directed number less than 0, then x = ____",
+          "answer": "-4",
+          "solution": "x−3=7 或 x−3=−7 → x=10 或 x=−4；取负数 x=−4。",
+          "level": "challenge"
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Difficulty } from "@/components/difficulty";
+import { TopicIndex } from "@/components/math/topic-index";
 import { PaperStatus, StudySummary } from "@/components/paper-status";
 import { Button } from "@/components/ui/button";
+import { listTopics } from "@/lib/math/junior/content";
 import { papers, type Paper } from "@/lib/papers";
 
 const FACTS = [
@@ -125,10 +127,15 @@ export default function HomePage() {
   return (
     <div className="min-h-full flex-1 bg-background">
       <div className="border-b border-white/10 bg-board text-board-foreground">
-        <div className="mx-auto flex w-full max-w-3xl items-center justify-between px-5 py-2 text-sm">
-          <Link href="/" className="underline-offset-4 hover:underline">
-            Subjects
-          </Link>
+        <div className="mx-auto flex w-full max-w-3xl items-center justify-between gap-3 px-5 py-2 text-sm">
+          <nav className="flex items-center gap-3">
+            <Link href="/" className="underline-offset-4 hover:underline">
+              Subjects
+            </Link>
+            <Link href="/math/junior" className="underline-offset-4 hover:underline">
+              Topics
+            </Link>
+          </nav>
           <span>Mathematics</span>
         </div>
       </div>
@@ -144,7 +151,7 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7">
-            Six full papers, each 100 marks, and three junior mixed quizzes.
+            Six full papers, each 100 marks, three junior mixed quizzes, and practice by topic.
             Tests 1–3 are junior secondary. Tests 4–6 step up through S.3, S.4
             and DSE Paper 1 style. Each quiz question keeps its [S1], [S2] or
             [S3] level tag. The mark scheme opens after you submit.
@@ -188,6 +195,23 @@ export default function HomePage() {
             </div>
           </section>
         ))}
+        <section aria-labelledby="topics-title" className="space-y-3">
+          <div className="flex items-end justify-between gap-3 border-b border-border pb-2">
+            <div>
+              <p className="text-xs font-semibold tracking-[0.16em] text-primary uppercase">
+                Junior
+              </p>
+              <h2 id="topics-title" className="font-serif text-2xl font-semibold">
+                Practice by topic
+              </h2>
+            </div>
+            <p className="text-sm text-muted-foreground">{listTopics().length} lessons</p>
+          </div>
+          <p className="text-sm leading-6 text-muted-foreground">
+            Warm-up, key ideas, level 1, level 2, and a challenge. Open a lesson from S.1 or S.2.
+          </p>
+          <TopicIndex />
+        </section>
       </main>
     </div>
   );
