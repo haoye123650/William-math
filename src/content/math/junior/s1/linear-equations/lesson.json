@@ -1,0 +1,280 @@
+{
+  "courseId": "math-junior",
+  "level": "S1",
+  "slug": "linear-equations",
+  "titleEn": "Linear Equations in One Unknown",
+  "titleZh": "一元一次方程",
+  "edbUnit": "一次方程",
+  "difficulty": {
+    "core": "S1-S2",
+    "stretch": "S3",
+    "mixNote": "约30%S1 + 40%S2 + 30%S3"
+  },
+  "objectives": [
+    "解一步／两步一元一次方程（S1）",
+    "处理含括号与分数系数的方程（S2）",
+    "列方程解应用题（S2）",
+    "含参数讨论、绝对值方程等延伸（S3）"
+  ],
+  "blocks": [
+    {
+      "id": "warmup",
+      "kind": "exercise",
+      "title": "Warm-up",
+      "items": [
+        {
+          "id": "w1",
+          "interaction": "true-false",
+          "prompt": "[S1] True or False: x = 4 is a solution of 2x − 3 = 5.",
+          "answer": true,
+          "solution": "2(4)−3=8−3=5，成立。",
+          "level": "warmup"
+        },
+        {
+          "id": "w2",
+          "interaction": "fill-blank",
+          "prompt": "[S1] Solve: x + 7 = 2.  x = ____",
+          "answer": "-5",
+          "solution": "x=2−7=−5。",
+          "level": "warmup"
+        },
+        {
+          "id": "w3",
+          "interaction": "multiple-choice",
+          "prompt": "[S1] Which step isolates x in 3x = 12?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Add 3 to both sides"
+            },
+            {
+              "id": "B",
+              "text": "Divide both sides by 3"
+            },
+            {
+              "id": "C",
+              "text": "Subtract 12 from both sides"
+            },
+            {
+              "id": "D",
+              "text": "Multiply both sides by 3"
+            }
+          ],
+          "answer": "B",
+          "solution": "两边同除以 3 得 x=4。",
+          "level": "warmup"
+        },
+        {
+          "id": "w4",
+          "interaction": "fill-blank",
+          "prompt": "[S1] Solve: 5x = −20.  x = ____",
+          "answer": "-4",
+          "solution": "x=−20÷5=−4。",
+          "level": "warmup"
+        }
+      ]
+    },
+    {
+      "id": "notes",
+      "kind": "passage",
+      "title": "Key Ideas",
+      "paragraphs": [
+        {
+          "id": "p1",
+          "html": "<p><strong>一元一次方程</strong>：只含一个未知数，且未知数次数为 1 的方程。一般可化为 ax+b=0（a≠0）。</p>"
+        },
+        {
+          "id": "p2",
+          "html": "<p><strong>等价变形</strong>：两边同加／减同一数；两边同乘／除同一非零数；方程的解不变。</p>"
+        },
+        {
+          "id": "p3",
+          "html": "<p><strong>含括号</strong>：先去括号（注意负号分配），再合并同类项，最后把含 x 的项移到一边。</p>"
+        },
+        {
+          "id": "p4",
+          "html": "<p><strong>分数系数</strong>：可两边同乘各分母的最小公倍数去分母，再按整数方程解。</p>"
+        },
+        {
+          "id": "p5",
+          "html": "<p><strong>应用题</strong>：设未知数 → 找等量关系 → 列方程 → 求解 → 检验是否符合题意。</p>"
+        }
+      ]
+    },
+    {
+      "id": "practice-l1",
+      "kind": "exercise",
+      "title": "Level 1",
+      "items": [
+        {
+          "id": "l1-1",
+          "interaction": "fill-blank",
+          "prompt": "[S1] Solve: 2x − 9 = 5.  x = ____",
+          "answer": "7",
+          "solution": "2x=14，x=7。",
+          "level": "L1"
+        },
+        {
+          "id": "l1-2",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Solve: −4x = 18.  x = ____",
+          "answer": "-4.5",
+          "solution": "x=18÷(−4)=−9/2=−4.5。",
+          "level": "L1"
+        },
+        {
+          "id": "l1-3",
+          "interaction": "fill-blank",
+          "prompt": "[S1] Solve: 3(x + 2) = 15.  x = ____",
+          "answer": "3",
+          "solution": "x+2=5，x=3。",
+          "level": "L1"
+        },
+        {
+          "id": "l1-4",
+          "interaction": "fill-blank",
+          "prompt": "[S1–S2] Solve: 5x − 2 = 3x + 8.  x = ____",
+          "answer": "5",
+          "solution": "5x−3x=8+2，2x=10，x=5。",
+          "level": "L1"
+        },
+        {
+          "id": "l1-5",
+          "interaction": "fill-blank",
+          "prompt": "[S3] Solve: 2(x − 3) − (x + 1) = 4.  x = ____",
+          "answer": "11",
+          "solution": "2x−6−x−1=4 → x−7=4 → x=11。",
+          "level": "L1"
+        },
+        {
+          "id": "l1-6",
+          "interaction": "multiple-choice",
+          "prompt": "[S2] The solution of x/2 + 3 = 7 is",
+          "choices": [
+            {
+              "id": "A",
+              "text": "x = 2"
+            },
+            {
+              "id": "B",
+              "text": "x = 8"
+            },
+            {
+              "id": "C",
+              "text": "x = 20"
+            },
+            {
+              "id": "D",
+              "text": "x = 4"
+            }
+          ],
+          "answer": "B",
+          "solution": "x/2=4，x=8。",
+          "level": "L1"
+        },
+        {
+          "id": "l1-7",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Solve: (x − 4)/3 = 2.  x = ____",
+          "answer": "10",
+          "solution": "x−4=6，x=10。",
+          "level": "L1"
+        },
+        {
+          "id": "l1-8",
+          "interaction": "short-text",
+          "prompt": "[S1] A number is doubled and then decreased by 5; the result is 11. Find the number.",
+          "answer": "8",
+          "solution": "设数为 x：2x−5=11 → 2x=16 → x=8。",
+          "level": "L1"
+        }
+      ]
+    },
+    {
+      "id": "practice-l2",
+      "kind": "exercise",
+      "title": "Level 2",
+      "items": [
+        {
+          "id": "l2-1",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Solve: 3(2x − 1) = 4(x + 3) − 1.  x = ____",
+          "answer": "7",
+          "solution": "6x−3=4x+12−1 → 6x−3=4x+11 → 2x=14 → x=7。",
+          "level": "L2"
+        },
+        {
+          "id": "l2-2",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Solve: x/3 − x/6 = 1.  x = ____",
+          "answer": "6",
+          "solution": "通分：(2x−x)/6=1 → x/6=1 → x=6。",
+          "level": "L2"
+        },
+        {
+          "id": "l2-3",
+          "interaction": "fill-blank",
+          "prompt": "[S3] Solve: (2x + 1)/5 = (x − 1)/2.  x = ____",
+          "answer": "-7",
+          "solution": "2(2x+1)=5(x−1) → 4x+2=5x−5 → 2+5=5x−4x → x=−7。",
+          "level": "L2"
+        },
+        {
+          "id": "l2-4",
+          "interaction": "short-text",
+          "prompt": "[S2] The sum of three consecutive integers is 54. Find the middle integer.",
+          "answer": "18",
+          "solution": "设中间数为 n： (n−1)+n+(n+1)=54 → 3n=54 → n=18。",
+          "level": "L2"
+        },
+        {
+          "id": "l2-5",
+          "interaction": "short-text",
+          "prompt": "[S2] Adult ticket $a; child ticket is half. 3 adults + 4 children cost $140. Find a.",
+          "answer": "28",
+          "solution": "3a+4(a/2)=140 → 3a+2a=140 → 5a=140 → a=28。",
+          "level": "L2"
+        },
+        {
+          "id": "l2-6",
+          "interaction": "fill-blank",
+          "prompt": "[S3] For what value of k does 2x + k = 5x − 9 have solution x = 4?  k = ____",
+          "answer": "3",
+          "solution": "代入：2(4)+k=5(4)−9 → 8+k=20−9=11 → k=3。",
+          "level": "L2"
+        }
+      ]
+    },
+    {
+      "id": "challenge",
+      "kind": "exercise",
+      "title": "Challenge (up to S3)",
+      "items": [
+        {
+          "id": "c1",
+          "interaction": "short-text",
+          "prompt": "[S3] Solve for x: |2x − 5| = 9. Give both solutions, smaller first, separated by a comma.",
+          "answer": "-2,7",
+          "solution": "2x−5=9 或 2x−5=−9 → 2x=14 或 2x=−4 → x=7 或 x=−2。",
+          "level": "challenge"
+        },
+        {
+          "id": "c2",
+          "interaction": "fill-blank",
+          "prompt": "[S3] If (k − 1)x = 3(k − 1) has infinitely many solutions, then k = ____",
+          "answer": "1",
+          "solution": "当 k=1 时方程化为 0=0，任意 x 都是解，故无穷多解。",
+          "level": "challenge"
+        },
+        {
+          "id": "c3",
+          "interaction": "short-text",
+          "prompt": "[S3] A tank is empty. Pipe A fills it in 6 h; pipe B empties it in 9 h. Both open together; after how many hours is the tank full? (Answer as a mixed number or improper fraction.)",
+          "answer": "18",
+          "solution": "净速 1/6−1/9=1/18（箱／时），时间=18 小时。",
+          "level": "challenge"
+        }
+      ]
+    }
+  ]
+}
