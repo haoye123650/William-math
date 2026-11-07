@@ -33,9 +33,17 @@ export function ExamBar({
               size="sm"
               className="bg-sheet"
               nativeButton={false}
-              render={<Link href="/" />}
+              render={<Link href="/math" />}
             >
               Course index
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              nativeButton={false}
+              render={<Link href="/" />}
+            >
+              Subjects
             </Button>
             <div className="min-w-0">
               <p className="truncate font-serif text-base leading-tight font-semibold">

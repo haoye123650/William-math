@@ -3,9 +3,9 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "尹健熙 · Pui Kiu Mathematics",
+  title: "尹健熙 · Classroom",
   description:
-    "尹健熙 Pui Kiu Mathematics: S.1 to DSE papers, with online sitting, print, and mark scheme.",
+    "尹健熙 classroom: DSE mathematics papers, and Reading Explorer 3 as an on-site reading book.",
 };
 
 export default function RootLayout({

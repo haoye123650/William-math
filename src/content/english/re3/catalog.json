@@ -1,0 +1,295 @@
+{
+  "courseId": "re3",
+  "title": "Reading Explorer 3",
+  "edition": "Third Edition",
+  "units": [
+    {
+      "unit": 1,
+      "theme": "Sports and Fitness",
+      "themeZh": "运动与体能",
+      "bookPages": "7–22",
+      "lessons": [
+        {
+          "id": "a",
+          "title": "The World’s Game",
+          "skill": "Analyzing Infographics (1)",
+          "bookPages": "7–13",
+          "blockCount": 8,
+          "itemCount": 29
+        },
+        {
+          "id": "b",
+          "title": "What Makes an Olympic Champion?",
+          "skill": "Scanning for Specific Information",
+          "bookPages": "15–19",
+          "blockCount": 6,
+          "itemCount": 31
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "theme": "Skin Deep",
+      "themeZh": "美与皮肤",
+      "bookPages": "23–38",
+      "lessons": [
+        {
+          "id": "a",
+          "title": "What Is Beauty?",
+          "skill": "Analyzing a Writer’s Claims",
+          "bookPages": "23–29",
+          "blockCount": 7,
+          "itemCount": 28
+        },
+        {
+          "id": "b",
+          "title": "Skin: The Body’s Canvas",
+          "skill": "Summarizing the Main Idea of Paragraphs",
+          "bookPages": "31–35",
+          "blockCount": 6,
+          "itemCount": 21
+        }
+      ]
+    },
+    {
+      "unit": 3,
+      "theme": "Animals in Danger",
+      "themeZh": "濒危动物",
+      "bookPages": "39–56",
+      "lessons": [
+        {
+          "id": "a",
+          "title": "Racing to Rescue Koalas",
+          "skill": "Determining the Meaning of Unfamiliar Words",
+          "bookPages": "39–45",
+          "blockCount": 7,
+          "itemCount": 28
+        },
+        {
+          "id": "b",
+          "title": "Tracking the Snow Leopard",
+          "skill": "Annotating a Reading Passage",
+          "bookPages": "47–53",
+          "blockCount": 6,
+          "itemCount": 30
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "theme": "Violent Earth",
+      "themeZh": "剧烈大地",
+      "bookPages": "57–72",
+      "lessons": [
+        {
+          "id": "a",
+          "title": "Sacred Summits",
+          "skill": "Summarizing a Text",
+          "bookPages": "57–63",
+          "blockCount": 7,
+          "itemCount": 26
+        },
+        {
+          "id": "b",
+          "title": "Is Prediction Possible?",
+          "skill": "Analyzing Infographics (2)",
+          "bookPages": "65–69",
+          "blockCount": 7,
+          "itemCount": 24
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "theme": "Islands and Beaches",
+      "themeZh": "岛屿与海滩",
+      "bookPages": "73–88",
+      "lessons": [
+        {
+          "id": "a",
+          "title": "Land of Fire and Ice",
+          "skill": "Summarizing Details on a Map",
+          "bookPages": "73–79",
+          "blockCount": 8,
+          "itemCount": 33
+        },
+        {
+          "id": "b",
+          "title": "The Perfect Beach",
+          "skill": "Identifying a Writer’s Point of View",
+          "bookPages": "81–85",
+          "blockCount": 6,
+          "itemCount": 25
+        }
+      ]
+    },
+    {
+      "unit": 6,
+      "theme": "Global Addictions",
+      "themeZh": "全球成瘾",
+      "bookPages": "89–104",
+      "lessons": [
+        {
+          "id": "a",
+          "title": "The World’s Favorite Drug",
+          "skill": "Identifying Pros and Cons (1)",
+          "bookPages": "89–95",
+          "blockCount": 7,
+          "itemCount": 29
+        },
+        {
+          "id": "b",
+          "title": "Addicted to Distraction",
+          "skill": "Understanding Transitions",
+          "bookPages": "97–101",
+          "blockCount": 6,
+          "itemCount": 23
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "theme": "Energy Solutions",
+      "themeZh": "能源方案",
+      "bookPages": "105–120",
+      "lessons": [
+        {
+          "id": "a",
+          "title": "Powering the Planet",
+          "skill": "Identifying Pros and Cons (2)",
+          "bookPages": "105–111",
+          "blockCount": 7,
+          "itemCount": 26
+        },
+        {
+          "id": "b",
+          "title": "City of the Future?",
+          "skill": "Identifying an Author’s Opinion",
+          "bookPages": "113–117",
+          "blockCount": 7,
+          "itemCount": 24
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "theme": "Epic Engineering",
+      "themeZh": "宏伟工程",
+      "bookPages": "121–136",
+      "lessons": [
+        {
+          "id": "a",
+          "title": "China’s Grand Canal",
+          "skill": "Understanding Vocabulary: Compound Words",
+          "bookPages": "121–127",
+          "blockCount": 7,
+          "itemCount": 27
+        },
+        {
+          "id": "b",
+          "title": "Highway of Dreams",
+          "skill": "Inferring Information (1)",
+          "bookPages": "129–133",
+          "blockCount": 6,
+          "itemCount": 22
+        }
+      ]
+    },
+    {
+      "unit": 9,
+      "theme": "High-Tech Solutions",
+      "themeZh": "高科技方案",
+      "bookPages": "137–152",
+      "lessons": [
+        {
+          "id": "a",
+          "title": "The Power of Virtual Reality",
+          "skill": "Applying Information from a Text",
+          "bookPages": "137–143",
+          "blockCount": 7,
+          "itemCount": 29
+        },
+        {
+          "id": "b",
+          "title": "High-Flying Helpers",
+          "skill": "Recognizing Text Coherence",
+          "bookPages": "145–149",
+          "blockCount": 7,
+          "itemCount": 32
+        }
+      ]
+    },
+    {
+      "unit": 10,
+      "theme": "All in the Mind",
+      "themeZh": "心智之内",
+      "bookPages": "153–168",
+      "lessons": [
+        {
+          "id": "a",
+          "title": "What’s on Your Mind?",
+          "skill": "Identifying Text Organization",
+          "bookPages": "153–159",
+          "blockCount": 8,
+          "itemCount": 28
+        },
+        {
+          "id": "b",
+          "title": "Inside Animal Minds",
+          "skill": "Recognizing Lexical Cohesion (1)",
+          "bookPages": "161–165",
+          "blockCount": 6,
+          "itemCount": 29
+        }
+      ]
+    },
+    {
+      "unit": 11,
+      "theme": "Visual Pioneers",
+      "themeZh": "视觉先驱",
+      "bookPages": "169–186",
+      "lessons": [
+        {
+          "id": "a",
+          "title": "Van Gogh’s World",
+          "skill": "Inferring Information (2)",
+          "bookPages": "169–175",
+          "blockCount": 8,
+          "itemCount": 29
+        },
+        {
+          "id": "b",
+          "title": "Seeing the Light",
+          "skill": "Recognizing Lexical Cohesion (2)",
+          "bookPages": "177–183",
+          "blockCount": 6,
+          "itemCount": 30
+        }
+      ]
+    },
+    {
+      "unit": 12,
+      "theme": "Far Out",
+      "themeZh": "遥不可及",
+      "bookPages": "187–202",
+      "lessons": [
+        {
+          "id": "a",
+          "title": "Defying Gravity",
+          "skill": "Understanding Vocabulary: Phrasal Verbs",
+          "bookPages": "187–193",
+          "blockCount": 7,
+          "itemCount": 30
+        },
+        {
+          "id": "b",
+          "title": "The Ultimate Trip",
+          "skill": "Understanding Appositives",
+          "bookPages": "195–199",
+          "blockCount": 8,
+          "itemCount": 26
+        }
+      ]
+    }
+  ]
+}
