@@ -1,0 +1,297 @@
+{
+  "courseId": "math-junior",
+  "kind": "paper",
+  "id": "paper-02",
+  "titleEn": "Junior Mixed Quiz Paper 02",
+  "titleZh": "培侨初中混合小测卷 02",
+  "levelMix": "约30%S1 + 40%S2 + 30%S3",
+  "timeSuggestedMin": 45,
+  "topicsCovered": [
+    "rate-and-ratio",
+    "factorization",
+    "simultaneous-equations",
+    "pythagoras",
+    "indices",
+    "area-volume"
+  ],
+  "sections": [
+    {
+      "id": "A",
+      "titleEn": "Section A",
+      "titleZh": "甲部（短答／选择／填空）",
+      "instructions": "答甲部各题。选择题选最合适的一项；填空写最终答案。",
+      "items": [
+        {
+          "id": "A1",
+          "interaction": "fill-blank",
+          "prompt": "[S1] If 3 : 5 = 6 : x, then x = ____",
+          "answer": "10",
+          "solution": "3/5=6/x ⇒ 3x=30 ⇒ x=10。",
+          "topic": "rate-and-ratio",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A2",
+          "interaction": "multiple-choice",
+          "prompt": "[S1] Factorize: 6x + 9",
+          "choices": [
+            {
+              "id": "A",
+              "text": "3(2x+3)"
+            },
+            {
+              "id": "B",
+              "text": "6(x+9)"
+            },
+            {
+              "id": "C",
+              "text": "3(2x+9)"
+            },
+            {
+              "id": "D",
+              "text": "2(3x+9)"
+            }
+          ],
+          "answer": "A",
+          "solution": "最大公因数 3：3(2x+3)。",
+          "topic": "factorization",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A3",
+          "interaction": "fill-blank",
+          "prompt": "[S1] A car travels 120 km in 2 hours. Its average speed is ____ km/h.",
+          "answer": "60",
+          "solution": "120÷2=60 km/h。",
+          "topic": "rate-and-ratio",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A4",
+          "interaction": "true-false",
+          "prompt": "[S1] True or False: In a right-angled triangle with legs 3 and 4, the hypotenuse is 5.",
+          "answer": true,
+          "solution": "3²+4²=9+16=25=5²，正确。",
+          "topic": "pythagoras",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A5",
+          "interaction": "fill-blank",
+          "prompt": "[S1] Evaluate: 2³ × 2² = ____ (write as a power of 2, e.g. 2^5)",
+          "answer": "2^5",
+          "solution": "同底相乘指数相加：2^(3+2)=2^5。",
+          "topic": "indices",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A6",
+          "interaction": "fill-blank",
+          "prompt": "[S2] The area of a rectangle 8 cm by 5 cm is ____ cm².",
+          "answer": "40",
+          "solution": "8×5=40。",
+          "topic": "area-volume",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A7",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Factorize: x² − 9",
+          "answer": "(x-3)(x+3)",
+          "solution": "平方差：a²−b²=(a−b)(a+b)。",
+          "topic": "factorization",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A8",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Solve the system: x + y = 7, x − y = 1. Give x. x = ____",
+          "answer": "4",
+          "solution": "两式相加 2x=8 ⇒ x=4。",
+          "topic": "simultaneous-equations",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A9",
+          "interaction": "multiple-choice",
+          "prompt": "[S2] A ladder leans against a wall. Base is 5 m from wall, ladder length 13 m. Height up the wall is",
+          "choices": [
+            {
+              "id": "A",
+              "text": "8 m"
+            },
+            {
+              "id": "B",
+              "text": "12 m"
+            },
+            {
+              "id": "C",
+              "text": "10 m"
+            },
+            {
+              "id": "D",
+              "text": "18 m"
+            }
+          ],
+          "answer": "B",
+          "solution": "h²+5²=13² ⇒ h²=169−25=144 ⇒ h=12。",
+          "topic": "pythagoras",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A10",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Simplify: (3²)³ = ____ (as a single power of 3, e.g. 3^6)",
+          "answer": "3^6",
+          "solution": "(a^m)^n=a^(mn)：3^6。",
+          "topic": "indices",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A11",
+          "interaction": "fill-blank",
+          "prompt": "[S2] The volume of a cuboid 4×3×5 (cm) is ____ cm³.",
+          "answer": "60",
+          "solution": "4×3×5=60。",
+          "topic": "area-volume",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A12",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Divide $360 in the ratio 2 : 3. The larger share is $____.",
+          "answer": "216",
+          "solution": "总份 5；3/5×360=216。",
+          "topic": "rate-and-ratio",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A13",
+          "interaction": "fill-blank",
+          "prompt": "[S3] Solve: 2x + y = 11, 3x − 2y = 6. Give y. y = ____",
+          "answer": "3",
+          "solution": "由第一式 y=11−2x；代入：3x−2(11−2x)=6 ⇒ 3x−22+4x=6 ⇒ 7x=28 ⇒ x=4；y=11−8=3。",
+          "topic": "simultaneous-equations",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "titleEn": "Section B",
+      "titleZh": "乙部（稍长应用）",
+      "instructions": "答乙部各题，写出关键步骤；最终答案填入空格或简答区。",
+      "items": [
+        {
+          "id": "B1",
+          "interaction": "short-text",
+          "prompt": "[S2] Factorize completely: 2x² − 8",
+          "answer": "2(x-2)(x+2)",
+          "solution": "先提 2：2(x²−4)=2(x−2)(x+2)。",
+          "topic": "factorization",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B2",
+          "interaction": "short-text",
+          "prompt": "[S3] A map scale is 1 : 50000. Two towns are 4 cm apart on the map. Actual distance in km?",
+          "answer": "2",
+          "solution": "4×50000=200000 cm=2000 m=2 km。",
+          "topic": "rate-and-ratio",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B3",
+          "interaction": "short-text",
+          "prompt": "[S3] In right △ABC, ∠C=90°, AC=8, BC=15. Find AB.",
+          "answer": "17",
+          "solution": "AB²=8²+15²=64+225=289 ⇒ AB=17。",
+          "topic": "pythagoras",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B4",
+          "interaction": "short-text",
+          "prompt": "[S3] Simplify: (2³ × 2⁵) ÷ 2⁴. Write the result as a power of 2 (e.g. 2^4).",
+          "answer": "2^4",
+          "solution": "2^(3+5−4)=2^4。",
+          "topic": "indices",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B5",
+          "interaction": "short-text",
+          "prompt": "[S3] A cylinder has radius 7 cm and height 10 cm. Taking π=22/7, find its volume in cm³.",
+          "answer": "1540",
+          "solution": "V=πr²h=(22/7)×49×10=22×7×10=1540。",
+          "topic": "area-volume",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B6",
+          "interaction": "short-text",
+          "prompt": "[S1] If 4 pens cost $12, the cost of 1 pen is $____.",
+          "answer": "3",
+          "solution": "12÷4=3。",
+          "topic": "rate-and-ratio",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B7",
+          "interaction": "short-text",
+          "prompt": "[S3] Solve: x + 2y = 8, 3x − y = 3. Give the ordered pair (x,y).",
+          "answer": "(2,3)",
+          "solution": "第二式 y=3x−3；代入：x+2(3x−3)=8 ⇒ x+6x−6=8 ⇒ 7x=14 ⇒ x=2；y=6−3=3。",
+          "topic": "simultaneous-equations",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        }
+      ]
+    }
+  ],
+  "mediaContract": {
+    "assetIds": "string[] — ids into paper.assets[]",
+    "imagePlacement": "null | \"above\" | \"beside\" — 看图题同屏",
+    "assets": "optional top-level list {id,src,alt}"
+  },
+  "assets": []
+}

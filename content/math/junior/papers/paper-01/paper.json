@@ -1,0 +1,333 @@
+{
+  "courseId": "math-junior",
+  "kind": "paper",
+  "id": "paper-01",
+  "titleEn": "Junior Mixed Quiz Paper 01",
+  "titleZh": "培侨初中混合小测卷 01",
+  "levelMix": "约30%S1 + 40%S2 + 30%S3",
+  "timeSuggestedMin": 45,
+  "topicsCovered": [
+    "directed-numbers",
+    "linear-equations",
+    "percentages",
+    "algebraic-expressions",
+    "angles-polygons",
+    "statistics"
+  ],
+  "sections": [
+    {
+      "id": "A",
+      "titleEn": "Section A",
+      "titleZh": "甲部（短答／选择／填空）",
+      "instructions": "答甲部各题。选择题选最合适的一项；填空写最终答案。",
+      "items": [
+        {
+          "id": "A1",
+          "interaction": "multiple-choice",
+          "prompt": "[S1] Which of the following is a directed number less than −4?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "−3"
+            },
+            {
+              "id": "B",
+              "text": "−4"
+            },
+            {
+              "id": "C",
+              "text": "−5"
+            },
+            {
+              "id": "D",
+              "text": "0"
+            }
+          ],
+          "answer": "C",
+          "solution": "−5 在数轴上比 −4 更靠左，故 −5 < −4。",
+          "topic": "directed-numbers",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A2",
+          "interaction": "fill-blank",
+          "prompt": "[S1] Evaluate: (−7) + 12 = ____",
+          "answer": "5",
+          "solution": "−7+12=5。",
+          "topic": "directed-numbers",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A3",
+          "interaction": "true-false",
+          "prompt": "[S1] True or False: The solution of 2x + 5 = 11 is x = 3.",
+          "answer": true,
+          "solution": "2x=6 ⇒ x=3，正确。",
+          "topic": "linear-equations",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A4",
+          "interaction": "fill-blank",
+          "prompt": "[S1] 15% of 80 = ____",
+          "answer": "12",
+          "solution": "0.15×80=12。",
+          "topic": "percentages",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A5",
+          "interaction": "multiple-choice",
+          "prompt": "[S1] Simplify: 3a + 5a − 2a",
+          "choices": [
+            {
+              "id": "A",
+              "text": "6a"
+            },
+            {
+              "id": "B",
+              "text": "10a"
+            },
+            {
+              "id": "C",
+              "text": "5a"
+            },
+            {
+              "id": "D",
+              "text": "a"
+            }
+          ],
+          "answer": "A",
+          "solution": "3+5−2=6，故 6a。",
+          "topic": "algebraic-expressions",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A6",
+          "interaction": "fill-blank",
+          "prompt": "[S2] The sum of interior angles of a triangle is ____ degrees.",
+          "answer": "180",
+          "solution": "三角形内角和为 180°。",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A7",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Evaluate: (−3)×(−4) − 10 = ____",
+          "answer": "2",
+          "solution": "(−3)×(−4)=12；12−10=2。",
+          "topic": "directed-numbers",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A8",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Solve: 3(x − 2) = 15. x = ____",
+          "answer": "7",
+          "solution": "x−2=5 ⇒ x=7。",
+          "topic": "linear-equations",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A9",
+          "interaction": "multiple-choice",
+          "prompt": "[S2] A shirt costs $200. After a 20% discount, the selling price is",
+          "choices": [
+            {
+              "id": "A",
+              "text": "$160"
+            },
+            {
+              "id": "B",
+              "text": "$180"
+            },
+            {
+              "id": "C",
+              "text": "$40"
+            },
+            {
+              "id": "D",
+              "text": "$240"
+            }
+          ],
+          "answer": "A",
+          "solution": "售价 = 200×(1−0.2)=160。",
+          "topic": "percentages",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A10",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Expand and simplify: 2(x + 3) − (x − 1) = ____ (in terms of x)",
+          "answer": "x+7",
+          "solution": "2x+6−x+1=x+7。",
+          "topic": "algebraic-expressions",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A11",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Each exterior angle of a regular hexagon is ____ degrees.",
+          "answer": "60",
+          "solution": "外角和 360°；正六边形每外角 360÷6=60°。",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A12",
+          "interaction": "multiple-choice",
+          "prompt": "[S2] The mean of 4, 6, 8, 10 is",
+          "choices": [
+            {
+              "id": "A",
+              "text": "6"
+            },
+            {
+              "id": "B",
+              "text": "7"
+            },
+            {
+              "id": "C",
+              "text": "8"
+            },
+            {
+              "id": "D",
+              "text": "28"
+            }
+          ],
+          "answer": "B",
+          "solution": "(4+6+8+10)/4=28/4=7。",
+          "topic": "statistics",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "A13",
+          "interaction": "fill-blank",
+          "prompt": "[S3] Solve: |2x − 4| = 10 and give the larger solution. x = ____",
+          "answer": "7",
+          "solution": "2x−4=10 ⇒ x=7；2x−4=−10 ⇒ x=−3；较大解为 7。",
+          "topic": "linear-equations",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "titleEn": "Section B",
+      "titleZh": "乙部（稍长应用）",
+      "instructions": "答乙部各题，写出关键步骤；最终答案填入空格或简答区。",
+      "items": [
+        {
+          "id": "B1",
+          "interaction": "short-text",
+          "prompt": "[S3] A thermometer reads −6°C at 6 a.m. and rises by 2.5°C each hour. What is the reading at 10 a.m.?",
+          "answer": "4",
+          "solution": "4 小时升 4×2.5=10；−6+10=4°C。",
+          "topic": "directed-numbers",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B2",
+          "interaction": "short-text",
+          "prompt": "[S2] Tom scores 72 in a test. After a 25% increase in the next test, what is his new score?",
+          "answer": "90",
+          "solution": "72×1.25=90。",
+          "topic": "percentages",
+          "levelTag": "S2",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B3",
+          "interaction": "short-text",
+          "prompt": "[S3] The ages of 5 students are 12, 13, 13, 14, 18. Find the median and the mean. Answer as median,mean (e.g. 13,14).",
+          "answer": "13,14",
+          "solution": "中位数为第 3 个：13；均值 (12+13+13+14+18)/5=70/5=14。",
+          "topic": "statistics",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B4",
+          "interaction": "short-text",
+          "prompt": "[S3] In a regular octagon, find one interior angle in degrees.",
+          "answer": "135",
+          "solution": "内角 = [(8−2)×180]/8 = 1080/8 = 135°。",
+          "topic": "angles-polygons",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B5",
+          "interaction": "short-text",
+          "prompt": "[S3] Simplify: 4(2x − 3) − 3(x − 5) + 2. Give the simplified expression.",
+          "answer": "5x+5",
+          "solution": "8x−12−3x+15+2=5x+5。",
+          "topic": "algebraic-expressions",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B6",
+          "interaction": "short-text",
+          "prompt": "[S1] Solve: x/4 + 3 = 7. x = ____",
+          "answer": "16",
+          "solution": "x/4=4 ⇒ x=16。",
+          "topic": "linear-equations",
+          "levelTag": "S1",
+          "assetIds": [],
+          "imagePlacement": null
+        },
+        {
+          "id": "B7",
+          "interaction": "short-text",
+          "prompt": "[S3] A price rises by 10% then falls by 10%. If the original price is $500, what is the final price?",
+          "answer": "495",
+          "solution": "500×1.1=550；550×0.9=495（先升后降净减）。",
+          "topic": "percentages",
+          "levelTag": "S3",
+          "assetIds": [],
+          "imagePlacement": null
+        }
+      ]
+    }
+  ],
+  "mediaContract": {
+    "assetIds": "string[] — ids into paper.assets[]",
+    "imagePlacement": "null | \"above\" | \"beside\" — 看图题同屏",
+    "assets": "optional top-level list {id,src,alt}"
+  },
+  "assets": []
+}

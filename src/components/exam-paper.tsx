@@ -10,9 +10,12 @@ import { cn } from "@/lib/utils";
 import { gradeQuestion, type QuestionStatus } from "@/lib/grade";
 import {
   curriculumTag,
+  figuresFor,
+  hasTeacherMarkedWork,
   type AnswersState,
   type CurriculumTag,
   type Paper,
+  type PaperAsset,
   type Question,
   type Section,
 } from "@/lib/papers/types";
@@ -74,9 +77,9 @@ function StatusBadge({ status }: { status: QuestionStatus }) {
   );
 }
 
-function QuestionFigure({ question }: { question: Question }) {
+function QuestionFigure({ question, hasAsset }: { question: Question; hasAsset: boolean }) {
   const status = figureStatus(question);
-  if (status === "none") return null;
+  if (status === "none" || (status === "missing" && hasAsset)) return null;
   if (status === "triangle") {
     return (
       <div className="rounded-lg border border-border bg-white/60 p-3">
@@ -95,8 +98,32 @@ function QuestionFigure({ question }: { question: Question }) {
   );
 }
 
+function FigureSlot({
+  assets,
+  placement,
+}: {
+  assets: PaperAsset[];
+  placement: Question["imagePlacement"];
+}) {
+  if (assets.length === 0 || (placement !== "above" && placement !== "beside")) return null;
+  return (
+    <div className={cn("space-y-2", placement === "beside" && "sm:w-52 sm:shrink-0")}>
+      {assets.map((asset) => (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          key={asset.id}
+          src={asset.src}
+          alt={asset.alt || "Figure"}
+          className="h-auto max-w-full rounded-lg border border-border bg-white"
+        />
+      ))}
+    </div>
+  );
+}
+
 function QuestionBlock({
   question,
+  assets,
   mode,
   reviewed,
   value,
@@ -105,6 +132,7 @@ function QuestionBlock({
   lockedKeys,
 }: {
   question: Question;
+  assets?: PaperAsset[];
   mode: ExamMode;
   reviewed?: boolean;
   value?: AnswersState;
@@ -119,6 +147,9 @@ function QuestionBlock({
   const locked = new Set(lockedKeys ?? []);
   const choiceLocked = locked.has(question.id);
   const interactive = mode === "take" && !reviewed;
+  const figures = figuresFor(question, assets);
+  const placement = question.imagePlacement;
+  const figureSlot = <FigureSlot assets={figures} placement={placement} />;
 
   return (
     <article
@@ -131,16 +162,33 @@ function QuestionBlock({
       )}
     >
       <div className="flex items-start gap-3">
-        <span className="w-8 shrink-0 pt-0.5 text-right font-serif text-lg font-semibold tabular-nums">
+        <span
+          className={cn(
+            "shrink-0 pt-0.5 text-right font-serif text-lg font-semibold tabular-nums",
+            question.no.length > 2 ? "w-12" : "w-8"
+          )}
+        >
           {question.no}.
         </span>
         <div className="min-w-0 flex-1 space-y-4">
           <div className="flex items-start justify-between gap-3">
-            <div className="min-w-0 flex-1">
-              <Stem html={question.stem} />
+            <div className="min-w-0 flex-1 space-y-3">
+              {placement === "above" ? figureSlot : null}
+              <div
+                className={cn(
+                  placement === "beside" && figures.length > 0 && "sm:flex sm:items-start sm:gap-4"
+                )}
+              >
+                {placement === "beside" ? figureSlot : null}
+                <div className="min-w-0 flex-1">
+                  <Stem html={question.stem} />
+                </div>
+              </div>
             </div>
             <div className="flex shrink-0 flex-col items-end gap-1.5">
-              {levelTag ? <Badge variant="secondary">[{levelTag}]</Badge> : null}
+              {question.levelTag ?? levelTag ? (
+                <Badge variant="secondary">[{question.levelTag ?? levelTag}]</Badge>
+              ) : null}
               {reviewed && (status === "incorrect" || status === "partial") ? (
                 <a
                   href="#review"
@@ -151,12 +199,12 @@ function QuestionBlock({
               ) : null}
               {reviewed && status ? <StatusBadge status={status} /> : null}
               <span className="text-sm text-muted-foreground tabular-nums">
-                ({question.marks} marks)
+                ({question.marks} {question.marks === 1 ? "mark" : "marks"})
               </span>
             </div>
           </div>
 
-          <QuestionFigure question={question} />
+          <QuestionFigure question={question} hasAsset={figures.length > 0} />
 
           {question.type === "choice" && question.options ? (
             <div className="grid gap-2 sm:grid-cols-2" role={interactive ? "group" : undefined} aria-label={interactive ? `Question ${question.no} choices` : undefined}>
@@ -335,6 +383,7 @@ function QuestionBlock({
 
 function SectionBlock({
   section,
+  assets,
   mode,
   reviewed,
   value,
@@ -343,6 +392,7 @@ function SectionBlock({
   lockedKeys,
 }: {
   section: Section;
+  assets?: PaperAsset[];
   mode: ExamMode;
   reviewed?: boolean;
   value?: AnswersState;
@@ -369,6 +419,7 @@ function SectionBlock({
           <QuestionBlock
             key={question.id}
             question={question}
+            assets={assets}
             mode={mode}
             reviewed={reviewed}
             value={value}
@@ -418,8 +469,12 @@ export function ExamHeader({
           <dd className="font-serif text-lg font-semibold tabular-nums">{paper.durationMin}</dd>
         </div>
         <div className="rounded-lg border border-border px-2 py-2">
-          <dt className="text-xs text-muted-foreground">Section E</dt>
-          <dd className="font-serif text-lg font-semibold tabular-nums">+{paper.extraMarks}</dd>
+          <dt className="text-xs text-muted-foreground">
+            {paper.extraMarks > 0 ? "Section E" : "Level"}
+          </dt>
+          <dd className="font-serif text-lg font-semibold tabular-nums">
+            {paper.extraMarks > 0 ? `+${paper.extraMarks}` : paper.level}
+          </dd>
         </div>
       </dl>
       <div className="mt-5 grid gap-4 border border-border px-3 py-3 text-sm sm:grid-cols-3">
@@ -462,8 +517,9 @@ export function ExamHeader({
         </div>
       ) : (
         <p className="instruction-box mt-4 rounded-lg border border-border bg-accent px-4 py-3 text-sm leading-relaxed text-accent-foreground">
-          Teacher copy. Mark Sections A and B against the key. Award method marks in
-          Sections C and D.
+          {hasTeacherMarkedWork(paper)
+            ? "Teacher copy. Mark Sections A and B against the key. Award method marks in Sections C and D."
+            : "Teacher copy. Mark every item against the key."}
         </p>
       )}
     </header>
@@ -506,6 +562,7 @@ export function ExamPaper({
         <SectionBlock
           key={section.id}
           section={section}
+          assets={paper.assets}
           mode={mode}
           reviewed={reviewed}
           value={answers}
