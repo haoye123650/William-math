@@ -1,4 +1,4 @@
-import type { AnswersState, Question } from "@/lib/papers/types";
+import { allQuestions, type AnswersState, type Paper, type Question } from "@/lib/papers/types";
 
 export function normalizeAnswer(value: string) {
   return value
@@ -103,4 +103,65 @@ export function gradeQuestion(question: Question, answers: AnswersState) {
   else if (correctCount > 0) status = "partial";
 
   return { status, blankResults };
+}
+
+export type ObjectiveItem = {
+  key: string;
+  no: string;
+  skill: string;
+  part: string;
+  marks: number;
+  got: number;
+  ok: boolean;
+};
+
+/** Objective marks already used on the paper. Worked questions are omitted. */
+export function objectiveReport(paper: Paper, answers: AnswersState) {
+  const items: ObjectiveItem[] = [];
+
+  for (const question of allQuestions(paper)) {
+    if (question.type === "work") continue;
+    if (question.type === "choice") {
+      const ok = answers[question.id] === question.answer;
+      items.push({
+        key: question.id,
+        no: question.no,
+        skill: question.skill,
+        part: "Choice",
+        marks: question.marks,
+        got: ok ? question.marks : 0,
+        ok,
+      });
+    }
+    if (question.type === "fill" && question.blanks) {
+      const per = question.marks / question.blanks.length;
+      for (const blank of question.blanks) {
+        const ok = matchesAnswer(answers[blank.id] ?? "", blank.accepted ?? [blank.answer]);
+        items.push({
+          key: blank.id,
+          no: question.no,
+          skill: question.skill,
+          part: blank.label ?? "Answer",
+          marks: per,
+          got: ok ? per : 0,
+          ok,
+        });
+      }
+    }
+  }
+
+  const got = items.reduce((sum, item) => sum + item.got, 0);
+  const total = items.reduce((sum, item) => sum + item.marks, 0);
+  const bySkill: Record<string, { got: number; total: number }> = {};
+  for (const item of items) {
+    bySkill[item.skill] ??= { got: 0, total: 0 };
+    bySkill[item.skill].got += item.got;
+    bySkill[item.skill].total += item.marks;
+  }
+  return { items, got, total, bySkill };
+}
+
+export function itemResultLabel(no: string, part: string) {
+  const head = /^\d/.test(no) ? `Q${no}` : no;
+  return part ? `${head} ${part}` : head;
 }

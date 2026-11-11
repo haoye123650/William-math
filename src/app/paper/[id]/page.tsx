@@ -16,5 +16,5 @@ export default async function PaperPage({
   const { id } = await params;
   const paper = getPaper(id);
   if (!paper) notFound();
-  return <ExamTake paper={paper} />;
+  return <ExamTake key={paper.id} paper={paper} />;
 }

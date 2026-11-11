@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TopicStatus } from "@/components/math/topic-status";
 import { Button } from "@/components/ui/button";
 import { topicGroups, topicHref } from "@/lib/math/junior/content";
 
@@ -49,6 +50,11 @@ export function TopicIndex() {
                     <p className="mt-2 text-sm leading-6 text-muted-foreground">
                       {topic.levelLabel} · {topic.questions} questions
                     </p>
+                    <TopicStatus
+                      topicKey={`${topic.year}/${topic.slug}`}
+                      title={topic.title}
+                      href={topicHref(topic.year, topic.slug)}
+                    />
                   </div>
                 </div>
                 <div className="border-t border-border bg-muted/45 p-3 sm:px-5">

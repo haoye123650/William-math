@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { Difficulty } from "@/components/difficulty";
 import { TopicIndex } from "@/components/math/topic-index";
-import { PaperStatus, StudySummary } from "@/components/paper-status";
+import { PaperProgress, PaperStatus } from "@/components/paper-status";
+import { ProgressRecord } from "@/components/progress-record";
 import { Button } from "@/components/ui/button";
-import { listTopics } from "@/lib/math/junior/content";
+import { listTopics, topicHref } from "@/lib/math/junior/content";
+import type { ProgressCatalog } from "@/lib/progress-report";
 import { papers, type Paper } from "@/lib/papers";
 
 const FACTS = [
@@ -16,6 +18,21 @@ function sheetNo(id: string) {
   if (/^\d+$/.test(id)) return id.padStart(2, "0");
   const tail = id.match(/(\d+)$/)?.[1];
   return tail ? tail.padStart(2, "0") : id;
+}
+
+function progressCatalog(): ProgressCatalog {
+  return {
+    papers: papers.map((paper) => ({
+      id: paper.id,
+      title: paper.title,
+      kind: paper.id.startsWith("junior-") ? "quiz" : "paper",
+    })),
+    topics: listTopics().map((topic) => ({
+      key: `${topic.year}/${topic.slug}`,
+      title: topic.title,
+      href: topicHref(topic.year, topic.slug),
+    })),
+  };
 }
 
 const GROUPS = [
@@ -68,6 +85,11 @@ function PaperCard({ paper }: { paper: Paper }) {
             </h3>
             <PaperStatus paperId={paper.id} />
           </div>
+          <PaperProgress
+            paperId={paper.id}
+            title={paper.title}
+            kind={paper.id.startsWith("junior-") ? "quiz" : "paper"}
+          />
           <p className="mt-2 text-sm leading-6 text-pretty text-muted-foreground">
             {paper.blurb}
           </p>
@@ -135,6 +157,9 @@ export default function HomePage() {
             <Link href="/math/junior" className="underline-offset-4 hover:underline">
               Topics
             </Link>
+            <a href="#progress" className="underline-offset-4 hover:underline">
+              Progress
+            </a>
           </nav>
           <span>Mathematics</span>
         </div>
@@ -174,7 +199,7 @@ export default function HomePage() {
       </div>
 
       <main className="mx-auto flex w-full max-w-3xl flex-col gap-10 px-5 py-8 sm:py-10">
-        <StudySummary ids={papers.map((paper) => paper.id)} />
+        <ProgressRecord catalog={progressCatalog()} />
         {GROUPS.map((group) => (
           <section key={group.id} aria-labelledby={`${group.id}-title`} className="space-y-3">
             <div className="flex items-end justify-between gap-3 border-b border-border pb-2">

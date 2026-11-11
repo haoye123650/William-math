@@ -31,5 +31,5 @@ export default async function JuniorLessonPage({
   const { level, slug } = await params;
   const lesson = getJuniorLesson(level, slug);
   if (!lesson) notFound();
-  return <LessonPractice lesson={lesson} />;
+  return <LessonPractice key={`${level}/${slug}`} lesson={lesson} />;
 }

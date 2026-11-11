@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { answerFieldProps } from "@/lib/answer-field";
 import { gradeQuestion, type QuestionStatus } from "@/lib/grade";
 import {
   curriculumTag,
@@ -122,6 +123,7 @@ function FigureSlot({
 }
 
 function QuestionBlock({
+  scope,
   question,
   assets,
   mode,
@@ -131,6 +133,7 @@ function QuestionBlock({
   levelTag,
   lockedKeys,
 }: {
+  scope: string;
   question: Question;
   assets?: PaperAsset[];
   mode: ExamMode;
@@ -284,10 +287,10 @@ function QuestionBlock({
                     ) : null}
                     {mode === "take" ? (
                       <Input
+                        {...answerFieldProps(scope, blank.id, reviewed || blankLocked)}
                         value={answers[blank.id] ?? ""}
-                        readOnly={reviewed || blankLocked}
                         onChange={(event) => {
-                          if (blankLocked) return;
+                          if (blankLocked || reviewed) return;
                           onChange?.(blank.id, event.target.value);
                         }}
                         aria-label={blankName}
@@ -324,10 +327,10 @@ function QuestionBlock({
             mode === "take" ? (
               <div className="space-y-2">
                 <Textarea
+                  {...answerFieldProps(scope, question.id, reviewed || locked.has(question.id))}
                   value={answers[question.id] ?? ""}
-                  readOnly={reviewed || locked.has(question.id)}
                   onChange={(event) => {
-                    if (locked.has(question.id)) return;
+                    if (locked.has(question.id) || reviewed) return;
                     onChange?.(question.id, event.target.value);
                   }}
                   className="work-pad min-h-40 bg-white pt-0 font-serif"
@@ -382,6 +385,7 @@ function QuestionBlock({
 }
 
 function SectionBlock({
+  scope,
   section,
   assets,
   mode,
@@ -391,6 +395,7 @@ function SectionBlock({
   levelTag,
   lockedKeys,
 }: {
+  scope: string;
   section: Section;
   assets?: PaperAsset[];
   mode: ExamMode;
@@ -417,7 +422,8 @@ function SectionBlock({
       <div>
         {section.questions.map((question) => (
           <QuestionBlock
-            key={question.id}
+            key={`${scope}-${question.id}`}
+            scope={scope}
             question={question}
             assets={assets}
             mode={mode}
@@ -558,9 +564,14 @@ export function ExamPaper({
         reviewed={reviewed}
         scoreLabel={scoreLabel}
       />
+      <form
+        autoComplete="off"
+        onSubmit={(event) => event.preventDefault()}
+      >
       {paper.sections.map((section) => (
         <SectionBlock
-          key={section.id}
+          key={`${paper.id}-${section.id}`}
+          scope={paper.id}
           section={section}
           assets={paper.assets}
           mode={mode}
@@ -571,6 +582,7 @@ export function ExamPaper({
           lockedKeys={lockedKeys}
         />
       ))}
+      </form>
       {mode === "answers" ? (
         <section className="mt-10 break-inside-avoid border-t border-foreground/20 pt-6">
           <h2 className="font-serif text-xl font-semibold">How to read the score</h2>
