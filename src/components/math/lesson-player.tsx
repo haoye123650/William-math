@@ -1,12 +1,15 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { ItemResults } from "@/components/item-results";
 import { JuniorShell } from "@/components/math/junior-shell";
+import { answerFieldProps, choiceFieldName } from "@/lib/answer-field";
+import { describeTopic } from "@/lib/progress-report";
 import {
   displayPrompt,
   formatLevel,
@@ -15,6 +18,14 @@ import {
   questionCount,
   shownLevelTag,
 } from "@/lib/math/junior/grade";
+import {
+  getServerTopicSnapshot,
+  getTopicSnapshot,
+  lessonFieldScope,
+  lessonStorageKey,
+  saveTopic,
+  subscribeTopics,
+} from "@/lib/math/junior/progress";
 import type { JuniorAsset, JuniorBlock, JuniorItem, JuniorLesson } from "@/lib/math/junior/types";
 import { cn } from "@/lib/utils";
 
@@ -75,6 +86,7 @@ function FigureList({ assets }: { assets: JuniorAsset[] }) {
 }
 
 function ItemPractice({
+  scope,
   item,
   number,
   assets,
@@ -83,6 +95,7 @@ function ItemPractice({
   onChange,
   onCheck,
 }: {
+  scope: string;
   item: JuniorItem;
   number: number;
   assets: Map<string, JuniorAsset>;
@@ -123,7 +136,7 @@ function ItemPractice({
                   </Badge>
                 ) : null}
               </div>
-              <ItemControl item={item} value={value} onChange={onChange} />
+              <ItemControl scope={scope} item={item} value={value} onChange={onChange} />
               <div className="flex flex-wrap items-center gap-3">
                 <Button type="button" size="lg" className="h-10 px-4" onClick={onCheck} disabled={!canCheck}>
                   Check
@@ -163,10 +176,12 @@ function ItemPractice({
 }
 
 function ItemControl({
+  scope,
   item,
   value,
   onChange,
 }: {
+  scope: string;
   item: JuniorItem;
   value: string;
   onChange: (value: string) => void;
@@ -185,10 +200,11 @@ function ItemControl({
           >
             <input
               type="radio"
-              name={item.id}
+              name={choiceFieldName(scope, item.id)}
               value={choice.id}
               checked={value === choice.id}
               onChange={() => onChange(choice.id)}
+              autoComplete="off"
               className="mt-1"
             />
             <span className="font-semibold">{choice.id}</span>
@@ -217,10 +233,11 @@ function ItemControl({
           >
             <input
               type="radio"
-              name={item.id}
+              name={choiceFieldName(scope, item.id)}
               value={option.id}
               checked={value === option.id}
               onChange={() => onChange(option.id)}
+              autoComplete="off"
             />
             <span>{option.text}</span>
           </label>
@@ -232,23 +249,21 @@ function ItemControl({
   if (item.interaction === "short-text") {
     return (
       <Textarea
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-        aria-label="Answer"
-        autoComplete="off"
-        spellCheck={false}
-        rows={2}
-      />
+      {...answerFieldProps(scope, item.id)}
+      value={value}
+      onChange={(event) => onChange(event.target.value)}
+      aria-label="Answer"
+      rows={2}
+    />
     );
   }
 
   return (
     <Input
+      {...answerFieldProps(scope, item.id)}
       value={value}
       onChange={(event) => onChange(event.target.value)}
       aria-label="Answer"
-      autoComplete="off"
-      spellCheck={false}
     />
   );
 }
@@ -267,17 +282,50 @@ function Notes({ block }: { block: JuniorBlock }) {
   );
 }
 
+function checkedItems(lesson: JuniorLesson, answers: Record<string, string>, checked: string[]) {
+  const done = new Set(checked);
+  const items: { key: string; label: string; ok: boolean }[] = [];
+  let total = 0;
+  for (const block of lesson.blocks) {
+    const section = sectionLabel(block);
+    (block.items ?? []).forEach((item, index) => {
+      total += 1;
+      if (!done.has(item.id)) return;
+      const ok = gradeItem(item, answers[item.id]);
+      if (ok === null) return;
+      items.push({ key: item.id, label: `${section} ${index + 1}`, ok });
+    });
+  }
+  return { total, items };
+}
+
 export function LessonPractice({ lesson }: { lesson: JuniorLesson }) {
   const assets = useMemo(
     () => new Map((lesson.assets ?? []).map((asset) => [asset.id, asset])),
     [lesson.assets],
   );
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [checked, setChecked] = useState<Record<string, boolean>>({});
+  const storageKey = lessonStorageKey(lesson);
+  const fieldScope = lessonFieldScope(lesson);
+  const saved = useSyncExternalStore(
+    subscribeTopics,
+    () => getTopicSnapshot(storageKey),
+    getServerTopicSnapshot,
+  );
+  const progress = describeTopic(
+    { key: storageKey, title: lesson.titleEn, href: `/math/junior/${storageKey}` },
+    saved.updatedAt === 0 ? null : saved,
+  );
+
+  function commit(answers: Record<string, string>, checked: string[]) {
+    const { total, items } = checkedItems(lesson, answers, checked);
+    saveTopic(storageKey, { answers, checked, total, items });
+  }
 
   function setAnswer(id: string, value: string) {
-    setAnswers((prev) => ({ ...prev, [id]: value }));
-    setChecked((prev) => ({ ...prev, [id]: false }));
+    commit(
+      { ...saved.answers, [id]: value },
+      saved.checked.filter((itemId) => itemId !== id),
+    );
   }
 
   return (
@@ -328,6 +376,14 @@ export function LessonPractice({ lesson }: { lesson: JuniorLesson }) {
               All topics
             </Link>
           </p>
+          {progress ? (
+            <div className="mt-4 rounded-lg border border-border bg-muted/40 px-3 py-3">
+              <p className="text-sm font-medium leading-6">{progress.statusLine}</p>
+              <ItemResults label={progress.itemsLabel} items={progress.items} />
+            </div>
+          ) : (
+            <p className="mt-4 text-sm text-muted-foreground">Not started.</p>
+          )}
         </header>
         {lesson.blocks.map((block) => (
           <section key={block.id} id={block.id} aria-labelledby={`${block.id}-title`} className="scroll-mt-16">
@@ -343,13 +399,17 @@ export function LessonPractice({ lesson }: { lesson: JuniorLesson }) {
                 {(block.items ?? []).map((item, index) => (
                   <ItemPractice
                     key={item.id}
+                    scope={fieldScope}
                     item={item}
                     number={index + 1}
                     assets={assets}
-                    value={answers[item.id] ?? ""}
-                    checked={Boolean(checked[item.id])}
+                    value={saved.answers[item.id] ?? ""}
+                    checked={saved.checked.includes(item.id)}
                     onChange={(value) => setAnswer(item.id, value)}
-                    onCheck={() => setChecked((prev) => ({ ...prev, [item.id]: true }))}
+                    onCheck={() => {
+                      if (saved.checked.includes(item.id)) return;
+                      commit(saved.answers, [...saved.checked, item.id]);
+                    }}
                   />
                 ))}
               </div>

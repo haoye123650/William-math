@@ -1,12 +1,14 @@
 "use client";
 
-import { useMemo, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useSyncExternalStore } from "react";
 import Link from "next/link";
+import { ItemResults } from "@/components/item-results";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ExamBar } from "@/components/exam-bar";
 import { ExamPaper } from "@/components/exam-paper";
-import { incorrectParts, matchesAnswer } from "@/lib/grade";
+import { incorrectParts, itemResultLabel, objectiveReport } from "@/lib/grade";
+import { formatMarks, formatWhen } from "@/lib/progress-report";
 import {
   getExamSnapshot,
   getServerExamSnapshot,
@@ -39,56 +41,6 @@ function countParts(paper: Paper, answers: AnswersState) {
   return { done, total };
 }
 
-function gradeObjective(paper: Paper, answers: AnswersState) {
-  const rows: {
-    no: string;
-    skill: string;
-    marks: number;
-    got: number;
-    ok: boolean;
-  }[] = [];
-
-  for (const question of allQuestions(paper)) {
-    if (question.type === "work") continue;
-    if (question.type === "choice") {
-      const ok = answers[question.id] === question.answer;
-      rows.push({
-        no: question.no,
-        skill: question.skill,
-        marks: question.marks,
-        got: ok ? question.marks : 0,
-        ok,
-      });
-    }
-    if (question.type === "fill" && question.blanks) {
-      const per = question.marks / question.blanks.length;
-      let got = 0;
-      for (const blank of question.blanks) {
-        if (matchesAnswer(answers[blank.id] ?? "", blank.accepted ?? [blank.answer])) {
-          got += per;
-        }
-      }
-      rows.push({
-        no: question.no,
-        skill: question.skill,
-        marks: question.marks,
-        got,
-        ok: got === question.marks,
-      });
-    }
-  }
-
-  const got = rows.reduce((sum, row) => sum + row.got, 0);
-  const total = rows.reduce((sum, row) => sum + row.marks, 0);
-  const bySkill: Record<string, { got: number; total: number }> = {};
-  for (const row of rows) {
-    bySkill[row.skill] ??= { got: 0, total: 0 };
-    bySkill[row.skill].got += row.got;
-    bySkill[row.skill].total += row.marks;
-  }
-  return { rows, got, total, bySkill };
-}
-
 function AnswerProgress({ done, total }: { done: number; total: number }) {
   const pct = total === 0 ? 0 : Math.round((done / total) * 100);
   return (
@@ -111,9 +63,18 @@ export function ExamTake({ paper }: { paper: Paper }) {
   );
   const levelTag = curriculumTag(paper.level);
   const result = useMemo(
-    () => gradeObjective(paper, saved.answers),
+    () => objectiveReport(paper, saved.answers),
     [paper, saved.answers]
   );
+  const resultCounts = useMemo(() => {
+    let correct = 0;
+    let incorrect = 0;
+    for (const item of result.items) {
+      if (item.ok) correct += 1;
+      else incorrect += 1;
+    }
+    return { correct, incorrect };
+  }, [result.items]);
   const misses = useMemo(
     () => allQuestions(paper).flatMap((question) => incorrectParts(question, saved.answers)),
     [paper, saved.answers]
@@ -126,6 +87,22 @@ export function ExamTake({ paper }: { paper: Paper }) {
     id: section.id,
     title: section.title,
   }));
+
+  useEffect(() => {
+    if (!saved.submitted || saved.completion) return;
+    patchExam(paper.id, {
+      completion: {
+        objectiveGot: result.got,
+        objectiveTotal: result.total,
+        teacherMarked: hasTeacherMarkedWork(paper),
+        items: result.items.map((item) => ({
+          key: item.key,
+          label: itemResultLabel(item.no, item.part),
+          ok: item.ok,
+        })),
+      },
+    });
+  }, [paper, result, saved.submitted, saved.completion]);
 
   function retryMissed() {
     const missedIds = new Set(misses.map((part) => part.key));
@@ -161,7 +138,13 @@ export function ExamTake({ paper }: { paper: Paper }) {
     <div className="screen-desk flex min-h-full flex-1 flex-col bg-desk">
       <ExamBar
         title={paper.title}
-        subtitle={saved.submitted ? "Submitted" : "In progress"}
+        subtitle={
+          saved.submitted
+            ? saved.completion?.completedAt
+              ? `Submitted ${formatWhen(saved.completion.completedAt)}`
+              : "Submitted"
+            : "In progress"
+        }
         sections={sections}
         actions={
           <>
@@ -189,7 +172,21 @@ export function ExamTake({ paper }: { paper: Paper }) {
             ) : (
               <Button
                 onClick={() => {
-                  patchExam(paper.id, { submitted: true });
+                  const report = objectiveReport(paper, saved.answers);
+                  patchExam(paper.id, {
+                    submitted: true,
+                    completion: {
+                      completedAt: Date.now(),
+                      objectiveGot: report.got,
+                      objectiveTotal: report.total,
+                      teacherMarked: hasTeacherMarkedWork(paper),
+                      items: report.items.map((item) => ({
+                        key: item.key,
+                        label: itemResultLabel(item.no, item.part),
+                        ok: item.ok,
+                      })),
+                    },
+                  });
                   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
                   window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
                 }}
@@ -204,8 +201,10 @@ export function ExamTake({ paper }: { paper: Paper }) {
             <p className="text-xs text-muted-foreground">
               Objective score{" "}
               <span className="font-semibold text-foreground tabular-nums">
-                {result.got}/{result.total}
+                {formatMarks(result.got)}/{formatMarks(result.total)}
               </span>
+              {" · "}
+              {resultCounts.correct} correct, {resultCounts.incorrect} incorrect
             </p>
           ) : (
             <AnswerProgress done={progress.done} total={progress.total} />
@@ -220,6 +219,14 @@ export function ExamTake({ paper }: { paper: Paper }) {
               <CardTitle className="font-serif text-xl">Objective items marked</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-sm leading-relaxed">
+              <ItemResults
+                label="Item results"
+                items={result.items.map((item) => ({
+                  key: item.key,
+                  label: itemResultLabel(item.no, item.part),
+                  ok: item.ok,
+                }))}
+              />
               <p>
                 Sections A and B:
                 <span className="mx-1 font-serif text-2xl font-semibold tabular-nums">
@@ -324,7 +331,9 @@ export function ExamTake({ paper }: { paper: Paper }) {
             patchExam(paper.id, { answers: { ...current.answers, [key]: next } });
           }}
           scoreLabel={
-            saved.submitted ? `${result.got} / ${result.total} objective` : undefined
+            saved.submitted
+              ? `${formatMarks(result.got)} / ${formatMarks(result.total)} objective`
+              : undefined
           }
         />
       </div>
