@@ -1,0 +1,975 @@
+{
+  "courseId": "math-junior",
+  "kind": "paper",
+  "id": "s1s2-pp-03",
+  "titleEn": "Mathematics Practice Paper 3 (S1–S2 Combined)",
+  "titleZh": "数学练习卷 3（S1–S2 综合·Stretch）",
+  "levelMix": "S1–S2 Combined (Stretch). Pre-S3 bridging / promotion test. No S3 items.",
+  "timeSuggestedMin": 75,
+  "topicsCovered": [
+    "indices",
+    "linear-equations",
+    "inverse-proportion",
+    "simple-interest",
+    "factorisation",
+    "angles-polygons",
+    "pythagoras",
+    "statistics",
+    "coordinates",
+    "percentages",
+    "mensuration",
+    "similar-figures"
+  ],
+  "sections": [
+    {
+      "id": "A",
+      "titleEn": "Section A",
+      "titleZh": "甲部（短答题）",
+      "instructions": "Answer ALL questions. Unless otherwise specified, numerical answers should be either exact or correct to 3 significant figures. Working must be shown. Marks are awarded for correct method. Surds may be left in exact form. Section A (40 marks) — Answer all questions. Each question carries 4 marks.",
+      "items": [
+        {
+          "id": "A1",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Simplify (3a²b)² × 2ab³ ÷ 6a³b⁴.",
+          "answer": "3a^2 b",
+          "solution": "(3a²b)² = 9a⁴b².\n9a⁴b² × 2ab³ = 18a⁵b⁵.\n18a⁵b⁵ ÷ 6a³b⁴ = 3a²b.",
+          "topic": "indices",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "3a^2 b",
+            "3a^2b",
+            "3a²b",
+            "3b a^2",
+            "3a^2*b"
+          ]
+        },
+        {
+          "id": "A2",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Solve (x − 3)/2 − (x + 1)/3 = 1.",
+          "answer": "17",
+          "solution": "Multiply by 6: 3(x − 3) − 2(x + 1) = 6.\n3x − 9 − 2x − 2 = 6\nx − 11 = 6\nx = 17.\nCheck: 14/2 − 18/3 = 7 − 6 = 1.",
+          "topic": "linear-equations",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "17",
+            "x=17",
+            "x = 17"
+          ]
+        },
+        {
+          "id": "A3a",
+          "interaction": "fill-blank",
+          "prompt": "[S2] y varies inversely as x, and y = 8 when x = 6.\n(a) Find y when x = 12.",
+          "answer": "4",
+          "solution": "k = xy = 6 × 8 = 48, so y = 48/x.\ny = 48/12 = 4.",
+          "topic": "inverse-proportion",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "4",
+            "y=4",
+            "y = 4"
+          ],
+          "stem": "y varies inversely as x, and y = 8 when x = 6.",
+          "part": "a",
+          "parentId": "A3",
+          "originalNumber": 3
+        },
+        {
+          "id": "A3b",
+          "interaction": "fill-blank",
+          "prompt": "[S2] y varies inversely as x, and y = 8 when x = 6.\n(b) Find x when y = 3.",
+          "answer": "16",
+          "solution": "k = 48, so x = 48/3 = 16.",
+          "topic": "inverse-proportion",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "16",
+            "x=16",
+            "x = 16"
+          ],
+          "stem": "y varies inversely as x, and y = 8 when x = 6.",
+          "part": "b",
+          "parentId": "A3",
+          "originalNumber": 3
+        },
+        {
+          "id": "A4a",
+          "interaction": "fill-blank",
+          "prompt": "[S1] $5000 is deposited at 4.5% per annum simple interest for 8 months.\nFind the interest earned, in dollars.",
+          "answer": "150",
+          "solution": "I = PRT = 5000 × 4.5% × 8/12 = $150.",
+          "topic": "simple-interest",
+          "levelTag": "S1",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "150",
+            "$150"
+          ],
+          "stem": "$5000 is deposited at 4.5% per annum simple interest for 8 months.",
+          "part": "a",
+          "parentId": "A4",
+          "originalNumber": 4
+        },
+        {
+          "id": "A4b",
+          "interaction": "fill-blank",
+          "prompt": "[S1] $5000 is deposited at 4.5% per annum simple interest for 8 months.\nFind the total amount at the end of the period, in dollars.",
+          "answer": "5150",
+          "solution": "Total amount = 5000 + 150 = $5150.",
+          "topic": "simple-interest",
+          "levelTag": "S1",
+          "marks": 1,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "5150",
+            "$5150"
+          ],
+          "stem": "$5000 is deposited at 4.5% per annum simple interest for 8 months.",
+          "part": "b",
+          "parentId": "A4",
+          "originalNumber": 4
+        },
+        {
+          "id": "A5a",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Factorise\n(a) 3x² − 27",
+          "answer": "3(x+3)(x-3)",
+          "solution": "3x² − 27 = 3(x² − 9) = 3(x + 3)(x − 3).",
+          "topic": "factorisation",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "3(x+3)(x-3)",
+            "3(x+3)(x−3)",
+            "3(x-3)(x+3)",
+            "3(x−3)(x+3)",
+            "3(x + 3)(x - 3)"
+          ],
+          "stem": "Factorise the following.",
+          "part": "a",
+          "parentId": "A5",
+          "originalNumber": 5
+        },
+        {
+          "id": "A5b",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Factorise\n(b) 2x² − 7x + 3",
+          "answer": "(2x-1)(x-3)",
+          "solution": "Product 2 × 3 = 6, sum −7: −6 and −1.\n2x² − 6x − x + 3 = 2x(x − 3) − 1(x − 3) = (2x − 1)(x − 3).",
+          "topic": "factorisation",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "(2x-1)(x-3)",
+            "(2x−1)(x−3)",
+            "(x-3)(2x-1)",
+            "(x−3)(2x−1)",
+            "(2x - 1)(x - 3)"
+          ],
+          "stem": "Factorise the following.",
+          "part": "b",
+          "parentId": "A5",
+          "originalNumber": 5
+        },
+        {
+          "id": "A6a",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Each interior angle of a regular polygon is 150°.\n(a) Find the number of sides.",
+          "answer": "12",
+          "solution": "Exterior angle = 180° − 150° = 30°; n = 360°/30° = 12.",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "12",
+            "12 sides"
+          ],
+          "stem": "Each interior angle of a regular polygon is 150°.",
+          "part": "a",
+          "parentId": "A6",
+          "originalNumber": 6
+        },
+        {
+          "id": "A6b",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Each interior angle of a regular polygon is 150°.\n(b) Find the sum of its interior angles, in degrees.",
+          "answer": "1800",
+          "solution": "Sum = 12 × 150° = 1800°.\n(Check: (12 − 2) × 180° = 1800°.)",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "1800",
+            "1800°",
+            "1800 degrees"
+          ],
+          "stem": "Each interior angle of a regular polygon is 150°.",
+          "part": "b",
+          "parentId": "A6",
+          "originalNumber": 6
+        },
+        {
+          "id": "A7a",
+          "interaction": "short-text",
+          "prompt": "[S2] A triangle has sides 9 cm, 12 cm and 15 cm.\nShow that it is right-angled.",
+          "answer": "right-angled (9^2+12^2=15^2)",
+          "solution": "9² + 12² = 81 + 144 = 225 = 15².\nSince the square on the longest side equals the sum of the squares on the other two sides, the triangle is right-angled (converse of Pythagoras’ theorem).",
+          "topic": "pythagoras",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "a7-triangle"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "right-angled (9^2+12^2=15^2)",
+            "right-angled",
+            "right angled",
+            "right-angled at the vertex between 9 cm and 12 cm",
+            "yes, 81+144=225"
+          ],
+          "stem": "A triangle has sides 9 cm, 12 cm and 15 cm.",
+          "part": "a",
+          "parentId": "A7",
+          "originalNumber": 7
+        },
+        {
+          "id": "A7b",
+          "interaction": "fill-blank",
+          "prompt": "[S2] A triangle has sides 9 cm, 12 cm and 15 cm. (It is right-angled, with the right angle between the sides of 9 cm and 12 cm.)\nFind its area, in cm².",
+          "answer": "54",
+          "solution": "Area = ½ × 9 × 12 = 54 cm².",
+          "topic": "pythagoras",
+          "levelTag": "S2",
+          "marks": 1,
+          "assetIds": [
+            "a7-triangle"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "54",
+            "54 cm^2",
+            "54 cm²"
+          ],
+          "stem": "A triangle has sides 9 cm, 12 cm and 15 cm.",
+          "part": "b",
+          "parentId": "A7",
+          "originalNumber": 7
+        },
+        {
+          "id": "A8",
+          "interaction": "fill-blank",
+          "prompt": "[S1] In △PQR, PQ = PR and ∠QPR = 46°. Find ∠PQR, in degrees.",
+          "answer": "67",
+          "solution": "PQ = PR ⇒ base angles equal: ∠PQR = ∠PRQ.\n∠PQR = (180° − 46°)/2 = 67°.",
+          "topic": "angles-polygons",
+          "levelTag": "S1",
+          "marks": 4,
+          "assetIds": [
+            "a8-triangle"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "67",
+            "67°",
+            "67 degrees"
+          ]
+        },
+        {
+          "id": "A9",
+          "interaction": "fill-blank",
+          "prompt": "[S1] The mean of 8 numbers is 12. When a ninth number k is included, the mean becomes 13. Find k.",
+          "answer": "21",
+          "solution": "Sum of 8 numbers = 8 × 12 = 96.\nSum of 9 numbers = 9 × 13 = 117.\nk = 117 − 96 = 21.",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "21",
+            "k=21",
+            "k = 21"
+          ]
+        },
+        {
+          "id": "A10a",
+          "interaction": "fill-blank",
+          "prompt": "[S2] P(−3, 1), Q(5, 1) and R(5, 7) are three points.\n(a) Find the area of △PQR.",
+          "answer": "24",
+          "solution": "PQ = 8 units, QR = 6 units, ∠PQR = 90°.\nArea = ½ × 8 × 6 = 24 square units.",
+          "topic": "coordinates",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "a10-coordinates"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "24",
+            "24 square units",
+            "24 sq units"
+          ],
+          "stem": "P(−3, 1), Q(5, 1) and R(5, 7) are three points.",
+          "part": "a",
+          "parentId": "A10",
+          "originalNumber": 10
+        },
+        {
+          "id": "A10b",
+          "interaction": "fill-blank",
+          "prompt": "[S2] P(−3, 1), Q(5, 1) and R(5, 7) are three points.\n(b) Find the length of PR.",
+          "answer": "10",
+          "solution": "PR = √(8² + 6²) = √100 = 10 units.",
+          "topic": "coordinates",
+          "levelTag": "S2",
+          "marks": 1,
+          "assetIds": [
+            "a10-coordinates"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "10",
+            "10 units",
+            "√100",
+            "sqrt(100)"
+          ],
+          "stem": "P(−3, 1), Q(5, 1) and R(5, 7) are three points.",
+          "part": "b",
+          "parentId": "A10",
+          "originalNumber": 10
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "titleEn": "Section B",
+      "titleZh": "乙部（结构题）",
+      "instructions": "Section B (44 marks) — Answer all questions. Show your working.",
+      "items": [
+        {
+          "id": "B11a",
+          "interaction": "short-text",
+          "prompt": "[S2] A shop buys 120 school bags at $45 each and marks them at $75 each.\n(a) Find the total cost of the bags, in dollars.",
+          "answer": "5400",
+          "solution": "Cost = 120 × 45 = $5400.",
+          "topic": "percentages",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "5400",
+            "$5400"
+          ],
+          "stem": "A shop buys 120 school bags at $45 each and marks them at $75 each.",
+          "part": "a",
+          "parentId": "B11",
+          "originalNumber": 11
+        },
+        {
+          "id": "B11b",
+          "interaction": "short-text",
+          "prompt": "[S2] A shop buys 120 school bags at $45 each and marks them at $75 each.\n(b) 90 bags are sold at a discount of 20% on the marked price. The remaining 30 bags are sold at $45 each. Find the total income, in dollars.",
+          "answer": "6750",
+          "solution": "Discounted price = 75 × 0.8 = $60; 90 × 60 = $5400.\n30 × 45 = $1350.\nTotal income = 5400 + 1350 = $6750.",
+          "topic": "percentages",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "6750",
+            "$6750"
+          ],
+          "stem": "A shop buys 120 school bags at $45 each and marks them at $75 each.",
+          "part": "b",
+          "parentId": "B11",
+          "originalNumber": 11
+        },
+        {
+          "id": "B11c",
+          "interaction": "short-text",
+          "prompt": "[S2] A shop buys 120 school bags at a total cost of $5400 and receives a total income of $6750.\n(c) Find the profit per cent on the whole lot.",
+          "answer": "25%",
+          "solution": "Profit = 6750 − 5400 = 1350.\nProfit % = 1350/5400 × 100% = 25%.",
+          "topic": "percentages",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "25%",
+            "25",
+            "25 percent"
+          ],
+          "stem": "A shop buys 120 school bags at $45 each and marks them at $75 each.",
+          "part": "c",
+          "parentId": "B11",
+          "originalNumber": 11
+        },
+        {
+          "id": "B11d",
+          "interaction": "short-text",
+          "prompt": "[S2] A shop buys 120 school bags at a total cost of $5400 and marks them at $75 each.\n(d) If all the bags were sold at one single price, what percentage discount on the marked price would make the shop break even?",
+          "answer": "40%",
+          "solution": "Break-even price per bag = 5400 ÷ 120 = $45.\nDiscount = (75 − 45)/75 × 100% = 40%.",
+          "topic": "percentages",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "40%",
+            "40",
+            "40 percent"
+          ],
+          "stem": "A shop buys 120 school bags at $45 each and marks them at $75 each.",
+          "part": "d",
+          "parentId": "B11",
+          "originalNumber": 11
+        },
+        {
+          "id": "B12a",
+          "interaction": "short-text",
+          "prompt": "[S2] A solid metal cylinder has base radius 6 cm and height 20 cm.\n(a) Find its volume in terms of π, and correct to 3 significant figures. Give the exact form in terms of π and then the 3 s.f. value in cm³ (e.g. 720π, 2260).",
+          "answer": "720π, 2260",
+          "solution": "V = π(6)²(20) = 720π ≈ 2261.9… so 2260 cm³ (3 s.f.).",
+          "topic": "mensuration",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [
+            "b12-cylinder"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "720π, 2260",
+            "720pi, 2260",
+            "720π, 2260 cm^3",
+            "720π ≈ 2260",
+            "720π,2260"
+          ],
+          "stem": "A solid metal cylinder has base radius 6 cm and height 20 cm.",
+          "part": "a",
+          "parentId": "B12",
+          "originalNumber": 12
+        },
+        {
+          "id": "B12b",
+          "interaction": "short-text",
+          "prompt": "[S2] A solid metal cylinder has base radius 6 cm and height 20 cm, so its volume is 720π cm³.\n(b) The metal is melted and recast into another cylinder of base radius 4 cm. Find the height of the new cylinder, in cm.",
+          "answer": "45",
+          "solution": "Volume unchanged: π(4)²h = 720π.\n16h = 720 → h = 45 cm.",
+          "topic": "mensuration",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "b12-cylinder"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "45",
+            "45 cm",
+            "45cm"
+          ],
+          "stem": "A solid metal cylinder has base radius 6 cm and height 20 cm.",
+          "part": "b",
+          "parentId": "B12",
+          "originalNumber": 12
+        },
+        {
+          "id": "B12c",
+          "interaction": "short-text",
+          "prompt": "[S2] A solid metal cylinder has base radius 6 cm and height 20 cm.\n(c) Find the total surface area of the original cylinder, correct to 3 significant figures, in cm².",
+          "answer": "980",
+          "solution": "Total surface area = 2π(6)² + 2π(6)(20) = 72π + 240π = 312π ≈ 980.2… so 980 cm² (3 s.f.).",
+          "topic": "mensuration",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "b12-cylinder"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "980",
+            "980 cm^2",
+            "980 cm²",
+            "312π",
+            "312pi"
+          ],
+          "stem": "A solid metal cylinder has base radius 6 cm and height 20 cm.",
+          "part": "c",
+          "parentId": "B12",
+          "originalNumber": 12
+        },
+        {
+          "id": "B13a",
+          "interaction": "short-text",
+          "prompt": "[S2] In △ABC, D lies on AB and E lies on AC such that DE ∥ BC. AD = 4 cm, DB = 6 cm and DE = 6 cm.\n(a) Find BC, in cm.",
+          "answer": "15",
+          "solution": "DE ∥ BC ⇒ △ADE ~ △ABC.\nAD/AB = 4/(4 + 6) = 2/5.\nBC = DE ÷ (2/5) = 6 × 5/2 = 15 cm.",
+          "topic": "similar-figures",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [
+            "b13-similar"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "15",
+            "15 cm",
+            "15cm"
+          ],
+          "stem": "In △ABC, D lies on AB and E lies on AC such that DE ∥ BC. AD = 4 cm, DB = 6 cm and DE = 6 cm.",
+          "part": "a",
+          "parentId": "B13",
+          "originalNumber": 13
+        },
+        {
+          "id": "B13b",
+          "interaction": "short-text",
+          "prompt": "[S2] In △ABC, D lies on AB and E lies on AC such that DE ∥ BC. AD = 4 cm, DB = 6 cm and DE = 6 cm.\n(b) If AE = 5 cm, find EC, in cm.",
+          "answer": "7.5",
+          "solution": "AE/AC = 2/5 → AC = 5 × 5/2 = 12.5.\nEC = 12.5 − 5 = 7.5 cm.",
+          "topic": "similar-figures",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "b13-similar"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "7.5",
+            "7.5 cm",
+            "15/2",
+            "7.50"
+          ],
+          "stem": "In △ABC, D lies on AB and E lies on AC such that DE ∥ BC. AD = 4 cm, DB = 6 cm and DE = 6 cm.",
+          "part": "b",
+          "parentId": "B13",
+          "originalNumber": 13
+        },
+        {
+          "id": "B13c",
+          "interaction": "short-text",
+          "prompt": "[S2] In △ABC, D lies on AB and E lies on AC such that DE ∥ BC. AD = 4 cm, DB = 6 cm and DE = 6 cm.\n(c) Given that the area of △ADE is 12 cm², find the area of the trapezium DBCE, in cm².",
+          "answer": "63",
+          "solution": "Area ratio △ADE : △ABC = (2/5)² = 4 : 25.\nArea of △ABC = 12 × 25/4 = 75 cm².\nArea of DBCE = 75 − 12 = 63 cm².\n(Lengths scale as k, areas as k². Do not use the ratio 4 : 10.)",
+          "topic": "similar-figures",
+          "levelTag": "S2",
+          "marks": 5,
+          "assetIds": [
+            "b13-similar"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "63",
+            "63 cm^2",
+            "63 cm²"
+          ],
+          "stem": "In △ABC, D lies on AB and E lies on AC such that DE ∥ BC. AD = 4 cm, DB = 6 cm and DE = 6 cm.",
+          "part": "c",
+          "parentId": "B13",
+          "originalNumber": 13
+        },
+        {
+          "id": "B14a",
+          "interaction": "short-text",
+          "prompt": "[S1] The table shows the number of books read by 30 students in a month. Number of books 0, 1, 2, 3, 4 with 3, 8, 10, 6, 3 students respectively.\n(a) Find the total number of students.",
+          "answer": "30",
+          "solution": "3 + 8 + 10 + 6 + 3 = 30.",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "30",
+            "30 students"
+          ],
+          "stem": "The table shows the number of books read by 30 students in a month.\nNumber of books: 0, 1, 2, 3, 4\nNumber of students: 3, 8, 10, 6, 3",
+          "part": "a",
+          "parentId": "B14",
+          "originalNumber": 14
+        },
+        {
+          "id": "B14b",
+          "interaction": "short-text",
+          "prompt": "[S1] The table shows the number of books read by 30 students in a month. Number of books 0, 1, 2, 3, 4 with 3, 8, 10, 6, 3 students respectively.\n(b) Find the mean number of books read, correct to 2 decimal places.",
+          "answer": "1.93",
+          "solution": "Total books = 0(3) + 1(8) + 2(10) + 3(6) + 4(3) = 58.\nMean = 58/30 ≈ 1.933… ≈ 1.93 (2 d.p.).",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "1.93",
+            "1.93 books"
+          ],
+          "stem": "The table shows the number of books read by 30 students in a month.\nNumber of books: 0, 1, 2, 3, 4\nNumber of students: 3, 8, 10, 6, 3",
+          "part": "b",
+          "parentId": "B14",
+          "originalNumber": 14
+        },
+        {
+          "id": "B14c",
+          "interaction": "short-text",
+          "prompt": "[S1] The table shows the number of books read by 30 students in a month. Number of books 0, 1, 2, 3, 4 with 3, 8, 10, 6, 3 students respectively.\n(c) Find the median and the mode. Give the median then the mode (e.g. 2, 2).",
+          "answer": "2, 2",
+          "solution": "The 15th and 16th students both read 2 books.\nMedian = 2, mode = 2.",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "2, 2",
+            "2,2",
+            "median 2, mode 2"
+          ],
+          "stem": "The table shows the number of books read by 30 students in a month.\nNumber of books: 0, 1, 2, 3, 4\nNumber of students: 3, 8, 10, 6, 3",
+          "part": "c",
+          "parentId": "B14",
+          "originalNumber": 14
+        },
+        {
+          "id": "B14d",
+          "interaction": "short-text",
+          "prompt": "[S1] The 30 students read a total of 58 books.\n(d) A new student who has read 5 books joins the group. Find the new mean.",
+          "answer": "2.03",
+          "solution": "New total = 58 + 5 = 63, number of students = 31.\nNew mean = 63/31 ≈ 2.032… ≈ 2.03.",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "2.03",
+            "63/31",
+            "2.032"
+          ],
+          "stem": "The table shows the number of books read by 30 students in a month.\nNumber of books: 0, 1, 2, 3, 4\nNumber of students: 3, 8, 10, 6, 3",
+          "part": "d",
+          "parentId": "B14",
+          "originalNumber": 14
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "titleEn": "Section C",
+      "titleZh": "丙部（挑战题）",
+      "instructions": "Section C (36 marks) — Answer all questions. Show your working.",
+      "items": [
+        {
+          "id": "C15a",
+          "interaction": "short-text",
+          "prompt": "[S2] A merchant mixes 20 kg of tea costing $80 per kg with x kg of tea costing $120 per kg. The mixture is sold at $95 per kg, which is exactly the cost price of the mixture.\n(a) Write down an equation in x.",
+          "answer": "(1600+120x)/(20+x)=95",
+          "solution": "Total cost = 20 × 80 + 120x = 1600 + 120x.\nTotal mass = 20 + x, so the cost per kg is (1600 + 120x)/(20 + x) = 95.",
+          "topic": "linear-equations",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "(1600+120x)/(20+x)=95",
+            "(1600 + 120x)/(20 + x) = 95",
+            "1600+120x=95(20+x)",
+            "1600 + 120x = 95(20 + x)"
+          ],
+          "stem": "A merchant mixes 20 kg of tea costing $80 per kg with x kg of tea costing $120 per kg. The mixture is sold at $95 per kg, which is exactly the cost price of the mixture.",
+          "part": "a",
+          "parentId": "C15",
+          "originalNumber": 15
+        },
+        {
+          "id": "C15b",
+          "interaction": "short-text",
+          "prompt": "[S2] A merchant mixes 20 kg of tea costing $80 per kg with x kg of tea costing $120 per kg, and the cost of the mixture is $95 per kg.\n(b) Solve the equation to find x, in kg.",
+          "answer": "12",
+          "solution": "1600 + 120x = 95(20 + x)\n1600 + 120x = 1900 + 95x\n25x = 300\nx = 12 kg.\nCheck: (1600 + 1440)/32 = 3040/32 = $95/kg.",
+          "topic": "linear-equations",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "12",
+            "12 kg",
+            "12kg"
+          ],
+          "stem": "A merchant mixes 20 kg of tea costing $80 per kg with x kg of tea costing $120 per kg. The mixture is sold at $95 per kg, which is exactly the cost price of the mixture.",
+          "part": "b",
+          "parentId": "C15",
+          "originalNumber": 15
+        },
+        {
+          "id": "C15c",
+          "interaction": "short-text",
+          "prompt": "[S2] A merchant mixes 20 kg of tea costing $80 per kg with x kg of tea costing $120 per kg.\n(c) If the merchant wants the cost of the mixture to be $100 per kg, using the same 20 kg of the $80 tea, find the mass of the $120 tea needed, in kg.",
+          "answer": "20",
+          "solution": "1600 + 120x = 100(20 + x)\n1600 + 120x = 2000 + 100x → 20x = 400\nx = 20 kg.",
+          "topic": "linear-equations",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "20",
+            "20 kg",
+            "20kg"
+          ],
+          "stem": "A merchant mixes 20 kg of tea costing $80 per kg with x kg of tea costing $120 per kg. The mixture is sold at $95 per kg, which is exactly the cost price of the mixture.",
+          "part": "c",
+          "parentId": "C15",
+          "originalNumber": 15
+        },
+        {
+          "id": "C16a",
+          "interaction": "short-text",
+          "prompt": "[S2] A cuboid measures 8 cm by 6 cm by 5 cm.\n(a) Find the length of the diagonal of the base, in cm. (Take the base to be the 8 cm by 6 cm face.)",
+          "answer": "10",
+          "solution": "Base diagonal = √(8² + 6²) = √100 = 10 cm.",
+          "topic": "pythagoras",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "c16-cuboid"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "10",
+            "10 cm",
+            "10cm",
+            "√100"
+          ],
+          "stem": "A cuboid measures 8 cm by 6 cm by 5 cm.",
+          "part": "a",
+          "parentId": "C16",
+          "originalNumber": 16
+        },
+        {
+          "id": "C16b",
+          "interaction": "short-text",
+          "prompt": "[S2] A cuboid measures 8 cm by 6 cm by 5 cm. The base diagonal is 10 cm.\n(b) Find the length of the space diagonal of the cuboid, in exact form and correct to 3 significant figures. Give the exact value then the 3 s.f. value in cm (e.g. 5√5, 11.2).",
+          "answer": "5√5, 11.2",
+          "solution": "Space diagonal = √(10² + 5²) = √125 = 5√5 cm ≈ 11.2 cm (3 s.f.).",
+          "topic": "pythagoras",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [
+            "c16-cuboid"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "5√5, 11.2",
+            "5√5, 11.2 cm",
+            "√125, 11.2",
+            "5sqrt(5), 11.2",
+            "5√5 ≈ 11.2",
+            "5√5,11.2"
+          ],
+          "stem": "A cuboid measures 8 cm by 6 cm by 5 cm.",
+          "part": "b",
+          "parentId": "C16",
+          "originalNumber": 16
+        },
+        {
+          "id": "C16c",
+          "interaction": "short-text",
+          "prompt": "[S2] A cuboid measures 8 cm by 6 cm by 5 cm.\n(c) Find the total surface area of the cuboid, in cm².",
+          "answer": "236",
+          "solution": "SA = 2(8×6 + 8×5 + 6×5) = 2(48 + 40 + 30) = 236 cm².",
+          "topic": "mensuration",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "c16-cuboid"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "236",
+            "236 cm^2",
+            "236 cm²"
+          ],
+          "stem": "A cuboid measures 8 cm by 6 cm by 5 cm.",
+          "part": "c",
+          "parentId": "C16",
+          "originalNumber": 16
+        },
+        {
+          "id": "C16d",
+          "interaction": "short-text",
+          "prompt": "[S2] A cuboid measures 8 cm by 6 cm by 5 cm.\n(d) Find its volume, in cm³.",
+          "answer": "240",
+          "solution": "V = 8 × 6 × 5 = 240 cm³.",
+          "topic": "mensuration",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [
+            "c16-cuboid"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "240",
+            "240 cm^3",
+            "240 cm³"
+          ],
+          "stem": "A cuboid measures 8 cm by 6 cm by 5 cm.",
+          "part": "d",
+          "parentId": "C16",
+          "originalNumber": 16
+        },
+        {
+          "id": "C17a",
+          "interaction": "short-text",
+          "prompt": "[S1] The marks (out of 100) of two classes in the same test are given below.\nClass X: 45, 55, 60, 62, 64, 65, 66, 68, 70, 72, 75, 85\nClass Y: 60, 62, 62, 64, 64, 65, 66, 66, 68, 70, 70, 72\n(a) Find the mean (correct to 2 decimal places) and the median of each class. Give mean X, median X, mean Y, median Y in that order (e.g. 65.58, 65.5, 65.75, 65.5).",
+          "answer": "65.58, 65.5, 65.75, 65.5",
+          "solution": "Class X: total = 787, mean = 787/12 ≈ 65.58; median = (65 + 66)/2 = 65.5.\nClass Y: total = 789, mean = 789/12 ≈ 65.75; median = (65 + 66)/2 = 65.5.",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "65.58, 65.5, 65.75, 65.5",
+            "65.58,65.5,65.75,65.5"
+          ],
+          "stem": "The marks (out of 100) of two classes in the same test are given below.\nClass X: 45, 55, 60, 62, 64, 65, 66, 68, 70, 72, 75, 85\nClass Y: 60, 62, 62, 64, 64, 65, 66, 66, 68, 70, 70, 72",
+          "part": "a",
+          "parentId": "C17",
+          "originalNumber": 17
+        },
+        {
+          "id": "C17b",
+          "interaction": "short-text",
+          "prompt": "[S2] The medians of Class X and Class Y are both 65.5.\n(b) Compare the two classes using the medians.",
+          "answer": "Medians are identical (65.5); middle students performed equally well",
+          "solution": "The medians are identical (65.5), so the “middle” student in each class performed equally well.",
+          "topic": "statistics",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "Medians are identical (65.5); middle students performed equally well",
+            "medians are identical",
+            "same median 65.5",
+            "the middle students performed equally well"
+          ],
+          "stem": "The marks (out of 100) of two classes in the same test are given below.\nClass X: 45, 55, 60, 62, 64, 65, 66, 68, 70, 72, 75, 85\nClass Y: 60, 62, 62, 64, 64, 65, 66, 66, 68, 70, 70, 72",
+          "part": "b",
+          "parentId": "C17",
+          "originalNumber": 17
+        },
+        {
+          "id": "C17c",
+          "interaction": "short-text",
+          "prompt": "[S1] The marks (out of 100) of two classes in the same test are given below.\nClass X: 45, 55, 60, 62, 64, 65, 66, 68, 70, 72, 75, 85\nClass Y: 60, 62, 62, 64, 64, 65, 66, 66, 68, 70, 70, 72\n(c) Find the range of each class, and state which class is more consistent. Give range X, range Y, and the more consistent class (e.g. 40, 12, Y).",
+          "answer": "40, 12, Y",
+          "solution": "Range X = 85 − 45 = 40; Range Y = 72 − 60 = 12.\nClass Y is much more consistent.",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "40, 12, Y",
+            "40,12,Y",
+            "40, 12, Class Y",
+            "40, 12, class Y"
+          ],
+          "stem": "The marks (out of 100) of two classes in the same test are given below.\nClass X: 45, 55, 60, 62, 64, 65, 66, 68, 70, 72, 75, 85\nClass Y: 60, 62, 62, 64, 64, 65, 66, 66, 68, 70, 70, 72",
+          "part": "c",
+          "parentId": "C17",
+          "originalNumber": 17
+        },
+        {
+          "id": "C17d",
+          "interaction": "short-text",
+          "prompt": "[S2] Class X has mean ≈ 65.58 and range 40; Class Y has mean ≈ 65.75 and range 12. Class X’s top score is 85 and its lowest is 45.\n(d) Two parents argue: “Class Y must be better — its mean is higher.” “No, Class X must be better — its top student scored 85.” Evaluate both claims using your results.",
+          "answer": "Both claims are weak",
+          "solution": "The first claim is weak: the two means differ by only about 0.2 marks, which is negligible — not evidence that Class Y is better.\nThe second claim is also weak: one top score of 85 does not describe the class; indeed Class X also has a very low score of 45, giving it the larger range. Class X is more spread out (some very strong and some weak students), while Class Y is uniformly around 65.",
+          "topic": "statistics",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "Both claims are weak",
+            "both claims are weak",
+            "both weak",
+            "neither claim is well justified"
+          ],
+          "stem": "The marks (out of 100) of two classes in the same test are given below.\nClass X: 45, 55, 60, 62, 64, 65, 66, 68, 70, 72, 75, 85\nClass Y: 60, 62, 62, 64, 64, 65, 66, 66, 68, 70, 70, 72",
+          "part": "d",
+          "parentId": "C17",
+          "originalNumber": 17
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "a7-triangle",
+      "src": "assets/a7-triangle.png",
+      "alt": "A triangle with sides 9 cm, 12 cm and 15 cm."
+    },
+    {
+      "id": "a8-triangle",
+      "src": "assets/a8-triangle.png",
+      "alt": "Isosceles triangle PQR with PQ = PR and angle QPR = 46°."
+    },
+    {
+      "id": "a10-coordinates",
+      "src": "assets/a10-coordinates.png",
+      "alt": "Cartesian plane showing points P(−3, 1), Q(5, 1) and R(5, 7)."
+    },
+    {
+      "id": "b12-cylinder",
+      "src": "assets/b12-cylinder.png",
+      "alt": "A solid metal cylinder of base radius 6 cm and height 20 cm."
+    },
+    {
+      "id": "b13-similar",
+      "src": "assets/b13-similar.png",
+      "alt": "Triangle ABC with D on AB and E on AC such that DE is parallel to BC; AD = 4 cm, DB = 6 cm, DE = 6 cm, AE = 5 cm."
+    },
+    {
+      "id": "c16-cuboid",
+      "src": "assets/c16-cuboid.png",
+      "alt": "A cuboid measuring 8 cm by 6 cm by 5 cm, with the base diagonal and space diagonal indicated."
+    }
+  ],
+  "mediaContract": {
+    "assetIds": "string[] — ids into paper.assets[]",
+    "imagePlacement": "null | \"above\" | \"beside\" — 看图题同屏",
+    "assets": "optional top-level list {id,src,alt}"
+  }
+}

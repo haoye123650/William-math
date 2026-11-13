@@ -13,8 +13,9 @@ export default function SubjectGatePage() {
             Mathematics
           </h1>
           <p className="mt-4 max-w-md text-base leading-7">
-            Six DSE-style papers and three junior mixed quizzes. Start a paper or print it.
-            The mark scheme opens after you submit.
+            Six DSE-style papers, three junior mixed quizzes, and three S.1–S.2
+            combined practice papers. Start a paper or print it. The mark scheme
+            opens after you submit.
           </p>
         </div>
         <p className="mt-10 text-sm font-medium tracking-[0.12em] uppercase">

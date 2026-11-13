@@ -51,6 +51,13 @@ const GROUPS = [
     papers: papers.filter((paper) => paper.id.startsWith("junior-")),
   },
   {
+    id: "s1s2",
+    kicker: "Practice",
+    title: "S.1–S.2 combined",
+    note: "Papers 01–03 · 120 marks",
+    papers: papers.filter((paper) => paper.id.startsWith("s1s2-pp-")),
+  },
+  {
     id: "part-2",
     kicker: "Part II",
     title: "S.3 to DSE",
@@ -176,10 +183,12 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7">
-            Six full papers, each 100 marks, three junior mixed quizzes, and practice by topic.
-            Tests 1–3 are junior secondary. Tests 4–6 step up through S.3, S.4
-            and DSE Paper 1 style. Each quiz question keeps its [S1], [S2] or
-            [S3] level tag. The mark scheme opens after you submit.
+            Six full papers, each 100 marks, three junior mixed quizzes, three
+            S.1–S.2 combined practice papers, and practice by topic. Tests 1–3
+            are junior secondary. Tests 4–6 step up through S.3, S.4 and DSE
+            Paper 1 style. Each quiz question keeps its [S1], [S2] or [S3] level
+            tag. Each combined paper is 120 marks, with a suggested time of 75
+            minutes. The mark scheme opens after you submit.
           </p>
         </div>
         <div className="h-1 bg-mark" aria-hidden="true" />

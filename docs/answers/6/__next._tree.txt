@@ -1,2 +1,2 @@
-:HL["/William-math/_next/static/chunks/28obhrw45em7q.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"answers","param":null,"prefetchHints":4192,"slots":{"children":{"name":"id","param":{"type":"d","key":"6","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"j5e4JR3hY1u16seLKl6Jm"}
+:HL["/William-math/_next/static/chunks/0kec58s96-aix.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"answers","param":null,"prefetchHints":4192,"slots":{"children":{"name":"id","param":{"type":"d","key":"6","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"3_LamVVObl-55VLrULMff"}

@@ -1,0 +1,1065 @@
+{
+  "courseId": "math-junior",
+  "kind": "paper",
+  "id": "s1s2-pp-02",
+  "titleEn": "Mathematics Practice Paper 2 (S1–S2 Combined)",
+  "titleZh": "数学练习卷 2（S1–S2 综合）",
+  "levelMix": "S1–S2 Combined (Core + stretch). End-of-term. No S3 items.",
+  "timeSuggestedMin": 75,
+  "topicsCovered": [
+    "directed-numbers",
+    "inequalities",
+    "change-of-subject",
+    "percentages",
+    "algebraic-fractions",
+    "angles-polygons",
+    "probability",
+    "coordinates",
+    "mensuration",
+    "ratio",
+    "similar-figures",
+    "statistics",
+    "linear-equations",
+    "algebraic-expressions"
+  ],
+  "sections": [
+    {
+      "id": "A",
+      "titleEn": "Section A",
+      "titleZh": "甲部（短答题）",
+      "instructions": "Answer ALL questions. Unless otherwise specified, numerical answers should be either exact or correct to 3 significant figures. Working must be shown. Marks are awarded for correct method. Take π = 3.14 if a numerical answer is required. Section A (40 marks) — Answer all questions. Each question carries 4 marks.",
+      "items": [
+        {
+          "id": "A1",
+          "interaction": "fill-blank",
+          "prompt": "[S1] Evaluate (−2/3) ÷ (4/9) − (−1/2).",
+          "answer": "-1",
+          "solution": "(−2/3) ÷ (4/9) = (−2/3) × (9/4) = −3/2.\n−3/2 − (−1/2) = −3/2 + 1/2 = −1.",
+          "topic": "directed-numbers",
+          "levelTag": "S1",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "-1",
+            "−1",
+            "-1.0"
+          ]
+        },
+        {
+          "id": "A2a",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Solve the inequality 3 − 2x ≥ 7.",
+          "answer": "x<=-2",
+          "solution": "3 − 2x ≥ 7\n−2x ≥ 4\nx ≤ −2.\n(Remember to reverse the inequality when dividing by a negative number.)",
+          "topic": "inequalities",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "x<=-2",
+            "x ≤ -2",
+            "x ≤ −2",
+            "x<=−2",
+            "x =< -2",
+            "x≤-2",
+            "x≤−2"
+          ],
+          "stem": "Solve the inequality 3 − 2x ≥ 7, and write down the largest integer value of x.",
+          "part": "a",
+          "parentId": "A2",
+          "originalNumber": 2
+        },
+        {
+          "id": "A2b",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Solve the inequality 3 − 2x ≥ 7, and write down the largest integer value of x.",
+          "answer": "-2",
+          "solution": "The solution is x ≤ −2, so the largest integer value of x is −2.",
+          "topic": "inequalities",
+          "levelTag": "S2",
+          "marks": 1,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "-2",
+            "−2"
+          ],
+          "stem": "Solve the inequality 3 − 2x ≥ 7, and write down the largest integer value of x.",
+          "part": "b",
+          "parentId": "A2",
+          "originalNumber": 2
+        },
+        {
+          "id": "A3",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Make h the subject of the formula S = 2πr(r + h).",
+          "answer": "h=S/(2πr)-r",
+          "solution": "S = 2πr(r + h) → S/(2πr) = r + h\nh = S/(2πr) − r\n[or equivalently h = (S − 2πr²)/(2πr)].",
+          "topic": "change-of-subject",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "h=S/(2πr)-r",
+            "h=S/(2πr)−r",
+            "h = S/(2πr) - r",
+            "h = S/(2πr) − r",
+            "h=(S-2πr^2)/(2πr)",
+            "h=(S−2πr²)/(2πr)",
+            "h = (S - 2πr^2)/(2πr)",
+            "h=S/(2pi r)-r",
+            "h=(S-2pir^2)/(2pir)",
+            "h=S/(2*pi*r)-r"
+          ]
+        },
+        {
+          "id": "A4",
+          "interaction": "fill-blank",
+          "prompt": "[S2] The price of a watch is first increased by 20% and then decreased by 20%. Find the overall percentage change in the price.",
+          "answer": "decrease of 4%",
+          "solution": "Take the original price as $100 (or 1 unit).\nAfter +20%: 120; after −20%: 120 × 0.8 = 96.\nOverall: a decrease of 4%.\n(Successive percentage changes multiply: 1.2 × 0.8 = 0.96.)",
+          "topic": "percentages",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "decrease of 4%",
+            "a decrease of 4%",
+            "decrease 4%",
+            "4% decrease",
+            "-4%",
+            "−4%",
+            "decreased by 4%",
+            "an overall decrease of 4%"
+          ]
+        },
+        {
+          "id": "A5",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Simplify (x² − 9) ÷ (x² + x − 12).",
+          "answer": "(x+3)/(x+4)",
+          "solution": "x² − 9 = (x + 3)(x − 3); x² + x − 12 = (x + 4)(x − 3).\n(x + 3)(x − 3) / [(x + 4)(x − 3)] = (x + 3)/(x + 4)\n(for x ≠ 3; omitting the condition is not penalised).",
+          "topic": "algebraic-fractions",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "(x+3)/(x+4)",
+            "(x + 3)/(x + 4)",
+            "(x+3)/(x+4), x≠3",
+            "\\frac{x+3}{x+4}"
+          ]
+        },
+        {
+          "id": "A6a",
+          "interaction": "fill-blank",
+          "prompt": "[S2] The straight lines AB and CD are parallel. A transversal cuts them so that a pair of alternate angles are (4x − 15)° and (2x + 35)°.\nFind x.",
+          "answer": "25",
+          "solution": "Alternate angles between parallel lines are equal: 4x − 15 = 2x + 35.\n2x = 50 → x = 25.",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "a6-parallel-lines"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "25",
+            "x=25",
+            "x = 25"
+          ],
+          "stem": "The straight lines AB and CD are parallel. A transversal cuts them so that a pair of alternate angles are (4x − 15)° and (2x + 35)°.",
+          "part": "a",
+          "parentId": "A6",
+          "originalNumber": 6
+        },
+        {
+          "id": "A6b",
+          "interaction": "fill-blank",
+          "prompt": "[S2] The straight lines AB and CD are parallel. A transversal cuts them so that a pair of alternate angles are (4x − 15)° and (2x + 35)°. (It has been found that x = 25.)\nFind the size of each of these angles, in degrees.",
+          "answer": "85",
+          "solution": "Each angle = 4(25) − 15 = 85°.",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "marks": 1,
+          "assetIds": [
+            "a6-parallel-lines"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "85",
+            "85°",
+            "85 degrees"
+          ],
+          "stem": "The straight lines AB and CD are parallel. A transversal cuts them so that a pair of alternate angles are (4x − 15)° and (2x + 35)°.",
+          "part": "b",
+          "parentId": "A6",
+          "originalNumber": 6
+        },
+        {
+          "id": "A7a",
+          "interaction": "fill-blank",
+          "prompt": "[S2] In △ABC, ∠A = 2x, ∠B = 3x and the exterior angle at C is 110°.\nFind x.",
+          "answer": "22",
+          "solution": "The exterior angle of a triangle equals the sum of the two interior opposite angles: 2x + 3x = 110.\nx = 22.",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "a7-exterior-angle"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "22",
+            "x=22",
+            "x = 22"
+          ],
+          "stem": "In △ABC, ∠A = 2x, ∠B = 3x and the exterior angle at C is 110°.",
+          "part": "a",
+          "parentId": "A7",
+          "originalNumber": 7
+        },
+        {
+          "id": "A7b",
+          "interaction": "fill-blank",
+          "prompt": "[S2] In △ABC, ∠A = 2x, ∠B = 3x and the exterior angle at C is 110°. (It has been found that x = 22.)\nFind the three interior angles of the triangle, in degrees. Give ∠A, ∠B and ∠C in that order (e.g. 44, 66, 70).",
+          "answer": "44, 66, 70",
+          "solution": "∠A = 44°, ∠B = 66°, ∠C = 180° − 110° = 70°.\nCheck: 44 + 66 + 70 = 180.",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "marks": 1,
+          "assetIds": [
+            "a7-exterior-angle"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "44, 66, 70",
+            "44,66,70",
+            "44°, 66°, 70°",
+            "44,66,70 degrees"
+          ],
+          "stem": "In △ABC, ∠A = 2x, ∠B = 3x and the exterior angle at C is 110°.",
+          "part": "b",
+          "parentId": "A7",
+          "originalNumber": 7
+        },
+        {
+          "id": "A8a",
+          "interaction": "fill-blank",
+          "prompt": "[S2] A bag contains 5 red, 3 blue and 2 green balls. A ball is drawn at random.\n(a) Find the probability that it is red.",
+          "answer": "1/2",
+          "solution": "Total number of balls = 10. P(red) = 5/10 = 1/2.",
+          "topic": "probability",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "1/2",
+            "0.5",
+            "5/10",
+            "0.50"
+          ],
+          "stem": "A bag contains 5 red, 3 blue and 2 green balls. A ball is drawn at random.",
+          "part": "a",
+          "parentId": "A8",
+          "originalNumber": 8
+        },
+        {
+          "id": "A8b",
+          "interaction": "fill-blank",
+          "prompt": "[S2] A bag contains 5 red, 3 blue and 2 green balls. A ball is drawn at random.\n(b) Find the probability that it is not blue.",
+          "answer": "7/10",
+          "solution": "P(not blue) = (5 + 2)/10 = 7/10.",
+          "topic": "probability",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "7/10",
+            "0.7",
+            "0.70"
+          ],
+          "stem": "A bag contains 5 red, 3 blue and 2 green balls. A ball is drawn at random.",
+          "part": "b",
+          "parentId": "A8",
+          "originalNumber": 8
+        },
+        {
+          "id": "A9a",
+          "interaction": "fill-blank",
+          "prompt": "[S2] A(1, 2), B(7, 2) and C(7, 6) are three points.\n(a) Find the area of △ABC.",
+          "answer": "12",
+          "solution": "AB = 6 units and BC = 4 units, with ∠ABC = 90°.\nArea = ½ × 6 × 4 = 12 square units.",
+          "topic": "coordinates",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "a9-coordinates"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "12",
+            "12 square units",
+            "12 sq units"
+          ],
+          "stem": "A(1, 2), B(7, 2) and C(7, 6) are three points.",
+          "part": "a",
+          "parentId": "A9",
+          "originalNumber": 9
+        },
+        {
+          "id": "A9b",
+          "interaction": "fill-blank",
+          "prompt": "[S2] A(1, 2), B(7, 2) and C(7, 6) are three points.\n(b) Find the slope of AC.",
+          "answer": "2/3",
+          "solution": "Slope of AC = (6 − 2)/(7 − 1) = 4/6 = 2/3.",
+          "topic": "coordinates",
+          "levelTag": "S2",
+          "marks": 1,
+          "assetIds": [
+            "a9-coordinates"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "2/3",
+            "4/6",
+            "0.667",
+            "0.66...",
+            "0.6 recurring"
+          ],
+          "stem": "A(1, 2), B(7, 2) and C(7, 6) are three points.",
+          "part": "b",
+          "parentId": "A9",
+          "originalNumber": 9
+        },
+        {
+          "id": "A10a",
+          "interaction": "fill-blank",
+          "prompt": "[S2] A prism has a uniform triangular cross-section of area 24 cm² and perimeter 20 cm. The length of the prism is 15 cm.\n(a) Find its volume, in cm³.",
+          "answer": "360",
+          "solution": "V = area of cross-section × length = 24 × 15 = 360 cm³.",
+          "topic": "mensuration",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [
+            "a10-prism"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "360",
+            "360 cm^3",
+            "360 cm³",
+            "360cm3"
+          ],
+          "stem": "A prism has a uniform triangular cross-section of area 24 cm² and perimeter 20 cm. The length of the prism is 15 cm.",
+          "part": "a",
+          "parentId": "A10",
+          "originalNumber": 10
+        },
+        {
+          "id": "A10b",
+          "interaction": "fill-blank",
+          "prompt": "[S2] A prism has a uniform triangular cross-section of area 24 cm² and perimeter 20 cm. The length of the prism is 15 cm.\n(b) Find its total surface area, in cm².",
+          "answer": "348",
+          "solution": "Total surface area = 2 × 24 + 20 × 15 = 48 + 300 = 348 cm².\n(The two triangular ends plus the three rectangular faces, whose total width is the perimeter of the cross-section.)",
+          "topic": "mensuration",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [
+            "a10-prism"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "348",
+            "348 cm^2",
+            "348 cm²",
+            "348cm2"
+          ],
+          "stem": "A prism has a uniform triangular cross-section of area 24 cm² and perimeter 20 cm. The length of the prism is 15 cm.",
+          "part": "b",
+          "parentId": "A10",
+          "originalNumber": 10
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "titleEn": "Section B",
+      "titleZh": "乙部（结构题）",
+      "instructions": "Section B (44 marks) — Answer all questions. Show your working.",
+      "items": [
+        {
+          "id": "B11a",
+          "interaction": "short-text",
+          "prompt": "[S2] Sam has $300. He buys a school bag for $96 and x pens at $18 each.\n(a) Write down an inequality in x.",
+          "answer": "18x+96<=300",
+          "solution": "18x + 96 ≤ 300.",
+          "topic": "inequalities",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "18x+96<=300",
+            "18x + 96 ≤ 300",
+            "18x+96≤300",
+            "96+18x<=300",
+            "18x + 96 ≤ 300",
+            "18x+96 =< 300"
+          ],
+          "stem": "Sam has $300. He buys a school bag for $96 and x pens at $18 each.",
+          "part": "a",
+          "parentId": "B11",
+          "originalNumber": 11
+        },
+        {
+          "id": "B11b",
+          "interaction": "short-text",
+          "prompt": "[S2] Sam has $300. He buys a school bag for $96 and x pens at $18 each.\n(b) Find the greatest number of pens Sam can buy.",
+          "answer": "11",
+          "solution": "18x ≤ 204 → x ≤ 11.333…\nThe greatest number of pens is 11.",
+          "topic": "inequalities",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "11",
+            "11 pens"
+          ],
+          "stem": "Sam has $300. He buys a school bag for $96 and x pens at $18 each.",
+          "part": "b",
+          "parentId": "B11",
+          "originalNumber": 11
+        },
+        {
+          "id": "B11c",
+          "interaction": "short-text",
+          "prompt": "[S2] Sam has $300. He buys a school bag for $96 and x pens at $18 each.\n(c) If Sam wants to buy 14 pens, how much more money does he need, in dollars?",
+          "answer": "48",
+          "solution": "Cost of 14 pens and the bag = 18 × 14 + 96 = 348.\n348 − 300 = $48 more.",
+          "topic": "inequalities",
+          "levelTag": "S2",
+          "marks": 5,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "48",
+            "$48",
+            "48 dollars"
+          ],
+          "stem": "Sam has $300. He buys a school bag for $96 and x pens at $18 each.",
+          "part": "c",
+          "parentId": "B11",
+          "originalNumber": 11
+        },
+        {
+          "id": "B12a",
+          "interaction": "short-text",
+          "prompt": "[S1] An empty rectangular tank measures 40 cm by 25 cm by 20 cm internally.\n(a) Find its capacity in litres.",
+          "answer": "20",
+          "solution": "Capacity = 40 × 25 × 20 = 20 000 cm³ = 20 litres.",
+          "topic": "mensuration",
+          "levelTag": "S1",
+          "marks": 2,
+          "assetIds": [
+            "b12-tank"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "20",
+            "20 litres",
+            "20 L",
+            "20 l"
+          ],
+          "stem": "An empty rectangular tank measures 40 cm by 25 cm by 20 cm internally.",
+          "part": "a",
+          "parentId": "B12",
+          "originalNumber": 12
+        },
+        {
+          "id": "B12b",
+          "interaction": "short-text",
+          "prompt": "[S2] An empty rectangular tank measures 40 cm by 25 cm by 20 cm internally.\n(b) The tank contains water to a depth of 8 cm. Water is then poured in at 2.5 litres per minute for 6 minutes. Explain whether the tank overflows.",
+          "answer": "Yes, the tank overflows",
+          "solution": "Water added = 2.5 × 6 = 15 L.\nWater present = 40 × 25 × 8 ÷ 1000 = 8 L.\nTotal = 8 + 15 = 23 L.\n23 L > 20 L, so the tank overflows.",
+          "topic": "mensuration",
+          "levelTag": "S2",
+          "marks": 5,
+          "assetIds": [
+            "b12-tank"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "Yes, the tank overflows",
+            "overflows",
+            "yes, overflows",
+            "The tank overflows",
+            "yes (23 L > 20 L)"
+          ],
+          "stem": "An empty rectangular tank measures 40 cm by 25 cm by 20 cm internally.",
+          "part": "b",
+          "parentId": "B12",
+          "originalNumber": 12
+        },
+        {
+          "id": "B12c",
+          "interaction": "short-text",
+          "prompt": "[S2] An empty rectangular tank measures 40 cm by 25 cm by 20 cm internally. It contains water to a depth of 8 cm, and water is poured in at 2.5 litres per minute.\n(c) Starting from the 8 cm depth, find the depth of water after 3 minutes, in cm.",
+          "answer": "15.5",
+          "solution": "Water added in 3 min = 7.5 L, total = 8 + 7.5 = 15.5 L = 15 500 cm³.\nDepth = 15 500 ÷ (40 × 25) = 15 500 ÷ 1000 = 15.5 cm.",
+          "topic": "mensuration",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "b12-tank"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "15.5",
+            "15.5 cm",
+            "15.50"
+          ],
+          "stem": "An empty rectangular tank measures 40 cm by 25 cm by 20 cm internally.",
+          "part": "c",
+          "parentId": "B12",
+          "originalNumber": 12
+        },
+        {
+          "id": "B12d",
+          "interaction": "short-text",
+          "prompt": "[S2] An empty rectangular tank measures 40 cm by 25 cm by 20 cm internally.\n(d) Find the time needed to fill the empty tank completely at 2.5 litres per minute, in minutes.",
+          "answer": "8",
+          "solution": "Time = 20 ÷ 2.5 = 8 minutes.",
+          "topic": "mensuration",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [
+            "b12-tank"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "8",
+            "8 minutes",
+            "8 min"
+          ],
+          "stem": "An empty rectangular tank measures 40 cm by 25 cm by 20 cm internally.",
+          "part": "d",
+          "parentId": "B12",
+          "originalNumber": 12
+        },
+        {
+          "id": "B13a",
+          "interaction": "short-text",
+          "prompt": "[S2] A map is drawn to a scale of 1 : 25 000.\n(a) Find the actual distance, in km, represented by 4 cm on the map.",
+          "answer": "1",
+          "solution": "Actual length = 4 × 25 000 = 100 000 cm = 1 km.",
+          "topic": "ratio",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "1",
+            "1 km",
+            "1km"
+          ],
+          "stem": "A map is drawn to a scale of 1 : 25 000.",
+          "part": "a",
+          "parentId": "B13",
+          "originalNumber": 13
+        },
+        {
+          "id": "B13b",
+          "interaction": "short-text",
+          "prompt": "[S2] A map is drawn to a scale of 1 : 25 000.\n(b) A rectangular park measures 6 cm by 4 cm on the map. Find its actual area in km².",
+          "answer": "1.5",
+          "solution": "Actual sides = 1.5 km and 1 km.\nArea = 1.5 × 1 = 1.5 km².\n(Do not multiply the map area 24 cm² by 25 000 — areas scale as the square of the ratio.)",
+          "topic": "ratio",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "1.5",
+            "1.5 km^2",
+            "1.5 km²",
+            "3/2"
+          ],
+          "stem": "A map is drawn to a scale of 1 : 25 000.",
+          "part": "b",
+          "parentId": "B13",
+          "originalNumber": 13
+        },
+        {
+          "id": "B13c",
+          "interaction": "short-text",
+          "prompt": "[S2] Two similar triangles have areas in the ratio 9 : 25. The perimeter of the smaller triangle is 24 cm. Find the perimeter of the larger triangle, in cm.",
+          "answer": "40",
+          "solution": "Area ratio 9 : 25 ⇒ side (length) ratio 3 : 5.\nPerimeter of larger = 24 × 5/3 = 40 cm.",
+          "topic": "similar-figures",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "40",
+            "40 cm",
+            "40cm"
+          ],
+          "part": "c",
+          "parentId": "B13",
+          "originalNumber": 13
+        },
+        {
+          "id": "B14a",
+          "interaction": "short-text",
+          "prompt": "[S1] A survey of 240 students on their favourite sport gave the following numbers: Football 80, Basketball 60, Swimming 40, Others 60.\n(a) Show that the total number of students is 240.",
+          "answer": "240",
+          "solution": "80 + 60 + 40 + 60 = 240.",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 2,
+          "assetIds": [
+            "b14-sports-bar"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "240",
+            "80+60+40+60=240"
+          ],
+          "stem": "A survey of 240 students on their favourite sport gave the following numbers:\nFootball: 80    Basketball: 60    Swimming: 40    Others: 60",
+          "part": "a",
+          "parentId": "B14",
+          "originalNumber": 14
+        },
+        {
+          "id": "B14b",
+          "interaction": "short-text",
+          "prompt": "[S1] A survey of 240 students on their favourite sport gave the following numbers: Football 80, Basketball 60, Swimming 40, Others 60.\n(b) Find the angle of the sector representing football in a pie chart, in degrees.",
+          "answer": "120",
+          "solution": "Angle = 80/240 × 360° = 120°.",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 3,
+          "assetIds": [
+            "b14-sports-bar"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "120",
+            "120°",
+            "120 degrees"
+          ],
+          "stem": "A survey of 240 students on their favourite sport gave the following numbers:\nFootball: 80    Basketball: 60    Swimming: 40    Others: 60",
+          "part": "b",
+          "parentId": "B14",
+          "originalNumber": 14
+        },
+        {
+          "id": "B14c",
+          "interaction": "short-text",
+          "prompt": "[S1] A survey of 240 students on their favourite sport gave the following numbers: Football 80, Basketball 60, Swimming 40, Others 60.\n(c) Express the number of students choosing “Others” as a percentage of the total.",
+          "answer": "25%",
+          "solution": "60/240 × 100% = 25%.",
+          "topic": "percentages",
+          "levelTag": "S1",
+          "marks": 2,
+          "assetIds": [
+            "b14-sports-bar"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "25%",
+            "25",
+            "25 percent"
+          ],
+          "stem": "A survey of 240 students on their favourite sport gave the following numbers:\nFootball: 80    Basketball: 60    Swimming: 40    Others: 60",
+          "part": "c",
+          "parentId": "B14",
+          "originalNumber": 14
+        },
+        {
+          "id": "B14d",
+          "interaction": "short-text",
+          "prompt": "[S1] A survey of 240 students on their favourite sport gave the following numbers: Football 80, Basketball 60, Swimming 40, Others 60.\n(d) The number choosing basketball is what percentage of the number choosing football?",
+          "answer": "75%",
+          "solution": "60/80 × 100% = 75%.\n(Check of the pie-chart angles: 120° + 90° + 60° + 90° = 360°.)",
+          "topic": "percentages",
+          "levelTag": "S1",
+          "marks": 3,
+          "assetIds": [
+            "b14-sports-bar"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "75%",
+            "75",
+            "75 percent"
+          ],
+          "stem": "A survey of 240 students on their favourite sport gave the following numbers:\nFootball: 80    Basketball: 60    Swimming: 40    Others: 60",
+          "part": "d",
+          "parentId": "B14",
+          "originalNumber": 14
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "titleEn": "Section C",
+      "titleZh": "丙部（挑战题）",
+      "instructions": "Section C (36 marks) — Answer all questions. Show your working.",
+      "items": [
+        {
+          "id": "C15a",
+          "interaction": "short-text",
+          "prompt": "[S2] The length of a rectangle is 3 cm more than twice its breadth. Its perimeter is 48 cm.\n(a) Taking the breadth as b cm, write down an equation in b.",
+          "answer": "2[b+(2b+3)]=48",
+          "solution": "Length = (2b + 3) cm, so 2[b + (2b + 3)] = 48.",
+          "topic": "linear-equations",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "2[b+(2b+3)]=48",
+            "2[b + (2b + 3)] = 48",
+            "2(3b+3)=48",
+            "2(3b + 3) = 48",
+            "6b+6=48",
+            "6b + 6 = 48",
+            "3b+3=24",
+            "2b+3 + b = 24",
+            "2(2b+3+b)=48"
+          ],
+          "stem": "The length of a rectangle is 3 cm more than twice its breadth. Its perimeter is 48 cm.",
+          "part": "a",
+          "parentId": "C15",
+          "originalNumber": 15
+        },
+        {
+          "id": "C15b",
+          "interaction": "short-text",
+          "prompt": "[S2] The length of a rectangle is 3 cm more than twice its breadth. Its perimeter is 48 cm.\n(b) Solve the equation and find the length and breadth, in cm. Give the breadth and then the length (e.g. 7, 17).",
+          "answer": "7, 17",
+          "solution": "3b + 3 = 24 → 3b = 21, b = 7.\nBreadth = 7 cm, length = 17 cm.\nCheck: 2(17 + 7) = 48.",
+          "topic": "linear-equations",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "7, 17",
+            "7,17",
+            "7 cm, 17 cm",
+            "breadth 7, length 17"
+          ],
+          "stem": "The length of a rectangle is 3 cm more than twice its breadth. Its perimeter is 48 cm.",
+          "part": "b",
+          "parentId": "C15",
+          "originalNumber": 15
+        },
+        {
+          "id": "C15c",
+          "interaction": "short-text",
+          "prompt": "[S2] A rectangle has breadth 7 cm and length 17 cm.\n(c) Hence find the area of the rectangle, in cm².",
+          "answer": "119",
+          "solution": "Area = 17 × 7 = 119 cm².",
+          "topic": "mensuration",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "119",
+            "119 cm^2",
+            "119 cm²"
+          ],
+          "stem": "The length of a rectangle is 3 cm more than twice its breadth. Its perimeter is 48 cm.",
+          "part": "c",
+          "parentId": "C15",
+          "originalNumber": 15
+        },
+        {
+          "id": "C15d",
+          "interaction": "short-text",
+          "prompt": "[S2] A rectangle has breadth 7 cm and length 17 cm, so its area is 119 cm².\n(d) If both the length and the breadth are increased by 2 cm, find the percentage increase in the area, correct to 3 significant figures.",
+          "answer": "43.7%",
+          "solution": "New dimensions 19 cm × 9 cm, new area = 171 cm².\nIncrease = (171 − 119)/119 × 100% ≈ 43.697…% ≈ 43.7% (3 s.f.).",
+          "topic": "percentages",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "43.7%",
+            "43.7",
+            "43.70%"
+          ],
+          "stem": "The length of a rectangle is 3 cm more than twice its breadth. Its perimeter is 48 cm.",
+          "part": "d",
+          "parentId": "C15",
+          "originalNumber": 15
+        },
+        {
+          "id": "C16a",
+          "interaction": "short-text",
+          "prompt": "[S2] In △ABC, AB = AC and ∠BAC = 36°. The bisector of ∠ABC meets AC at D.\n(a) Find ∠ABC and ∠ACB, in degrees.",
+          "answer": "72, 72",
+          "solution": "AB = AC ⇒ base angles equal: ∠ABC = ∠ACB = (180° − 36°)/2 = 72° each.",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "c16-triangle"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "72, 72",
+            "72,72",
+            "72°, 72°",
+            "72 each",
+            "72° each"
+          ],
+          "stem": "In △ABC, AB = AC and ∠BAC = 36°. The bisector of ∠ABC meets AC at D.",
+          "part": "a",
+          "parentId": "C16",
+          "originalNumber": 16
+        },
+        {
+          "id": "C16b",
+          "interaction": "short-text",
+          "prompt": "[S2] In △ABC, AB = AC and ∠BAC = 36°. The bisector of ∠ABC meets AC at D. (It has been found that ∠ABC = 72°.)\n(b) Find ∠ABD and ∠DBC, in degrees.",
+          "answer": "36, 36",
+          "solution": "BD bisects ∠ABC, so ∠ABD = ∠DBC = 72° ÷ 2 = 36° each.",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [
+            "c16-triangle"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "36, 36",
+            "36,36",
+            "36°, 36°",
+            "36 each",
+            "36° each"
+          ],
+          "stem": "In △ABC, AB = AC and ∠BAC = 36°. The bisector of ∠ABC meets AC at D.",
+          "part": "b",
+          "parentId": "C16",
+          "originalNumber": 16
+        },
+        {
+          "id": "C16c",
+          "interaction": "short-text",
+          "prompt": "[S2] In △ABC, AB = AC and ∠BAC = 36°. The bisector of ∠ABC meets AC at D.\n(c) Find ∠ADB, in degrees.",
+          "answer": "108",
+          "solution": "In △ABD: ∠ADB = 180° − 36° − 36° = 108°.",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [
+            "c16-triangle"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "108",
+            "108°",
+            "108 degrees"
+          ],
+          "stem": "In △ABC, AB = AC and ∠BAC = 36°. The bisector of ∠ABC meets AC at D.",
+          "part": "c",
+          "parentId": "C16",
+          "originalNumber": 16
+        },
+        {
+          "id": "C16d",
+          "interaction": "short-text",
+          "prompt": "[S2] In △ABC, AB = AC and ∠BAC = 36°. The bisector of ∠ABC meets AC at D. (It has been found that ∠ADB = 108°.)\n(d) Hence find ∠BDC, in degrees.",
+          "answer": "72",
+          "solution": "A, D, C are collinear, so ∠BDC = 180° − 108° = 72°.",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [
+            "c16-triangle"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "72",
+            "72°",
+            "72 degrees"
+          ],
+          "stem": "In △ABC, AB = AC and ∠BAC = 36°. The bisector of ∠ABC meets AC at D.",
+          "part": "d",
+          "parentId": "C16",
+          "originalNumber": 16
+        },
+        {
+          "id": "C16e",
+          "interaction": "short-text",
+          "prompt": "[S2] In △ABC, AB = AC and ∠BAC = 36°. The bisector of ∠ABC meets AC at D.\n(e) Show that △BDC is an isosceles triangle.",
+          "answer": "triangle BDC is isosceles (BC=BD)",
+          "solution": "In △BDC: ∠DBC = 36°, ∠BCD = ∠BCA = 72°, ∠BDC = 72°.\nSince ∠BCD = ∠BDC, the sides opposite them are equal: BC = BD.\n∴ △BDC is isosceles.\n(This is the “golden triangle”. With ∠BAC = 36° and BC = BD = AD, point D divides AC in the golden ratio.)",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "c16-triangle"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "triangle BDC is isosceles (BC=BD)",
+            "isosceles",
+            "△BDC is isosceles",
+            "BC=BD",
+            "BC = BD",
+            "isosceles (BC=BD)"
+          ],
+          "stem": "In △ABC, AB = AC and ∠BAC = 36°. The bisector of ∠ABC meets AC at D.",
+          "part": "e",
+          "parentId": "C16",
+          "originalNumber": 16
+        },
+        {
+          "id": "C17a",
+          "interaction": "short-text",
+          "prompt": "[S2] A mobile phone company offers two monthly plans. Plan A: fixed charge $120 plus $6 for each GB of data used. Plan B: fixed charge $200 plus $2 for each GB of data used.\n(a) Find the monthly cost of each plan when 10 GB of data is used, in dollars. Give Plan A then Plan B (e.g. 180, 220).",
+          "answer": "180, 220",
+          "solution": "Plan A = 120 + 6 × 10 = $180; Plan B = 200 + 2 × 10 = $220.",
+          "topic": "linear-equations",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "180, 220",
+            "180,220",
+            "$180, $220"
+          ],
+          "stem": "A mobile phone company offers two monthly plans.\nPlan A: fixed charge $120 plus $6 for each GB of data used.\nPlan B: fixed charge $200 plus $2 for each GB of data used.",
+          "part": "a",
+          "parentId": "C17",
+          "originalNumber": 17
+        },
+        {
+          "id": "C17b",
+          "interaction": "short-text",
+          "prompt": "[S2] A mobile phone company offers two monthly plans. Plan A: fixed charge $120 plus $6 for each GB of data used. Plan B: fixed charge $200 plus $2 for each GB of data used.\n(b) Find the monthly cost of each plan when 30 GB of data is used, in dollars. Give Plan A then Plan B (e.g. 300, 260).",
+          "answer": "300, 260",
+          "solution": "Plan A = 120 + 6 × 30 = $300; Plan B = 200 + 2 × 30 = $260.",
+          "topic": "linear-equations",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "300, 260",
+            "300,260",
+            "$300, $260"
+          ],
+          "stem": "A mobile phone company offers two monthly plans.\nPlan A: fixed charge $120 plus $6 for each GB of data used.\nPlan B: fixed charge $200 plus $2 for each GB of data used.",
+          "part": "b",
+          "parentId": "C17",
+          "originalNumber": 17
+        },
+        {
+          "id": "C17c",
+          "interaction": "short-text",
+          "prompt": "[S2] A mobile phone company offers two monthly plans. Plan A: fixed charge $120 plus $6 for each GB of data used. Plan B: fixed charge $200 plus $2 for each GB of data used.\n(c) Find the amount of data for which the two plans cost the same, and the common cost. Give the data in GB and the common cost in dollars (e.g. 20, 240).",
+          "answer": "20, 240",
+          "solution": "120 + 6g = 200 + 2g → 4g = 80, g = 20.\n20 GB, common cost $240.",
+          "topic": "linear-equations",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "20, 240",
+            "20,240",
+            "20 GB, $240",
+            "20GB, 240"
+          ],
+          "stem": "A mobile phone company offers two monthly plans.\nPlan A: fixed charge $120 plus $6 for each GB of data used.\nPlan B: fixed charge $200 plus $2 for each GB of data used.",
+          "part": "c",
+          "parentId": "C17",
+          "originalNumber": 17
+        },
+        {
+          "id": "C17d",
+          "interaction": "short-text",
+          "prompt": "[S2] A mobile phone company offers two monthly plans. Plan A: fixed charge $120 plus $6 for each GB of data used. Plan B: fixed charge $200 plus $2 for each GB of data used.\n(d) A light user uses about 5 GB a month and a heavy user uses about 40 GB. Advise each of them on which plan to choose. Give the light user’s plan then the heavy user’s plan (e.g. A, B).",
+          "answer": "A, B",
+          "solution": "At 5 GB: A = $150, B = $210 → choose Plan A.\nAt 40 GB: A = $360, B = $280 → choose Plan B.\n(The plan with the lower fixed charge wins for light users; the plan with the lower unit rate wins for heavy users.)",
+          "topic": "linear-equations",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "A, B",
+            "A,B",
+            "Plan A, Plan B",
+            "light A, heavy B",
+            "choose Plan A; choose Plan B"
+          ],
+          "stem": "A mobile phone company offers two monthly plans.\nPlan A: fixed charge $120 plus $6 for each GB of data used.\nPlan B: fixed charge $200 plus $2 for each GB of data used.",
+          "part": "d",
+          "parentId": "C17",
+          "originalNumber": 17
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "a6-parallel-lines",
+      "src": "assets/a6-parallel-lines.png",
+      "alt": "Parallel lines AB and CD cut by a transversal, with alternate angles (4x − 15)° and (2x + 35)°."
+    },
+    {
+      "id": "a7-exterior-angle",
+      "src": "assets/a7-exterior-angle.png",
+      "alt": "Triangle ABC with interior angles 2x at A and 3x at B, and exterior angle 110° at C."
+    },
+    {
+      "id": "a9-coordinates",
+      "src": "assets/a9-coordinates.png",
+      "alt": "Cartesian plane showing points A(1, 2), B(7, 2) and C(7, 6)."
+    },
+    {
+      "id": "a10-prism",
+      "src": "assets/a10-prism.png",
+      "alt": "A triangular prism of length 15 cm, with uniform triangular cross-section."
+    },
+    {
+      "id": "b12-tank",
+      "src": "assets/b12-tank.png",
+      "alt": "A rectangular tank measuring 40 cm by 25 cm by 20 cm internally."
+    },
+    {
+      "id": "b14-sports-bar",
+      "src": "assets/b14-sports-bar.png",
+      "alt": "Bar chart of 240 students’ favourite sports: Football 80, Basketball 60, Swimming 40, Others 60."
+    },
+    {
+      "id": "c16-triangle",
+      "src": "assets/c16-triangle.png",
+      "alt": "Isosceles triangle ABC with AB = AC and angle BAC = 36°. The bisector of angle ABC meets AC at D."
+    }
+  ],
+  "mediaContract": {
+    "assetIds": "string[] — ids into paper.assets[]",
+    "imagePlacement": "null | \"above\" | \"beside\" — 看图题同屏",
+    "assets": "optional top-level list {id,src,alt}"
+  }
+}

@@ -1,0 +1,902 @@
+{
+  "courseId": "math-junior",
+  "kind": "paper",
+  "id": "s1s2-pp-01",
+  "titleEn": "Mathematics Practice Paper 1 (S1–S2 Combined)",
+  "titleZh": "数学练习卷 1（S1–S2 综合）",
+  "levelMix": "S1–S2 Combined (Core + stretch). Mid-term / diagnostic. No S3 items.",
+  "timeSuggestedMin": 75,
+  "topicsCovered": [
+    "algebraic-expressions",
+    "linear-equations",
+    "percentages",
+    "ratio",
+    "indices",
+    "factorisation",
+    "angles-polygons",
+    "pythagoras",
+    "statistics",
+    "coordinates",
+    "simultaneous-equations",
+    "mensuration",
+    "simple-interest",
+    "rates",
+    "similar-figures"
+  ],
+  "sections": [
+    {
+      "id": "A",
+      "titleEn": "Section A",
+      "titleZh": "甲部（短答题）",
+      "instructions": "Answer ALL questions. Unless otherwise specified, numerical answers should be either exact or correct to 3 significant figures. Working must be shown. Marks are awarded for correct method. Give units in your answers where appropriate. Section A (40 marks) — Answer all questions. Each question carries 4 marks.",
+      "items": [
+        {
+          "id": "A1",
+          "interaction": "fill-blank",
+          "prompt": "[S1] Simplify (4a − 3b) − 2(a − 2b).",
+          "answer": "2a+b",
+          "solution": "(4a − 3b) − 2(a − 2b) = 4a − 3b − 2a + 4b = 2a + b.",
+          "topic": "algebraic-expressions",
+          "levelTag": "S1",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "2a+b",
+            "2a + b",
+            "b+2a",
+            "b + 2a",
+            "2a+1b"
+          ]
+        },
+        {
+          "id": "A2",
+          "interaction": "fill-blank",
+          "prompt": "[S1] Solve 5 − 2(x − 3) = 3x + 1.",
+          "answer": "2",
+          "solution": "5 − 2(x − 3) = 3x + 1\n5 − 2x + 6 = 3x + 1\n11 − 2x = 3x + 1\n10 = 5x\nx = 2.",
+          "topic": "linear-equations",
+          "levelTag": "S1",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "2",
+            "x=2",
+            "x = 2"
+          ]
+        },
+        {
+          "id": "A3a",
+          "interaction": "fill-blank",
+          "prompt": "[S1] A jacket is marked at $480. It is sold at a discount of 15%.\n(a) Find the selling price, in dollars.",
+          "answer": "408",
+          "solution": "Selling price = 480 × (1 − 15%) = 480 × 0.85 = $408.",
+          "topic": "percentages",
+          "levelTag": "S1",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "408",
+            "$408",
+            "408 dollars"
+          ],
+          "stem": "A jacket is marked at $480. It is sold at a discount of 15%.",
+          "part": "a",
+          "parentId": "A3",
+          "originalNumber": 3
+        },
+        {
+          "id": "A3b",
+          "interaction": "fill-blank",
+          "prompt": "[S1] A jacket is marked at $480. It is sold at a discount of 15%.\n(b) If the cost of the jacket is $340, find the profit per cent.",
+          "answer": "20%",
+          "solution": "Profit = 408 − 340 = 68.\nProfit per cent = 68 ÷ 340 × 100% = 20%.",
+          "topic": "percentages",
+          "levelTag": "S1",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "20%",
+            "20",
+            "20 percent",
+            "20 per cent"
+          ],
+          "stem": "A jacket is marked at $480. It is sold at a discount of 15%.",
+          "part": "b",
+          "parentId": "A3",
+          "originalNumber": 3
+        },
+        {
+          "id": "A4",
+          "interaction": "fill-blank",
+          "prompt": "[S1] In a school, the number of boys : number of girls = 5 : 7. There are 24 more girls than boys. Find the total number of students.",
+          "answer": "144",
+          "solution": "Difference in parts = 7 − 5 = 2 parts.\n2 parts = 24, so 1 part = 12.\nTotal = 12 parts = 12 × 12 = 144 students.",
+          "topic": "ratio",
+          "levelTag": "S1",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "144",
+            "144 students"
+          ]
+        },
+        {
+          "id": "A5",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Simplify (2x²y)³ ÷ (4x³y²).",
+          "answer": "2x^3 y",
+          "solution": "(2x²y)³ = 8x⁶y³.\n8x⁶y³ ÷ 4x³y² = 2x³y.",
+          "topic": "indices",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "2x^3 y",
+            "2x^3y",
+            "2x³y",
+            "2x^3*y",
+            "2y x^3",
+            "2yx^3",
+            "2x³y¹"
+          ]
+        },
+        {
+          "id": "A6a",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Factorise\n(a) 4x² − 25",
+          "answer": "(2x+5)(2x-5)",
+          "solution": "4x² − 25 = (2x)² − 5² = (2x + 5)(2x − 5).",
+          "topic": "factorisation",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "(2x+5)(2x-5)",
+            "(2x+5)(2x−5)",
+            "(2x-5)(2x+5)",
+            "(2x−5)(2x+5)",
+            "(2x + 5)(2x - 5)",
+            "(2x - 5)(2x + 5)"
+          ],
+          "stem": "Factorise the following.",
+          "part": "a",
+          "parentId": "A6",
+          "originalNumber": 6
+        },
+        {
+          "id": "A6b",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Factorise\n(b) 3x² − 12x",
+          "answer": "3x(x-4)",
+          "solution": "Common factor 3x: 3x² − 12x = 3x(x − 4).",
+          "topic": "factorisation",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "3x(x-4)",
+            "3x(x−4)",
+            "3x(x - 4)",
+            "(x-4)3x",
+            "3x(-4+x)"
+          ],
+          "stem": "Factorise the following.",
+          "part": "b",
+          "parentId": "A6",
+          "originalNumber": 6
+        },
+        {
+          "id": "A7a",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Each exterior angle of a regular polygon is 24°.\n(a) How many sides does the polygon have?",
+          "answer": "15",
+          "solution": "n = 360° ÷ 24° = 15 sides.",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "15",
+            "15 sides"
+          ],
+          "stem": "Each exterior angle of a regular polygon is 24°.",
+          "part": "a",
+          "parentId": "A7",
+          "originalNumber": 7
+        },
+        {
+          "id": "A7b",
+          "interaction": "fill-blank",
+          "prompt": "[S2] Each exterior angle of a regular polygon is 24°.\n(b) Find the sum of its interior angles, in degrees.",
+          "answer": "2340",
+          "solution": "Sum = (15 − 2) × 180° = 2340°.\n(Alternative: each interior angle is 180° − 24° = 156°, so 15 × 156° = 2340°.)",
+          "topic": "angles-polygons",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "2340",
+            "2340°",
+            "2340 degrees"
+          ],
+          "stem": "Each exterior angle of a regular polygon is 24°.",
+          "part": "b",
+          "parentId": "A7",
+          "originalNumber": 7
+        },
+        {
+          "id": "A8",
+          "interaction": "fill-blank",
+          "prompt": "[S2] A ladder 13 m long leans against a vertical wall. The foot of the ladder is 5 m from the wall. Find the height reached by the top of the ladder, in metres.",
+          "answer": "12",
+          "solution": "By Pythagoras’ theorem, height² = 13² − 5² = 169 − 25 = 144.\nHeight = 12 m.",
+          "topic": "pythagoras",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [
+            "a8-ladder"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "12",
+            "12 m",
+            "12m",
+            "12 metres",
+            "12 meters"
+          ]
+        },
+        {
+          "id": "A9a",
+          "interaction": "fill-blank",
+          "prompt": "[S1] The mean of seven numbers is 7. Six of the numbers are 3, 5, 5, 7, 9 and 12.\n(a) Find the seventh number.",
+          "answer": "8",
+          "solution": "Sum of 7 numbers = 7 × 7 = 49.\nSum of the six given numbers = 3 + 5 + 5 + 7 + 9 + 12 = 41.\nSeventh number = 49 − 41 = 8.",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "8"
+          ],
+          "stem": "The mean of seven numbers is 7. Six of the numbers are 3, 5, 5, 7, 9 and 12.",
+          "part": "a",
+          "parentId": "A9",
+          "originalNumber": 9
+        },
+        {
+          "id": "A9b",
+          "interaction": "fill-blank",
+          "prompt": "[S1] The mean of seven numbers is 7. Six of the numbers are 3, 5, 5, 7, 9 and 12.\n(b) Find the median of the seven numbers.",
+          "answer": "7",
+          "solution": "In order: 3, 5, 5, 7, 8, 9, 12.\nThe median (4th number) is 7.",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "7"
+          ],
+          "stem": "The mean of seven numbers is 7. Six of the numbers are 3, 5, 5, 7, 9 and 12.",
+          "part": "b",
+          "parentId": "A9",
+          "originalNumber": 9
+        },
+        {
+          "id": "A10a",
+          "interaction": "fill-blank",
+          "prompt": "[S2] A(−2, 3) and B(4, −5) are two points on a Cartesian plane.\n(a) Find the length of AB.",
+          "answer": "10",
+          "solution": "AB = √[(4 − (−2))² + ((−5) − 3)²] = √(6² + (−8)²) = √(36 + 64) = √100 = 10 units.",
+          "topic": "coordinates",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "a10-coordinates"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "10",
+            "10 units",
+            "√100",
+            "sqrt(100)"
+          ],
+          "stem": "A(−2, 3) and B(4, −5) are two points on a Cartesian plane.",
+          "part": "a",
+          "parentId": "A10",
+          "originalNumber": 10
+        },
+        {
+          "id": "A10b",
+          "interaction": "fill-blank",
+          "prompt": "[S2] A(−2, 3) and B(4, −5) are two points on a Cartesian plane.\n(b) Find the coordinates of the mid-point of AB.",
+          "answer": "(1,-1)",
+          "solution": "Mid-point = ((−2 + 4)/2, (3 + (−5))/2) = (2/2, (−2)/2) = (1, −1).",
+          "topic": "coordinates",
+          "levelTag": "S2",
+          "marks": 1,
+          "assetIds": [
+            "a10-coordinates"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "(1,-1)",
+            "(1, -1)",
+            "(1,−1)",
+            "1,-1",
+            "1, -1"
+          ],
+          "stem": "A(−2, 3) and B(4, −5) are two points on a Cartesian plane.",
+          "part": "b",
+          "parentId": "A10",
+          "originalNumber": 10
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "titleEn": "Section B",
+      "titleZh": "乙部（结构题）",
+      "instructions": "Section B (44 marks) — Answer all questions. Show your working.",
+      "items": [
+        {
+          "id": "B11a",
+          "interaction": "short-text",
+          "prompt": "[S2] Solve the simultaneous equations\n2x + 3y = 12\n5x − y = 13.\nGive the values of x and y.",
+          "answer": "x=3, y=2",
+          "solution": "From 5x − y = 13, y = 5x − 13.\nSubstitute into 2x + 3y = 12:\n2x + 3(5x − 13) = 12\n2x + 15x − 39 = 12\n17x = 51\nx = 3, y = 5(3) − 13 = 2.",
+          "topic": "simultaneous-equations",
+          "levelTag": "S2",
+          "marks": 6,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "x=3, y=2",
+            "x=3,y=2",
+            "x = 3, y = 2",
+            "(3,2)",
+            "(3, 2)",
+            "3, 2",
+            "3,2"
+          ],
+          "stem": "Solve the simultaneous equations 2x + 3y = 12 and 5x − y = 13.",
+          "part": "a",
+          "parentId": "B11",
+          "originalNumber": 11
+        },
+        {
+          "id": "B11b",
+          "interaction": "short-text",
+          "prompt": "[S2] A concert sells 30 tickets in total. An adult ticket costs $80 and a child ticket costs $50. The total income is $1830. Find the number of adult tickets and the number of child tickets sold.",
+          "answer": "11 adult, 19 child",
+          "solution": "Let a and c be the numbers of adult and child tickets.\na + c = 30 and 80a + 50c = 1830.\nc = 30 − a: 80a + 50(30 − a) = 1830\n80a + 1500 − 50a = 1830\n30a = 330 → a = 11.\n11 adult tickets and 19 child tickets.\nCheck: 80(11) + 50(19) = 880 + 950 = 1830.",
+          "topic": "simultaneous-equations",
+          "levelTag": "S2",
+          "marks": 6,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "11 adult, 19 child",
+            "11, 19",
+            "11,19",
+            "11 adult tickets and 19 child tickets",
+            "a=11, c=19",
+            "11 adults, 19 children"
+          ],
+          "part": "b",
+          "parentId": "B11",
+          "originalNumber": 11
+        },
+        {
+          "id": "B12a",
+          "interaction": "short-text",
+          "prompt": "[S2] (a) Expand (2x − 3)².",
+          "answer": "4x^2-12x+9",
+          "solution": "(2x − 3)² = (2x)² − 2(2x)(3) + 3² = 4x² − 12x + 9.",
+          "topic": "algebraic-expressions",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "4x^2-12x+9",
+            "4x^2 - 12x + 9",
+            "4x²-12x+9",
+            "4x² − 12x + 9"
+          ],
+          "part": "a",
+          "parentId": "B12",
+          "originalNumber": 12
+        },
+        {
+          "id": "B12b",
+          "interaction": "short-text",
+          "prompt": "[S2] (b) Factorise 6x² − x − 12.",
+          "answer": "(3x+4)(2x-3)",
+          "solution": "Numbers with product 6 × (−12) = −72 and sum −1 are −9 and 8.\n6x² − 9x + 8x − 12 = 3x(2x − 3) + 4(2x − 3) = (3x + 4)(2x − 3).",
+          "topic": "factorisation",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "(3x+4)(2x-3)",
+            "(3x+4)(2x−3)",
+            "(2x-3)(3x+4)",
+            "(2x−3)(3x+4)",
+            "(3x + 4)(2x - 3)",
+            "(2x - 3)(3x + 4)"
+          ],
+          "part": "b",
+          "parentId": "B12",
+          "originalNumber": 12
+        },
+        {
+          "id": "B12c",
+          "interaction": "short-text",
+          "prompt": "[S2] (c) Hence solve (2x − 3)² = (3x + 4)(2x − 3).",
+          "answer": "x=3/2 or x=-7",
+          "solution": "(2x − 3)² − (3x + 4)(2x − 3) = 0\n(2x − 3)[(2x − 3) − (3x + 4)] = 0\n(2x − 3)(−x − 7) = 0\nx = 3/2 or x = −7.\nDo not divide both sides by (2x − 3): that would lose the root x = 3/2.",
+          "topic": "linear-equations",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "x=3/2 or x=-7",
+            "x=3/2 or x=−7",
+            "x = 3/2 or x = -7",
+            "x=1.5 or x=-7",
+            "3/2, -7",
+            "3/2,-7",
+            "-7, 3/2",
+            "1.5, -7",
+            "x=-7 or x=3/2",
+            "x=3/2, x=-7"
+          ],
+          "part": "c",
+          "parentId": "B12",
+          "originalNumber": 12
+        },
+        {
+          "id": "B13a",
+          "interaction": "short-text",
+          "prompt": "[S2] A cylindrical water tank has base radius 0.6 m and height 1.5 m.\n(a) Find the capacity of the tank in m³, correct to 3 significant figures.",
+          "answer": "1.70",
+          "solution": "V = πr²h = π(0.6)²(1.5) = 0.54π ≈ 1.696… = 1.70 m³ (3 s.f.).",
+          "topic": "mensuration",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "b13-cylinder"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "1.70",
+            "1.70 m^3",
+            "1.70 m³",
+            "1.7",
+            "0.54π",
+            "0.54pi"
+          ],
+          "stem": "A cylindrical water tank has base radius 0.6 m and height 1.5 m.",
+          "part": "a",
+          "parentId": "B13",
+          "originalNumber": 13
+        },
+        {
+          "id": "B13b",
+          "interaction": "short-text",
+          "prompt": "[S2] A cylindrical water tank has base radius 0.6 m and height 1.5 m.\n(b) Water flows into the empty tank at 12 litres per minute. Find the time needed to fill the tank, in minutes correct to the nearest minute.",
+          "answer": "141",
+          "solution": "1 m³ = 1000 L, so capacity = 540π ≈ 1696.5 L.\nTime = 540π ÷ 12 = 45π ≈ 141.37… ≈ 141 minutes.\n(Accept 2.4 hours or 2 h 21 min.)",
+          "topic": "mensuration",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "b13-cylinder"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "141",
+            "141 minutes",
+            "141 min",
+            "2.4 hours",
+            "2.4 h",
+            "2 h 21 min",
+            "2 hours 21 minutes",
+            "2h21min",
+            "45π",
+            "45pi"
+          ],
+          "stem": "A cylindrical water tank has base radius 0.6 m and height 1.5 m.",
+          "part": "b",
+          "parentId": "B13",
+          "originalNumber": 13
+        },
+        {
+          "id": "B13c",
+          "interaction": "short-text",
+          "prompt": "[S2] A cylindrical water tank has base radius 0.6 m and height 1.5 m.\n(c) The curved surface of the tank is to be painted at $45 per m². Find the cost, correct to the nearest dollar.",
+          "answer": "255",
+          "solution": "Curved surface area = 2πrh = 2π(0.6)(1.5) = 1.8π ≈ 5.655 m².\nCost = 1.8π × 45 = 81π ≈ 254.47… → $255 (nearest dollar).",
+          "topic": "mensuration",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [
+            "b13-cylinder"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "255",
+            "$255",
+            "255 dollars"
+          ],
+          "stem": "A cylindrical water tank has base radius 0.6 m and height 1.5 m.",
+          "part": "c",
+          "parentId": "B13",
+          "originalNumber": 13
+        },
+        {
+          "id": "B14a",
+          "interaction": "short-text",
+          "prompt": "[S1] A sum of money is divided among Amy, Ben and Chris in the ratio 3 : 4 : 5.\n(a) If Chris receives $2400, find the total sum and the amount each of Amy and Ben receives, in dollars. Give the total, Amy’s amount and Ben’s amount in that order (e.g. 5760, 1440, 1920).",
+          "answer": "5760, 1440, 1920",
+          "solution": "5 parts = $2400, so 1 part = $480.\nTotal = 12 × 480 = $5760.\nAmy = 3 × 480 = $1440.\nBen = 4 × 480 = $1920.",
+          "topic": "ratio",
+          "levelTag": "S1",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "5760, 1440, 1920",
+            "5760,1440,1920",
+            "$5760, $1440, $1920",
+            "total 5760, Amy 1440, Ben 1920"
+          ],
+          "stem": "A sum of money is divided among Amy, Ben and Chris in the ratio 3 : 4 : 5.",
+          "part": "a",
+          "parentId": "B14",
+          "originalNumber": 14
+        },
+        {
+          "id": "B14b",
+          "interaction": "short-text",
+          "prompt": "[S1] A sum of money is divided among Amy, Ben and Chris in the ratio 3 : 4 : 5. Chris receives $2400, so Amy receives $1440.\n(b) Amy deposits her share in a bank at 4% per annum simple interest for 3 years. Find the interest she earns, in dollars.",
+          "answer": "172.8",
+          "solution": "I = PRT = 1440 × 4% × 3 = $172.8.",
+          "topic": "simple-interest",
+          "levelTag": "S1",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "172.8",
+            "$172.8",
+            "172.80",
+            "$172.80"
+          ],
+          "stem": "A sum of money is divided among Amy, Ben and Chris in the ratio 3 : 4 : 5.",
+          "part": "b",
+          "parentId": "B14",
+          "originalNumber": 14
+        },
+        {
+          "id": "B14c",
+          "interaction": "short-text",
+          "prompt": "[S1] A sum of money is divided among Amy, Ben and Chris in the ratio 3 : 4 : 5.\n(c) If the same total sum is redistributed in the same ratio so that Chris receives $3000, find the new total sum, in dollars.",
+          "answer": "7200",
+          "solution": "1 part = 3000 ÷ 5 = $600.\nNew total = 12 × 600 = $7200.",
+          "topic": "ratio",
+          "levelTag": "S1",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "7200",
+            "$7200"
+          ],
+          "stem": "A sum of money is divided among Amy, Ben and Chris in the ratio 3 : 4 : 5.",
+          "part": "c",
+          "parentId": "B14",
+          "originalNumber": 14
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "titleEn": "Section C",
+      "titleZh": "丙部（挑战题）",
+      "instructions": "Section C (36 marks) — Answer all questions. Show your working.",
+      "items": [
+        {
+          "id": "C15a",
+          "interaction": "short-text",
+          "prompt": "[S2] Tap A alone can fill a tank in 12 minutes. Tap B alone can fill the same tank in 18 minutes.\n(a) Find the fraction of the tank filled in 1 minute when both taps are opened.",
+          "answer": "5/36",
+          "solution": "A fills 1/12 of the tank per minute; B fills 1/18.\n1/12 + 1/18 = 3/36 + 2/36 = 5/36.\nSo 5/36 of the tank is filled per minute.",
+          "topic": "rates",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "5/36",
+            "5 / 36"
+          ],
+          "stem": "Tap A alone can fill a tank in 12 minutes. Tap B alone can fill the same tank in 18 minutes.",
+          "part": "a",
+          "parentId": "C15",
+          "originalNumber": 15
+        },
+        {
+          "id": "C15b",
+          "interaction": "short-text",
+          "prompt": "[S2] Tap A alone can fill a tank in 12 minutes. Tap B alone can fill the same tank in 18 minutes.\n(b) Both taps are opened together for 4 minutes. Tap A is then closed and tap B continues until the tank is full. Find the total time taken to fill the tank, in minutes.",
+          "answer": "12",
+          "solution": "In 4 minutes: 4 × 5/36 = 20/36 = 5/9 of the tank.\nRemaining = 1 − 5/9 = 4/9.\nTime for B = (4/9) ÷ (1/18) = (4/9) × 18 = 8 minutes.\nTotal time = 4 + 8 = 12 minutes.",
+          "topic": "rates",
+          "levelTag": "S2",
+          "marks": 5,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "12",
+            "12 minutes",
+            "12 min"
+          ],
+          "stem": "Tap A alone can fill a tank in 12 minutes. Tap B alone can fill the same tank in 18 minutes.",
+          "part": "b",
+          "parentId": "C15",
+          "originalNumber": 15
+        },
+        {
+          "id": "C15c",
+          "interaction": "short-text",
+          "prompt": "[S2] Tap A alone can fill a tank in 12 minutes. Tap B alone can fill the same tank in 18 minutes.\n(c) If the tank holds 360 litres, find the rate of tap A in litres per minute.",
+          "answer": "30",
+          "solution": "Rate of A = 360 ÷ 12 = 30 litres per minute.",
+          "topic": "rates",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "30",
+            "30 litres per minute",
+            "30 L/min",
+            "30 L per minute"
+          ],
+          "stem": "Tap A alone can fill a tank in 12 minutes. Tap B alone can fill the same tank in 18 minutes.",
+          "part": "c",
+          "parentId": "C15",
+          "originalNumber": 15
+        },
+        {
+          "id": "C16a",
+          "interaction": "short-text",
+          "prompt": "[S2] In △ABC, ∠A = 90°, AB = 8 cm and AC = 6 cm. D is a point on BC such that AD ⊥ BC.\n(a) Find BC, in cm.",
+          "answer": "10",
+          "solution": "BC² = 8² + 6² = 64 + 36 = 100.\nBC = 10 cm.",
+          "topic": "pythagoras",
+          "levelTag": "S2",
+          "marks": 2,
+          "assetIds": [
+            "c16-triangle"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "10",
+            "10 cm",
+            "10cm"
+          ],
+          "stem": "In △ABC, ∠A = 90°, AB = 8 cm and AC = 6 cm. D is a point on BC such that AD ⊥ BC.",
+          "part": "a",
+          "parentId": "C16",
+          "originalNumber": 16
+        },
+        {
+          "id": "C16b",
+          "interaction": "short-text",
+          "prompt": "[S2] In △ABC, ∠A = 90°, AB = 8 cm and AC = 6 cm. D is a point on BC such that AD ⊥ BC.\n(b) Find the area of △ABC, in cm², and hence find AD, in cm. Give the area and AD in that order (e.g. 24, 4.8).",
+          "answer": "24, 4.8",
+          "solution": "Area = ½ × 8 × 6 = 24 cm².\nAlso Area = ½ × BC × AD = ½ × 10 × AD, so 5·AD = 24.\nAD = 4.8 cm.",
+          "topic": "pythagoras",
+          "levelTag": "S2",
+          "marks": 4,
+          "assetIds": [
+            "c16-triangle"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "24, 4.8",
+            "24,4.8",
+            "24 cm^2, 4.8 cm",
+            "24, 24/5",
+            "24, 4.80"
+          ],
+          "stem": "In △ABC, ∠A = 90°, AB = 8 cm and AC = 6 cm. D is a point on BC such that AD ⊥ BC.",
+          "part": "b",
+          "parentId": "C16",
+          "originalNumber": 16
+        },
+        {
+          "id": "C16c",
+          "interaction": "short-text",
+          "prompt": "[S2] In △ABC, ∠A = 90°, AB = 8 cm and AC = 6 cm. D is a point on BC such that AD ⊥ BC. (It has been found that BC = 10 cm and AD = 4.8 cm.)\n(c) Find BD and DC, in cm. Give BD and DC in that order (e.g. 6.4, 3.6).",
+          "answer": "6.4, 3.6",
+          "solution": "In right △ABD: BD² = AB² − AD² = 64 − 23.04 = 40.96.\nBD = 6.4 cm.\nDC = 10 − 6.4 = 3.6 cm.",
+          "topic": "pythagoras",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "c16-triangle"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "6.4, 3.6",
+            "6.4,3.6",
+            "6.4 cm, 3.6 cm",
+            "32/5, 18/5",
+            "6.40, 3.60"
+          ],
+          "stem": "In △ABC, ∠A = 90°, AB = 8 cm and AC = 6 cm. D is a point on BC such that AD ⊥ BC.",
+          "part": "c",
+          "parentId": "C16",
+          "originalNumber": 16
+        },
+        {
+          "id": "C16d",
+          "interaction": "short-text",
+          "prompt": "[S2] In △ABC, ∠A = 90°, AB = 8 cm and AC = 6 cm. D is a point on BC such that AD ⊥ BC.\n(d) Prove that △ABD is similar to △CAD.",
+          "answer": "triangle ABD ~ triangle CAD (AA)",
+          "solution": "∠ADB = ∠CDA = 90° (given AD ⊥ BC).\nIn △ABC, ∠B + ∠C = 90°; in △ABD, ∠BAD = 90° − ∠B, so ∠BAD = ∠C = ∠ACD.\nTwo pairs of equal angles ⇒ △ABD ~ △CAD (AA).\n(Consistency check: AD/DC = 4.8/3.6 = 4/3 and BD/AD = 6.4/4.8 = 4/3. Also AD² = BD × DC.)",
+          "topic": "similar-figures",
+          "levelTag": "S2",
+          "marks": 3,
+          "assetIds": [
+            "c16-triangle"
+          ],
+          "imagePlacement": "above",
+          "acceptedAnswers": [
+            "triangle ABD ~ triangle CAD (AA)",
+            "ABD ~ CAD",
+            "△ABD ~ △CAD",
+            "triangle ABD similar to triangle CAD",
+            "AA",
+            "similar (AA)"
+          ],
+          "stem": "In △ABC, ∠A = 90°, AB = 8 cm and AC = 6 cm. D is a point on BC such that AD ⊥ BC.",
+          "part": "d",
+          "parentId": "C16",
+          "originalNumber": 16
+        },
+        {
+          "id": "C17a",
+          "interaction": "short-text",
+          "prompt": "[S1] The test marks (out of 100) of two classes are shown below.\nClass A: 52, 65, 68, 70, 72, 75, 78, 80, 85, 95\nClass B: 60, 62, 66, 70, 74, 74, 76, 78, 80, 90\n(a) Find the mean and the median of each class. Give mean A, median A, mean B, median B in that order (e.g. 74, 73.5, 73, 74).",
+          "answer": "74, 73.5, 73, 74",
+          "solution": "Class A: total = 740, mean = 74; median = (72 + 75)/2 = 73.5.\nClass B: total = 730, mean = 73; median = (74 + 74)/2 = 74.",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 4,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "74, 73.5, 73, 74",
+            "74,73.5,73,74",
+            "74, 73.5, 73, 74.0"
+          ],
+          "stem": "The test marks (out of 100) of two classes are shown below.\nClass A: 52, 65, 68, 70, 72, 75, 78, 80, 85, 95\nClass B: 60, 62, 66, 70, 74, 74, 76, 78, 80, 90",
+          "part": "a",
+          "parentId": "C17",
+          "originalNumber": 17
+        },
+        {
+          "id": "C17b",
+          "interaction": "short-text",
+          "prompt": "[S1] The test marks of Class A have mean 74 and median 73.5; Class B have mean 73 and median 74.\n(b) The principal says “Class A did better because its mean is higher.” Comment on this statement using these results.",
+          "answer": "Not fully justified: A has higher mean but lower median",
+          "solution": "Class A has the higher mean but the lower median, so the two classes are in fact very close. Class B’s higher median means its “middle” student scored higher, i.e. Class B is more consistent at the centre; the statement is therefore not fully justified.",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "Not fully justified: A has higher mean but lower median",
+            "not fully justified",
+            "not completely justified",
+            "Class A has higher mean but lower median"
+          ],
+          "stem": "The test marks (out of 100) of two classes are shown below.\nClass A: 52, 65, 68, 70, 72, 75, 78, 80, 85, 95\nClass B: 60, 62, 66, 70, 74, 74, 76, 78, 80, 90",
+          "part": "b",
+          "parentId": "C17",
+          "originalNumber": 17
+        },
+        {
+          "id": "C17c",
+          "interaction": "short-text",
+          "prompt": "[S1] The test marks (out of 100) of two classes are shown below.\nClass A: 52, 65, 68, 70, 72, 75, 78, 80, 85, 95\nClass B: 60, 62, 66, 70, 74, 74, 76, 78, 80, 90\n(c) Write down the mode of Class B, and state whether Class A has a mode. Give the mode of Class B and then whether Class A has a mode (e.g. 74, no).",
+          "answer": "74, no",
+          "solution": "Mode of Class B = 74. Class A has no mode (every mark occurs once).",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 2,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "74, no",
+            "74,no",
+            "74, no mode",
+            "74; Class A has no mode",
+            "74, Class A has no mode"
+          ],
+          "stem": "The test marks (out of 100) of two classes are shown below.\nClass A: 52, 65, 68, 70, 72, 75, 78, 80, 85, 95\nClass B: 60, 62, 66, 70, 74, 74, 76, 78, 80, 90",
+          "part": "c",
+          "parentId": "C17",
+          "originalNumber": 17
+        },
+        {
+          "id": "C17d",
+          "interaction": "short-text",
+          "prompt": "[S1] The test marks (out of 100) of two classes are shown below.\nClass A: 52, 65, 68, 70, 72, 75, 78, 80, 85, 95\nClass B: 60, 62, 66, 70, 74, 74, 76, 78, 80, 90\n(d) Find the range of each class. A new student scoring 98 joins Class A; find the new mean of Class A correct to 1 decimal place. Give range A, range B and the new mean in that order (e.g. 43, 30, 76.2).",
+          "answer": "43, 30, 76.2",
+          "solution": "Range A = 95 − 52 = 43; Range B = 90 − 60 = 30.\nNew mean of Class A = (740 + 98) ÷ 11 = 838 ÷ 11 ≈ 76.181… ≈ 76.2 (1 d.p.).",
+          "topic": "statistics",
+          "levelTag": "S1",
+          "marks": 3,
+          "assetIds": [],
+          "imagePlacement": null,
+          "acceptedAnswers": [
+            "43, 30, 76.2",
+            "43,30,76.2",
+            "43, 30, 76.18"
+          ],
+          "stem": "The test marks (out of 100) of two classes are shown below.\nClass A: 52, 65, 68, 70, 72, 75, 78, 80, 85, 95\nClass B: 60, 62, 66, 70, 74, 74, 76, 78, 80, 90",
+          "part": "d",
+          "parentId": "C17",
+          "originalNumber": 17
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "a8-ladder",
+      "src": "assets/a8-ladder.png",
+      "alt": "A 13 m ladder leans against a vertical wall; the foot is 5 m from the wall."
+    },
+    {
+      "id": "a10-coordinates",
+      "src": "assets/a10-coordinates.png",
+      "alt": "Cartesian plane showing points A(−2, 3) and B(4, −5)."
+    },
+    {
+      "id": "b13-cylinder",
+      "src": "assets/b13-cylinder.png",
+      "alt": "A cylinder of base radius 0.6 m and height 1.5 m."
+    },
+    {
+      "id": "c16-triangle",
+      "src": "assets/c16-triangle.png",
+      "alt": "Right-angled triangle ABC with right angle at A, AB = 8 cm, AC = 6 cm, and altitude AD to hypotenuse BC."
+    }
+  ],
+  "mediaContract": {
+    "assetIds": "string[] — ids into paper.assets[]",
+    "imagePlacement": "null | \"above\" | \"beside\" — 看图题同屏",
+    "assets": "optional top-level list {id,src,alt}"
+  }
+}
