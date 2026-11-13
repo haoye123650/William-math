@@ -6,6 +6,7 @@ import { paper4 } from "./paper-4";
 import { paper5 } from "./paper-5";
 import { paper6 } from "./paper-6";
 import { juniorPaper01, juniorPaper02, juniorPaper03 } from "./junior";
+import { s1s2Paper01, s1s2Paper02, s1s2Paper03 } from "./s1s2";
 
 export const papers: Paper[] = [
   mathPaper,
@@ -17,6 +18,9 @@ export const papers: Paper[] = [
   juniorPaper01,
   juniorPaper02,
   juniorPaper03,
+  s1s2Paper01,
+  s1s2Paper02,
+  s1s2Paper03,
 ];
 
 export function getPaper(id: string): Paper | undefined {
@@ -29,4 +33,5 @@ export function paperIds(): string[] {
 
 export { mathPaper, paper2, paper3, paper4, paper5, paper6 };
 export { juniorPaper01, juniorPaper02, juniorPaper03 };
+export { s1s2Paper01, s1s2Paper02, s1s2Paper03 };
 export * from "./types";

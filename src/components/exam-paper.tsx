@@ -78,6 +78,14 @@ function StatusBadge({ status }: { status: QuestionStatus }) {
   );
 }
 
+function publicSrc(src: string) {
+  if (/^https?:\/\//.test(src)) return src;
+  const path = src.startsWith("/") ? src : `/${src}`;
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  if (base && (path === base || path.startsWith(`${base}/`))) return path;
+  return `${base}${path}`;
+}
+
 function QuestionFigure({ question, hasAsset }: { question: Question; hasAsset: boolean }) {
   const status = figureStatus(question);
   if (status === "none" || (status === "missing" && hasAsset)) return null;
@@ -113,7 +121,7 @@ function FigureSlot({
         // eslint-disable-next-line @next/next/no-img-element
         <img
           key={asset.id}
-          src={asset.src}
+          src={publicSrc(asset.src)}
           alt={asset.alt || "Figure"}
           className="h-auto max-w-full rounded-lg border border-border bg-white"
         />
@@ -168,7 +176,7 @@ function QuestionBlock({
         <span
           className={cn(
             "shrink-0 pt-0.5 text-right font-serif text-lg font-semibold tabular-nums",
-            question.no.length > 2 ? "w-12" : "w-8"
+            question.no.length > 3 ? "w-16" : question.no.length > 2 ? "w-12" : "w-8"
           )}
         >
           {question.no}.
